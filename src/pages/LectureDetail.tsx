@@ -5,7 +5,7 @@ import { bookShort, knowledgeById } from "../data/catalog";
 import { isMistake } from "../lib/mistakes";
 import { questionsForLecture } from "../lib/lectures";
 import { lectureLabel, trackOfLecture } from "../lib/syllabus-data";
-import { previewText } from "../lib/text";
+import { MathText } from "../components/MathText";
 import { useUser } from "../lib/user";
 
 export function LectureDetail() {
@@ -14,12 +14,12 @@ export function LectureDetail() {
   const lecture = track?.lectures.find((item) => item.id === id);
   useTitle(lecture ? lectureLabel(lecture) : "讲次");
   const { data } = useUser();
-  if (!lecture || !track) return <div className="page"><h1>没有这一讲</h1><Link to="/lectures">返回讲次</Link></div>;
+  if (!lecture || !track) return <div className="page" data-page="lecture"><h1>没有这一讲</h1><Link to="/lectures">返回讲次</Link></div>;
   const own = questionsForLecture(lecture);
   const mistakes = own.filter((question) => isMistake(question, data) && !data.mastered[question.id]);
 
   return (
-    <div className="page">
+    <div className="page" data-page="lecture">
       <p className="crumbs"><Link to="/lectures">讲次</Link><span>/</span><span>{track.title}</span></p>
       <header className="page-head">
         <span className={lecture.status === "待补" ? "pill tone-amber" : "pill tone-green"}>{lecture.status}</span>
@@ -45,7 +45,7 @@ export function LectureDetail() {
           {mistakes.length === 0 ? <p className="muted">这一讲还没有待复习的错题。</p> : (
             <ul className="plain-list">
               {mistakes.map((question) => (
-                <li key={question.id}><Link to={`/questions/${question.id}`}><strong>{bookShort(question.book)}</strong><span>{previewText(question.stem, 60)}</span></Link></li>
+                <li key={question.id}><Link to={`/questions/${question.id}`}><strong>{bookShort(question.book)}</strong><MathText>{question.stem}</MathText></Link></li>
               ))}
             </ul>
           )}
@@ -55,7 +55,7 @@ export function LectureDetail() {
               <li key={question.id}>
                 <Link to={`/questions/${question.id}`}>
                   <strong>{bookShort(question.book)} · {question.type} · 第 {question.page} 页</strong>
-                  <span>{previewText(question.stem, 72)}</span>
+                  <MathText>{question.stem}</MathText>
                 </Link>
               </li>
             ))}

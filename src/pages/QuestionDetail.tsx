@@ -28,7 +28,7 @@ export function QuestionDetail() {
   const mark = data.practice[question.id];
 
   return (
-    <div className="page narrow">
+    <div className="page narrow" data-page="question">
       <p className="crumbs">
         <Link to="/questions">题库</Link>
         <span>/</span>

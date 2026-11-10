@@ -18,7 +18,7 @@ export function Layout() {
   const todo = questions.filter((question) => isMistake(question, data) && !data.mastered[question.id]).length;
 
   return (
-    <div className="app">
+    <div className="app" data-app="jojo-math">
       <aside className="sidebar">
         <NavLink to="/" className="brand" end>
           <Fox size={46} />

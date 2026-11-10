@@ -15,7 +15,7 @@ export function MistakesPrint() {
   const list = questions.filter((question) => isMistake(question, data) && (includeMastered || !data.mastered[question.id]));
 
   return (
-    <div className="print-page">
+    <div className="print-page" data-app="jojo-math" data-page="print">
       <div className="print-toolbar no-print">
         <Link to="/mistakes">返回错题集</Link>
         <label><input type="checkbox" checked={includeMastered} onChange={(event) => setIncludeMastered(event.target.checked)} /> 包含已掌握</label>
@@ -42,7 +42,7 @@ export function MistakesPrint() {
                 <h3>第 {index + 1} 题</h3>
                 <MathText>{question.answer}</MathText>
                 {question.solution ? <MathText>{question.solution}</MathText> : null}
-                {question.jojo?.note ? <p>作业本批注：{question.jojo.note}</p> : null}
+                {question.jojo?.note ? <p>作业本批注：<MathText className="inline">{question.jojo.note}</MathText></p> : null}
               </div>
             ))}
           </section>

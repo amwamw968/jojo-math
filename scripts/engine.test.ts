@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { generateVariants } from "../src/engine/generate";
 import type { Variant } from "../src/engine/engines";
+import { katexFailure } from "../src/lib/katex-check";
 
 function loopMountain(start: number, peak: number, factor = 1): number {
   let sum = 0;
@@ -65,7 +66,8 @@ describe("变式题答案", () => {
         const [variant] = generateVariants(id, 1, seed);
         assert.ok(variant, `${id} seed ${seed} 没有出题`);
         assert.equal(variant.answer, expected(variant), `${id} seed ${seed} ${variant.stem}`);
-        assert.match(variant.solution, /\$/);
+        assert.equal(katexFailure(variant.stem), null, variant.stem);
+        assert.equal(katexFailure(variant.solution), null, variant.solution);
       }
     });
   }

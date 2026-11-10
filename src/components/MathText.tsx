@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import { Link } from "react-router-dom";
+import { normalizeMathDelimiters } from "../lib/katex-check";
 
 interface BoundaryProps {
   source: string;
@@ -29,12 +30,13 @@ class MathBoundary extends Component<BoundaryProps, BoundaryState> {
 }
 
 export function MathText({ children, className = "" }: { children: string; className?: string }) {
+  const source = normalizeMathDelimiters(children);
   return (
-    <MathBoundary key={children} source={children}>
-      <div className={`math-text ${className}`.trim()}>
+    <MathBoundary key={source} source={source}>
+      <div className={`math-text ${className}`.trim()} data-math="">
         <ReactMarkdown
           remarkPlugins={[remarkMath]}
-          rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore" }]]}
+          rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore", output: "html" }]]}
           components={{
             a: ({ href, children: linkChildren }) => {
               if (href?.startsWith("/")) return <Link to={href}>{linkChildren}</Link>;
@@ -46,7 +48,7 @@ export function MathText({ children, className = "" }: { children: string; class
             },
           }}
         >
-          {children}
+          {source}
         </ReactMarkdown>
       </div>
     </MathBoundary>

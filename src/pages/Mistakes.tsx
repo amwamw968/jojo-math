@@ -6,7 +6,8 @@ import { useTitle } from "../components/Ui";
 import { bookShort, questionById, questions } from "../data/catalog";
 import { isMistake, isWorkbookMistake, mistakeReasons } from "../lib/mistakes";
 import { parseImported } from "../lib/storage";
-import { previewText, todayStamp } from "../lib/text";
+import { todayStamp } from "../lib/text";
+import { MathText } from "../components/MathText";
 import { useUser } from "../lib/user";
 
 export function Mistakes() {
@@ -56,7 +57,7 @@ export function Mistakes() {
   }
 
   return (
-    <div className="page">
+    <div className="page" data-page="mistakes">
       <header className="page-head">
         <h1>错题集</h1>
         <p>作业本上做错或部分对的题，加上练习时点了「不会」或手动加入的题。做对了但有批注的题不会自动进来。共 {all.length} 道，待复习 {all.filter((question) => !data.mastered[question.id]).length} 道。</p>
@@ -73,7 +74,7 @@ export function Mistakes() {
             <li key={question.id} className={data.mastered[question.id] ? "mistake-card done" : "mistake-card"}>
               <Link to={`/questions/${question.id}`}>
                 <strong>{bookShort(question.book)} · {question.lesson}</strong>
-                <span>{previewText(question.stem, 80)}</span>
+                <MathText>{question.stem}</MathText>
               </Link>
               <p className="muted">{mistakeReasons(question, data).join("、")}</p>
               <div className="row-actions">

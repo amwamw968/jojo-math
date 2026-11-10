@@ -49,7 +49,7 @@ export function Questions() {
   const [text, setText] = useState(filters.q);
 
   return (
-    <div className="page">
+    <div className="page" data-page="questions">
       <header className="page-head">
         <h1>题库</h1>
         <p>共 {list.length} 道。可以按书、章节、知识点、题型和难度找题。</p>

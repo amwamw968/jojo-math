@@ -3,7 +3,7 @@ import { bookShort, books, knowledgeDocs, questions } from "../data/catalog";
 import { isMistake, knowledgeStats, recentMistakes, workbookNote } from "../lib/mistakes";
 import { lectureOfQuestion } from "../lib/lectures";
 import { tracks } from "../lib/syllabus-data";
-import { previewText } from "../lib/text";
+import { MathText } from "../components/MathText";
 import { useUser } from "../lib/user";
 import { useTitle } from "../components/Ui";
 import { Fox } from "../components/Icons";
@@ -24,7 +24,7 @@ export function Home() {
       : `有 ${todo.length} 道题还要再看一看。`;
 
   return (
-    <div className="page">
+    <div className="page" data-page="home">
       <header className="hero">
         <Fox size={72} />
         <div>
@@ -56,7 +56,7 @@ export function Home() {
                 <li key={question.id}>
                   <Link to={`/questions/${question.id}`}>
                     <strong>{bookShort(question.book)}</strong>
-                    <span>{previewText(question.stem, 42)}</span>
+                    <MathText>{question.stem}</MathText>
                   </Link>
                 </li>
               ))}
@@ -69,7 +69,7 @@ export function Home() {
               <li key={question.id}>
                 <Link to={`/questions/${question.id}`}>
                   <strong>{bookShort(question.book)} · {question.jojo?.status === "partial" ? "部分对" : "做对了"}</strong>
-                  <span>{previewText(workbookNote(question), 46)}</span>
+                  <MathText>{workbookNote(question)}</MathText>
                 </Link>
               </li>
             ))}

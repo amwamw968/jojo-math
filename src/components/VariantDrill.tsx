@@ -47,7 +47,7 @@ export function VariantDrill({
             </button>
             {open[index] ? (
               <div className="reveal-body">
-                <p><strong>答案 </strong>{variant.answer}</p>
+                <p className="variant-answer"><strong>答案 </strong><MathText className="inline">{variant.answer}</MathText></p>
                 <MathText>{variant.solution}</MathText>
               </div>
             ) : null}
