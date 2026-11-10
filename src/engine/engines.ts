@@ -1,9 +1,4 @@
-/* Adapted from kenowong/pep-math-coach js/olympiad.js (Oly.ENG generators and the
-   Oly.MAP topic-to-engine table). That repository has no license; this file stays
-   in the private jojo-math repo. The arithmetic-series drill follows their ap4
-   sum generator. Mountain, difference-of-squares, and sum-of-squares drills are
-   new generators in the same style, written for 高思四年级秋季第 1 讲. None of
-   these copy workbook wording. */
+/** Parametric drills for 高思四年级秋季第 1 讲. Numbers are drawn from a seed; the answer is computed here. */
 
 import type { Rng } from "./rng";
 
@@ -196,16 +191,18 @@ const ENGINES: Engine[] = [
     desc: "和 =（首项 + 末项）× 项数 ÷ 2",
     knowledgePointId: "arith-arithmetic-series",
     gen(rng) {
-      const a1 = rng.int(1, 9);
-      const d = rng.int(1, 6);
-      const n = rng.int(5, 16);
+      const a1 = rng.int(2, 15);
+      const d = rng.int(2, 9);
+      const n = rng.int(6, 18);
       const an = a1 + (n - 1) * d;
       const answer = ((a1 + an) * n) / 2;
+      const second = a1 + d;
+      const third = a1 + 2 * d;
       return variant(
         "arithmetic-series",
-        `等差数列 $${a1}$、$${a1 + d}$、$${a1 + 2 * d}$、…… 前 $${n}$ 项的和是多少？`,
+        `从 $${a1}$ 开始写，每次增加 $${d}$，写成 $${a1}$、$${second}$、$${third}$、…… 一共写 $${n}$ 个数。这些数加起来是多少？`,
         String(answer),
-        `末项 $= ${a1}+${n - 1}\\times${d}=${an}$。和 $= (${a1}+${an})\\times${n}\\div2=${answer}$。`,
+        `最后一个数是 $${a1}+${n - 1}\\times${d}=${an}$。把这列数正着、倒着各加一遍，每对都是 $${a1 + an}$，一共 $${n}$ 对，所以和是 $(${a1}+${an})\\times${n}\\div2=${answer}$。`,
         { kind: 0, a1, d, n },
       );
     },

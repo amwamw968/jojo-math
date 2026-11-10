@@ -1,6 +1,4 @@
-/* Inclusive integer ranges follow rnd() in kenowong/pep-math-coach js/olympiad.js.
-   The generator there uses Math.random(); this one is seeded so the same seed
-   always reprints the same drill. That repository has no license. */
+/** Seeded 0–1 draws so the same seed reprints the same drill. */
 
 export interface Rng {
   next(): number;
@@ -9,16 +7,17 @@ export interface Rng {
 
 export function makeRng(seed: number): Rng {
   let state = seed >>> 0;
+  if (state === 0) state = 0xa341316c;
   return {
     next() {
-      state |= 0;
-      state = (state + 0x6d2b79f5) | 0;
-      let t = Math.imul(state ^ (state >>> 15), 1 | state);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      state ^= state << 13;
+      state ^= state >>> 17;
+      state ^= state << 5;
+      return (state >>> 0) / 4294967296;
     },
     int(min: number, max: number) {
-      return min + Math.floor(this.next() * (max - min + 1));
+      const span = max - min + 1;
+      return min + Math.floor(this.next() * span);
     },
   };
 }

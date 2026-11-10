@@ -1,7 +1,3 @@
-/* generateVariants follows makeItems / genOne in kenowong/pep-math-coach
-   js/olympiad.js: pick an engine from the lecture map, generate one original
-   drill, and skip a repeated stem. That repository has no license. */
-
 import type { EngineId, Variant } from "./engines";
 import { ENG, isEngineId, KP_ENGINES } from "./engines";
 import { makeRng } from "./rng";
@@ -13,23 +9,26 @@ export function enginesFor(id: string): EngineId[] {
   return KP_ENGINES[id] ?? [];
 }
 
-export function generateVariants(id: string, n: number, seed: number): Variant[] {
+/** Separate stream per slot, so variant 3 does not depend on how variant 2 used its draws. */
+function slotSeed(seed: number, slot: number): number {
+  let mixed = Math.imul((seed >>> 0) ^ 0x9e3779b9, 0x85ebca6b) ^ Math.imul(slot + 1, 0xc2b2ae35);
+  mixed = Math.imul(mixed ^ (mixed >>> 16), 0x7feb352d);
+  mixed = Math.imul(mixed ^ (mixed >>> 15), 0x846ca68b);
+  return (mixed ^ (mixed >>> 16)) >>> 0;
+}
+
+export function generateVariants(id: string, count: number, seed: number): Variant[] {
   const engines = enginesFor(id);
-  if (n <= 0 || engines.length === 0) return [];
-  const rng = makeRng(seed >>> 0);
-  const out: Variant[] = [];
+  if (count < 1 || engines.length === 0) return [];
+  const made: Variant[] = [];
   const seen = new Set<string>();
-  let guard = 0;
-  let cursor = 0;
-  while (out.length < n && guard < n * 30) {
-    const engine = engines[cursor % engines.length];
-    cursor += 1;
-    guard += 1;
-    const item = ENG[engine].gen(rng);
-    const fingerprint = `${item.engine}\n${item.stem}`;
-    if (seen.has(fingerprint)) continue;
-    seen.add(fingerprint);
-    out.push(item);
+  for (let slot = 0; made.length < count && slot < count * 8; slot += 1) {
+    const engineId = engines[slot % engines.length];
+    const item = ENG[engineId].gen(makeRng(slotSeed(seed, slot)));
+    const key = `${item.engine}:${item.stem}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    made.push(item);
   }
-  return out;
+  return made;
 }

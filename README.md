@@ -56,22 +56,29 @@ npm run variants -- --lecture gs-autumn-4-l01 --n 4 --seed 7
 
 打印出来的是 JSON。同一个种子会得到同样的题，方便周日复盘时重印。网页上每一讲和错题集都有「举一反三」。
 
-## 部署
+## 部署到 GitHub Pages
 
-静态站点。在 Cloudflare Pages 或 Vercel 里连接这个私有仓库即可，这里不会替你注册或登录。
+网站地址是 https://amwamw968.github.io/jojo-math/ 。推到 `main` 之后，`.github/workflows/pages.yml` 会执行 `npm run build`（`BASE_PATH=/jojo-math/`），把 `dist` 交给 `actions/deploy-pages`。
 
-| 平台 | 构建命令 | 输出目录 | 仓库里的配置 |
-| --- | --- | --- | --- |
-| Cloudflare Pages | `npm run build` | `dist` | `public/_redirects` 会进 `dist`，刷新 `/questions/某题` 不会 404 |
-| Vercel | `npm run build` | `dist` | `vercel.json` 把找不到的路径交回 `index.html` |
-| Netlify | `npm run build` | `dist` | 同样用 `public/_redirects` |
+本地预览仍用根路径。要在本地看和 Pages 一样的路径：
 
-框架预设选 Vite 或其他都可以，只要构建命令和输出目录按上表。Node 选 20 或更新。
+```bash
+BASE_PATH=/jojo-math/ npm run build
+npm run preview
+```
 
-仓库保持私有时，题目不会出现在 GitHub 的公开页面上。免费托管出来的网址如果被人知道就能打开，因为网站本身没有登录。只在自己电脑上看，用 `npm run dev`。
+打开 http://127.0.0.1:4173/jojo-math/ 。深链接靠构建时复制的 `dist/404.html`：GitHub Pages 找不到文件时会交出这份页面，地址栏仍停在原来的题目或讲次上。
 
-GitHub Pages：私有仓库要付费计划（Pro、Team 或 Enterprise）。免费的 GitHub Pages 只给公开仓库。如果以后用项目页，构建时加上 `BASE_PATH=/仓库名/`。
+第一次要在 GitHub 上打开 Pages，只做一次：
 
-## 来源说明
+1. 打开仓库的 Settings → Pages。
+2. Build and deployment 里，Source 选 **GitHub Actions**。
+3. 把本分支合并进 `main`。工作流跑完后，上面的地址就可以打开。
 
-讲次的组织方式，以及「举一反三」这种按专题现算题目的做法，改编自 [kenowong/pep-math-coach](https://github.com/kenowong/pep-math-coach) 的 `js/oly-syllabus.js` 和 `js/olympiad.js`。那个仓库没有声明许可证。因此这些改编只放在私有仓库 `amwamw968/jojo-math` 里，不要再公开分发出去。对方的目录是每个年级 40 周；这里改成 Jojo 实际在上的三门课，并且只给已经收录的讲次写标题。变式题是参数化现算的，没有抄进原书的句子。
+网站没有登录。仓库公开后，知道地址的人都能看题。
+
+Cloudflare Pages 或 Vercel 也可以接同一个构建：命令 `npm run build`，输出目录 `dist`。那时候不要设 `BASE_PATH`（站点在域名根上）。`public/_redirects` 和 `vercel.json` 是给这两种托管刷新子页面用的。
+
+## 灵感来源
+
+「一讲对应一组可出题的算法」这个想法，受到 [kenowong/pep-math-coach](https://github.com/kenowong/pep-math-coach) 的启发。那个仓库没有许可证，所以这里没有复制它的代码或 40 周目录。讲次表、变式题生成器都是为本仓库写的。

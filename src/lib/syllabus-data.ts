@@ -1,9 +1,3 @@
-/* Lecture tracks follow the shape of kenowong/pep-math-coach js/oly-syllabus.js
-   (that file lists 40 weeks for each of six grades). Jojo's tracks below are not
-   copied from it: only lectures we can verify are named, and the rest stay 待补.
-   https://github.com/kenowong/pep-math-coach has no license. This adaptation
-   stays in the private jojo-math repository. */
-
 import raw from "../../data/syllabus.json";
 
 export interface LectureSource {

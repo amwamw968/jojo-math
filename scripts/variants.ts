@@ -1,8 +1,6 @@
-/* Sunday review helper. Usage:
+/* Print variant drills as JSON.
    npm run variants -- --kp arith-sum-of-squares --n 2 --seed 7
-   npm run variants -- --lecture gs-autumn-4-l01 --n 4 --seed 7
-   Adapted from the makeItems entry point in kenowong/pep-math-coach js/olympiad.js.
-   That repository has no license. */
+   npm run variants -- --lecture gs-autumn-4-l01 --n 4 --seed 7 */
 
 import { generateVariants } from "../src/engine/generate";
 
