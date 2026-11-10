@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { questions } from "../data/catalog";
+import { PRODUCT_NAME } from "../lib/constants";
 import { isMistake } from "../lib/mistakes";
 import { useUser } from "../lib/user";
 import { AlertIcon, BookIcon, BulbIcon, Fox, HomeIcon, ListIcon, PencilIcon } from "./Icons";
@@ -23,7 +24,7 @@ export function Layout() {
         <NavLink to="/" className="brand" end>
           <Fox size={46} />
           <span>
-            <strong>乔乔奥数</strong>
+            <strong>{PRODUCT_NAME}</strong>
             <small>四年级 · 自己的练习本</small>
           </span>
         </NavLink>
@@ -43,7 +44,7 @@ export function Layout() {
         <header className="topbar">
           <NavLink to="/" className="brand compact" end>
             <Fox size={36} />
-            <strong>乔乔奥数</strong>
+            <strong>{PRODUCT_NAME}</strong>
           </NavLink>
         </header>
         <Outlet />

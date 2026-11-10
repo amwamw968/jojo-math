@@ -19,7 +19,7 @@ else
 fi
 
 for _ in $(seq 1 50); do
-  if curl -fsS "http://127.0.0.1:${PORT}/" | grep -q "<title>乔乔奥数</title>"; then
+  if curl -fsS "http://127.0.0.1:${PORT}/" | grep -q "<title>小学奥数智能学习平台</title>"; then
     echo "ready http://127.0.0.1:${PORT}/"
     exit 0
   fi

@@ -1,7 +1,7 @@
 ---
 name: verify-jojo-math
 description: >-
-  Verify the 乔乔奥数 study site (jojo-math) in a desktop browser: question
+  Verify the 小学奥数智能学习平台 study site (jojo-math) in a desktop browser: question
   bank, KaTeX formulas, lecture variants, mistake notebook, knowledge pages,
   and the printable mistake sheet. Use after changing math rendering, layout,
   or those pages, and before delivering a UI change.
@@ -19,7 +19,7 @@ Run the steps in order from the repository root.
 .cursor/skills/verify-jojo-math/scripts/launch.sh
 ```
 
-This builds with `npm run build`, then starts `vite preview` on `http://127.0.0.1:4175` in its own process group. Ready when the log contains `Local:` and `curl -fsS http://127.0.0.1:4175/` returns HTML whose title is `乔乔奥数`. The script prints `ready http://127.0.0.1:4175/`. The pid is stored in `/tmp/jojo-math-verify.pid`.
+This builds with `npm run build`, then starts `vite preview` on `http://127.0.0.1:4175` in its own process group. Ready when the log contains `Local:` and `curl -fsS http://127.0.0.1:4175/` returns HTML whose title is `小学奥数智能学习平台`. The script prints `ready http://127.0.0.1:4175/`. The pid is stored in `/tmp/jojo-math-verify.pid`.
 
 Teardown is [Cleanup](#cleanup). Do not leave the preview running.
 
@@ -29,7 +29,7 @@ Teardown is [Cleanup](#cleanup). Do not leave the preview running.
 .cursor/skills/verify-jojo-math/scripts/doctor.sh
 ```
 
-Read-only. It checks that port 4175 answers, the HTML title is `乔乔奥数`, and a headless Chrome page shows `[data-app="jojo-math"]`. It does not click, type, or change server state. A different site on that port fails the check.
+Read-only. It checks that port 4175 answers, the HTML title is `小学奥数智能学习平台`, and a headless Chrome page shows `[data-app="jojo-math"]`. It does not click, type, or change server state. A different site on that port fails the check.
 
 ## Drive
 

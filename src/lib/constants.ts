@@ -6,6 +6,8 @@ export const JOJO_STATUSES = ["correct", "wrong", "partial", "unclear"] as const
 
 export const CATEGORIES = ["计算", "数论", "几何", "计数", "应用题", "逻辑"] as const;
 
+export const PRODUCT_NAME = "小学奥数智能学习平台";
+
 export const STORAGE_KEY = "jojo-math-v1";
 
 export const DIFFICULTY_LABEL = ["", "轻松", "起步", "动脑", "挑战", "冲关"] as const;

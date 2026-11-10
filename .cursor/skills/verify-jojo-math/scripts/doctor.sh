@@ -4,7 +4,7 @@ set -euo pipefail
 
 PORT=4175
 HTML=$(curl -fsS "http://127.0.0.1:${PORT}/")
-printf '%s' "$HTML" | grep -q "<title>乔乔奥数</title>"
+printf '%s' "$HTML" | grep -q "<title>小学奥数智能学习平台</title>"
 printf '%s' "$HTML" | grep -q 'src="/assets/' || printf '%s' "$HTML" | grep -q 'src="/src/main.tsx"' || true
 
 SKILL_DIR=$(cd "$(dirname "$0")/.." && pwd)
@@ -25,9 +25,9 @@ await page.goto("http://127.0.0.1:4175/", { waitUntil: "networkidle" });
 const app = await page.locator('[data-app="jojo-math"]').count();
 const title = await page.title();
 await browser.close();
-if (app !== 1 || title !== "乔乔奥数") {
+if (app !== 1 || title !== "小学奥数智能学习平台") {
   console.error(`doctor failed title=${title} data-app count=${app}`);
   process.exit(1);
 }
-console.log("doctor ok: data-app=jojo-math title=乔乔奥数");
+console.log("doctor ok: data-app=jojo-math title=小学奥数智能学习平台");
 EOF

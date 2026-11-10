@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { DIFFICULTY_LABEL } from "../lib/constants";
+import { DIFFICULTY_LABEL, PRODUCT_NAME } from "../lib/constants";
 import type { JojoStatus, QuestionType } from "../types";
 
 export function useTitle(title: string) {
   useEffect(() => {
-    document.title = title === "首页" ? "乔乔奥数" : `${title} · 乔乔奥数`;
+    document.title = title === "首页" ? PRODUCT_NAME : `${title} · ${PRODUCT_NAME}`;
   }, [title]);
 }
 

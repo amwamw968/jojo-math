@@ -49,13 +49,15 @@ button { cursor: pointer; }
   position: sticky;
   top: 0;
   height: 100vh;
-  width: 232px;
+  width: 280px;
   padding: 22px 16px;
   background: var(--green);
   color: white;
 }
-.brand { display: flex; gap: 10px; align-items: center; color: inherit; text-decoration: none; }
-.brand strong { display: block; font-size: 1.15rem; white-space: nowrap; }
+.brand { display: flex; gap: 10px; align-items: center; color: inherit; text-decoration: none; min-width: 0; }
+.brand > span { min-width: 0; }
+.brand strong { display: block; font-size: 0.92rem; line-height: 1.25; white-space: nowrap; }
+.brand.compact strong { font-size: 0.95rem; }
 .brand small, .sidebar-foot { color: rgba(255,255,255,0.78); font-size: 0.82rem; }
 .side-nav { display: flex; flex-direction: column; gap: 6px; margin-top: 28px; }
 .nav-link {
