@@ -1,0 +1,97 @@
+{
+  "tracks": [
+    {
+      "id": "gs-autumn-4",
+      "title": "高思四年级秋季",
+      "publisher": "高思",
+      "grade": 4,
+      "term": "秋季",
+      "class_type": null,
+      "note": "讲次标题只写已经收录进题库的课。后面的讲次还没录入。",
+      "lectures": [
+        {
+          "id": "gs-autumn-4-l01",
+          "number": 1,
+          "title": "冠军请听题",
+          "focus": "运算能力",
+          "status": "已收录",
+          "note": "课本、课后练习和每日一练第 1 周都是这一讲。",
+          "sources": [
+            { "book": "gs4a", "chapter": "01" },
+            { "book": "gs4a-hw", "chapter": "01" },
+            { "book": "gs4a-dp", "chapter": "01" }
+          ],
+          "knowledge_points": [
+            "arith-mountain-sum",
+            "arith-mountain-transform",
+            "arith-diff-of-squares",
+            "arith-sum-of-squares",
+            "arith-arithmetic-series"
+          ],
+          "engines": [
+            "mountain-sum",
+            "mountain-transform",
+            "diff-of-squares",
+            "sum-of-squares",
+            "arithmetic-series"
+          ]
+        },
+        {
+          "id": "gs-autumn-4-later",
+          "number": null,
+          "title": null,
+          "focus": null,
+          "status": "待补",
+          "note": "第 2 讲及以后还没有录入，不要编讲次名称。",
+          "sources": [],
+          "knowledge_points": [],
+          "engines": []
+        }
+      ]
+    },
+    {
+      "id": "xes-4",
+      "title": "学而思四年级",
+      "publisher": "学而思",
+      "grade": 4,
+      "term": null,
+      "class_type": null,
+      "note": "班型和教材都还不知道。",
+      "lectures": [
+        {
+          "id": "xes-4-unknown",
+          "number": null,
+          "title": null,
+          "focus": null,
+          "status": "待补",
+          "note": "还没有可核对的讲次。",
+          "sources": [],
+          "knowledge_points": [],
+          "engines": []
+        }
+      ]
+    },
+    {
+      "id": "club-4",
+      "title": "学校数学思维社团",
+      "publisher": "学校社团",
+      "grade": 4,
+      "term": null,
+      "class_type": null,
+      "note": "进度还不知道。",
+      "lectures": [
+        {
+          "id": "club-4-unknown",
+          "number": null,
+          "title": null,
+          "focus": null,
+          "status": "待补",
+          "note": "还没有可核对的讲次。",
+          "sources": [],
+          "knowledge_points": [],
+          "engines": []
+        }
+      ]
+    }
+  ]
+}

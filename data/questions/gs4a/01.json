@@ -1,0 +1,544 @@
+[
+  {
+    "id": "gs4a-01-001",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "试一试",
+    "page": 5,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "你发现什么规律？看图填空：$1+2+1=4=\\_\\_\\_$；$1+2+3+2+1=9=\\_\\_\\_$；$1+2+3+4+3+2+1=16=\\_\\_\\_$；$1+2+3+4+5+4+3+2+1=25=\\_\\_\\_$。（用“几的平方”表示）",
+    "figure": "figures/gs4a/gs4a-01-001.png",
+    "answer": "$2^2$；$3^2$；$4^2$；$5^2$",
+    "solution": "把小方块堆成的“山”右半边搬到左边，正好拼成一个正方形。山顶是几，就是几行几列，所以等于山顶数的平方。",
+    "jojo": {
+      "answer": "$2^2,3^2,4^2,5^2$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试"
+    ]
+  },
+  {
+    "id": "gs4a-01-002",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "试一试",
+    "page": 5,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "我发现了：$1+2+3+\\cdots+n+\\cdots+3+2+1=\\_\\_\\_$。",
+    "figure": null,
+    "answer": "$n^2$（即 $n\\times n$）",
+    "solution": "山顶是 $n$ 的山峰数列，可以拼成 $n\\times n$ 的正方形。",
+    "jojo": {
+      "answer": "$n^2$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了"
+    ]
+  },
+  {
+    "id": "gs4a-01-003",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "例题",
+    "page": 6,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+29+30+29+\\cdots+3+2+1$",
+    "figure": null,
+    "answer": "900",
+    "solution": "山顶是 $30$，结果 $=30^2=900$。",
+    "jojo": {
+      "answer": "900",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务1"
+    ]
+  },
+  {
+    "id": "gs4a-01-004",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "实战",
+    "page": 7,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+199+200+199+\\cdots+3+2+1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "40000",
+    "solution": "山顶是 $200$，结果 $=200^2=40000$。",
+    "jojo": {
+      "answer": "40000",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践1"
+    ]
+  },
+  {
+    "id": "gs4a-01-005",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "例题",
+    "page": 8,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+0.4+\\cdots+9.9+10+9.9+\\cdots+0.4+0.3+0.2+0.1$",
+    "figure": null,
+    "answer": "1000",
+    "solution": "每个数都是整数的 $\\frac{1}{10}$：原式 $=(1+2+\\cdots+100+\\cdots+2+1)\\div10=100^2\\div10=10000\\div10=1000$。",
+    "jojo": {
+      "answer": "1000",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务2",
+      "小数"
+    ]
+  },
+  {
+    "id": "gs4a-01-006",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动一 个人突围赛",
+    "type": "实战",
+    "page": 9,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+0.4+\\cdots+4.9+5+4.9+\\cdots+0.4+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "250",
+    "solution": "原式 $=(1+2+\\cdots+50+\\cdots+2+1)\\div10=50^2\\div10=2500\\div10=250$。",
+    "jojo": {
+      "answer": "250",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践2",
+      "小数",
+      "官方答案一致",
+      "同题:gs4a-dp-01-005"
+    ]
+  },
+  {
+    "id": "gs4a-01-007",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动二 抢答冲锋赛",
+    "type": "试一试",
+    "page": 11,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "把算式转化成标准的“山峰数列”：$3+4+5+6+7+6+5+4+3=1+2+3+4+5+6+7+6+5+4+3+2+1-\\_\\_\\_$",
+    "figure": null,
+    "answer": "$(1+2+2+1)$，即 $6$；原式 $=7^2-6=43$",
+    "solution": "不从 $1$ 开始，就把缺的 $1+2$ 和 $2+1$ 补上，最后再减掉：$7^2-(1+2+2+1)=49-6=43$。",
+    "jojo": {
+      "answer": "$(1+2+2+1)$",
+      "status": "correct",
+      "note": "空格填对；没有继续算出最后结果 43"
+    },
+    "tags": [
+      "试一试"
+    ]
+  },
+  {
+    "id": "gs4a-01-008",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动二 抢答冲锋赛",
+    "type": "试一试",
+    "page": 11,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "把算式转化成标准的“山峰数列”：$2+4+6+8+10+8+6+4+2=(1+2+3+4+5+4+3+2+1)\\ \\_\\_\\_$",
+    "figure": null,
+    "answer": "$\\times2$；原式 $=5^2\\times2=50$",
+    "solution": "每个数都是 $2$ 的倍数，提出 $2$：$(1+2+3+4+5+4+3+2+1)\\times2=25\\times2=50$。",
+    "jojo": {
+      "answer": "$\\times2$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "找倍"
+    ]
+  },
+  {
+    "id": "gs4a-01-009",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动二 抢答冲锋赛",
+    "type": "试一试",
+    "page": 11,
+    "knowledge_points": [
+      "arith-mountain-transform"
+    ],
+    "difficulty": 1,
+    "stem": "我发现了：不从 $1$ 起先\\_\\_\\_，缺少补全或找倍。",
+    "figure": null,
+    "answer": "转化",
+    "solution": "先把算式转化成熟悉的山峰数列，缺的数补上再减去，有公共倍数就提出来。",
+    "jojo": {
+      "answer": "转化",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了"
+    ]
+  },
+  {
+    "id": "gs4a-01-010",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动二 抢答冲锋赛",
+    "type": "例题",
+    "page": 12,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$6+9+12+\\cdots+54+57+60+57+54+\\cdots+12+9+6$",
+    "figure": null,
+    "answer": "1194",
+    "solution": "每个数都是 $3$ 的倍数：原式 $=3\\times(2+3+\\cdots+20+\\cdots+3+2)=3\\times(20^2-1-1)=3\\times398=1194$。",
+    "jojo": {
+      "answer": "1194",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务3"
+    ]
+  },
+  {
+    "id": "gs4a-01-011",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动二 抢答冲锋赛",
+    "type": "实战",
+    "page": 13,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$4+6+8+\\cdots+28+30+28+\\cdots+8+6+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "446",
+    "solution": "提出 $2$：原式 $=2\\times(2+3+\\cdots+15+\\cdots+3+2)=2\\times(15^2-2)=2\\times223=446$。",
+    "jojo": {
+      "answer": "446",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践3",
+      "官方答案一致",
+      "同题:gs4a-dp-01-008"
+    ]
+  },
+  {
+    "id": "gs4a-01-012",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动三 团队接力赛",
+    "type": "试一试",
+    "page": 15,
+    "knowledge_points": [
+      "arith-diff-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "$28^2-18^2=\\_\\_\\_$。（看图：阴影部分的长和宽分别是多少？）",
+    "figure": "figures/gs4a/gs4a-01-012.png",
+    "answer": "$(28+18)\\times(28-18)=460$",
+    "solution": "大正方形减去小正方形剩下 L 形阴影。把右边那条剪下来接到上面，拼成长 $28+18=46$、宽 $28-18=10$ 的长方形，面积 $46\\times10=460$。",
+    "jojo": {
+      "answer": "$(28+18)\\times(28-18)$",
+      "status": "correct",
+      "note": "图上标注长 28+18、宽 28−18 也正确；没算出 460"
+    },
+    "tags": [
+      "试一试"
+    ]
+  },
+  {
+    "id": "gs4a-01-013",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动三 团队接力赛",
+    "type": "试一试",
+    "page": 15,
+    "knowledge_points": [
+      "arith-diff-of-squares"
+    ],
+    "difficulty": 1,
+    "stem": "我发现了：平方差公式 $a^2-b^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "$(a+b)\\times(a-b)$",
+    "solution": "两个数的平方差，等于这两个数的和乘以它们的差。",
+    "jojo": {
+      "answer": "$(a+b)(a-b)$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了"
+    ]
+  },
+  {
+    "id": "gs4a-01-014",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动三 团队接力赛",
+    "type": "例题",
+    "page": 16,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$10^2-9^2+8^2-7^2+\\cdots+2^2-1^2$",
+    "figure": null,
+    "answer": "55",
+    "solution": "两两一组用平方差：$(10+9)\\times1+(8+7)\\times1+\\cdots+(2+1)\\times1=10+9+\\cdots+1=(10+1)\\times10\\div2=55$。",
+    "jojo": {
+      "answer": "55",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务4"
+    ]
+  },
+  {
+    "id": "gs4a-01-015",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动三 团队接力赛",
+    "type": "实战",
+    "page": 17,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$20^2-19^2+18^2-17^2+\\cdots+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "210",
+    "solution": "每组差都是 $1$：原式 $=20+19+\\cdots+2+1=(20+1)\\times20\\div2=210$。",
+    "jojo": {
+      "answer": "210",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践4",
+      "官方答案一致",
+      "同题:gs4a-dp-01-009"
+    ]
+  },
+  {
+    "id": "gs4a-01-016",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动四 冠军争夺战",
+    "type": "试一试",
+    "page": 19,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$1^2+2^2+3^2+4^2=\\_\\_\\_$。有没有比一个一个加更快的方法？",
+    "figure": null,
+    "answer": "30",
+    "solution": "用平方和公式：$4\\times5\\times9\\div6=30$。（也可以直接算 $1+4+9+16=30$）",
+    "jojo": {
+      "answer": "30",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试"
+    ]
+  },
+  {
+    "id": "gs4a-01-017",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动四 冠军争夺战",
+    "type": "试一试",
+    "page": 19,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "我发现了：平方和公式 $1^2+2^2+3^2+\\cdots+n^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "$n(n+1)(2n+1)\\div6$",
+    "solution": "三个数相乘：$n$、$n+1$、$2n+1$，最后除以 $6$。",
+    "jojo": {
+      "answer": "$n(n+1)(2n+1)\\div6$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了"
+    ]
+  },
+  {
+    "id": "gs4a-01-018",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动四 冠军争夺战",
+    "type": "例题",
+    "page": 20,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$7^2+8^2+9^2+\\cdots+27^2$",
+    "figure": null,
+    "answer": "6839",
+    "solution": "补上前面的再减掉：$(1^2+\\cdots+27^2)-(1^2+\\cdots+6^2)=27\\times28\\times55\\div6-6\\times7\\times13\\div6=6930-91=6839$。",
+    "jojo": {
+      "answer": "6839",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务5"
+    ]
+  },
+  {
+    "id": "gs4a-01-019",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "活动四 冠军争夺战",
+    "type": "实战",
+    "page": 21,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$11^2+12^2+13^2+\\cdots+30^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "9070",
+    "solution": "$(1^2+\\cdots+30^2)-(1^2+\\cdots+10^2)=30\\times31\\times61\\div6-10\\times11\\times21\\div6=9455-385=9070$。",
+    "jojo": {
+      "answer": "9070",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践5"
+    ]
+  },
+  {
+    "id": "gs4a-01-020",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "附加活动 赛后小彩蛋",
+    "type": "拓展",
+    "page": 22,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$2^2+4^2+6^2+\\cdots+20^2$",
+    "figure": null,
+    "answer": "1540",
+    "solution": "每个偶数都是 $2\\times$某数，$(2k)^2=k^2\\times4$：原式 $=(1^2+2^2+\\cdots+10^2)\\times4=385\\times4=1540$。",
+    "jojo": {
+      "answer": "1540",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "高能时刻1",
+      "偶数平方和"
+    ]
+  },
+  {
+    "id": "gs4a-01-021",
+    "book": "gs4a",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "附加活动 赛后小彩蛋",
+    "type": "拓展",
+    "page": 23,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$1^2+3^2+5^2+\\cdots+21^2$",
+    "figure": null,
+    "answer": "1771",
+    "solution": "奇数平方和 = 全部平方和 − 偶数平方和：$(1^2+\\cdots+21^2)-(2^2+4^2+\\cdots+20^2)=21\\times22\\times43\\div6-385\\times4=3311-1540=1771$。",
+    "jojo": {
+      "answer": "1771",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "高能时刻2",
+      "奇数平方和"
+    ]
+  }
+]

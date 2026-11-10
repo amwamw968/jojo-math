@@ -1,0 +1,235 @@
+[
+  {
+    "id": "gs4a-dp-01-001",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第1天",
+    "type": "练习",
+    "page": 1,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+69+70+69+\\cdots+3+2+1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "4900",
+    "solution": "根据山顶和公式，山顶是 $70$：原式 $=70\\times70=4900$。",
+    "jojo": null,
+    "tags": [
+      "练1",
+      "官方答案一致"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-002",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第1天",
+    "type": "练习",
+    "page": 1,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+23+24+23+\\cdots+3+2+1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "576",
+    "solution": "根据山顶和公式：原式 $=24\\times24=576$。",
+    "jojo": null,
+    "tags": [
+      "练2",
+      "官方答案一致"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-003",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第2天",
+    "type": "练习",
+    "page": 2,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+\\cdots+0.7+0.8+0.7+\\cdots+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "6.4",
+    "solution": "$=(1+2+\\cdots+7+8+7+\\cdots+2+1)\\div10=8\\times8\\div10=6.4$。",
+    "jojo": null,
+    "tags": [
+      "练3",
+      "官方答案一致",
+      "同题:gs4a-hw-01-008"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-004",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第2天",
+    "type": "练习",
+    "page": 2,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+\\cdots+1.9+\\cdots+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "36.1",
+    "solution": "原式 $=0.1\\times19^2=361\\div10=36.1$。",
+    "jojo": null,
+    "tags": [
+      "练4",
+      "官方答案一致",
+      "同题:gs4a-hw-01-009"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-005",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第3天",
+    "type": "练习",
+    "page": 3,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+0.4+\\cdots+4.9+5+4.9+\\cdots+0.4+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "250",
+    "solution": "$=(1+2+\\cdots+49+50+49+\\cdots+2+1)\\div10=50\\times50\\div10=250$。",
+    "jojo": null,
+    "tags": [
+      "练5",
+      "官方答案一致",
+      "同题:gs4a-01-006"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-006",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第3天",
+    "type": "练习",
+    "page": 3,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$4+5+6+7+8+9+10+9+8+7+6+5+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "88",
+    "solution": "$=(1+2+\\cdots+9+10+9+\\cdots+2+1)-(1+2+3+3+2+1)=10\\times10-12=88$。",
+    "jojo": null,
+    "tags": [
+      "练6",
+      "官方答案一致",
+      "同题:gs4a-hw-01-022"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-007",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第4天",
+    "type": "练习",
+    "page": 4,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$4+6+8+\\cdots+18+20+18+\\cdots+8+6+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "196",
+    "solution": "$=2\\times(2+3+\\cdots+10+\\cdots+3+2)=2\\times(1+2+\\cdots+10+\\cdots+2+1-1-1)=2\\times(10\\times10-2)=196$。",
+    "jojo": null,
+    "tags": [
+      "练7",
+      "官方答案一致",
+      "同题:gs4a-hw-01-011"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-008",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第4天",
+    "type": "练习",
+    "page": 4,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$4+6+8+\\cdots+28+30+28+\\cdots+8+6+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "446",
+    "solution": "$=2\\times(2+3+\\cdots+15+\\cdots+3+2)=2\\times(15\\times15-2)=446$。",
+    "jojo": null,
+    "tags": [
+      "练8",
+      "官方答案一致",
+      "同题:gs4a-01-011"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-009",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第5天",
+    "type": "练习",
+    "page": 5,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$20^2-19^2+18^2-17^2+\\cdots+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "210",
+    "solution": "$=(20+19)\\times(20-19)+\\cdots+(2+1)\\times(2-1)=20+19+\\cdots+2+1=(20+1)\\times20\\div2=210$。",
+    "jojo": null,
+    "tags": [
+      "练9",
+      "官方答案一致",
+      "同题:gs4a-01-015"
+    ]
+  },
+  {
+    "id": "gs4a-dp-01-010",
+    "book": "gs4a-dp",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "第1周 第5天",
+    "type": "练习",
+    "page": 5,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$8^2-7^2+6^2-5^2+4^2-3^2+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "36",
+    "solution": "$=(8+7)\\times1+(6+5)\\times1+(4+3)\\times1+(2+1)\\times1=8+7+\\cdots+1=36$。",
+    "jojo": null,
+    "tags": [
+      "练10",
+      "官方答案一致",
+      "同题:gs4a-hw-01-012"
+    ]
+  }
+]
