@@ -1,0 +1,27 @@
+[
+  {
+    "id": "arith-mountain-sum",
+    "title": "山顶和公式（山峰数列）",
+    "category": "计算"
+  },
+  {
+    "id": "arith-mountain-transform",
+    "title": "山峰数列的转化：补全或找倍",
+    "category": "计算"
+  },
+  {
+    "id": "arith-diff-of-squares",
+    "title": "平方差公式",
+    "category": "计算"
+  },
+  {
+    "id": "arith-sum-of-squares",
+    "title": "平方和公式",
+    "category": "计算"
+  },
+  {
+    "id": "arith-arithmetic-series",
+    "title": "等差数列求和（高斯求和）",
+    "category": "计算"
+  }
+]

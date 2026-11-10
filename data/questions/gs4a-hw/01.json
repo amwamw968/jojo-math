@@ -1,0 +1,594 @@
+[
+  {
+    "id": "gs4a-hw-01-001",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 3,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算下列各算式，你发现什么规律？$1+2+1=4=\\_\\_\\_$；$1+2+3+2+1=9=\\_\\_\\_$；$1+2+3+4+3+2+1=16=\\_\\_\\_$；$1+2+3+4+5+4+3+2+1=25=\\_\\_\\_$。",
+    "figure": "figures/gs4a-hw/gs4a-hw-01-001.png",
+    "answer": "$2^2$；$3^2$；$4^2$；$5^2$",
+    "solution": "山峰数列的和等于山顶数的平方。",
+    "jojo": {
+      "answer": "$2^2,3^2,4^2,5^2$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-002",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 3,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "把下面的算式转化成标准的“山峰数列”：$3+4+5+6+7+6+5+4+3=1+2+3+4+5+6+7+6+5+4+3+2+1-\\_\\_\\_$",
+    "figure": null,
+    "answer": "$(1+2+2+1)$，即 $6$；原式 $=49-6=43$",
+    "solution": "前后补上的 $1+2$ 和 $2+1$ 要一起减掉，减号后面要用括号：$-(1+2+2+1)$。",
+    "jojo": {
+      "answer": "$1-2-2-1$",
+      "status": "correct",
+      "note": "连着前面的减号读作 $-1-2-2-1$，数值对；更规范的写法是 $-(1+2+2+1)$"
+    },
+    "tags": [
+      "符号"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-003",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 3,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "把下面的算式转化成标准的“山峰数列”：$2+4+6+8+10+8+6+4+2=(1+2+3+4+5+4+3+2+1)\\ \\_\\_\\_$",
+    "figure": null,
+    "answer": "$\\times2$；原式 $=50$",
+    "solution": "每个数都是 $2$ 的倍数，提出 $2$。",
+    "jojo": {
+      "answer": "$\\times2$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-004",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 4,
+    "knowledge_points": [
+      "arith-diff-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "看图回答：(1) $28^2-18^2$ 可以表示图1中\\_\\_\\_（填“阴影”或“空白”）部分的面积。(2) 图1中的阴影部分可以转化成图2中的阴影部分，那么这个阴影长方形的长是\\_\\_\\_，宽是\\_\\_\\_，阴影部分的面积\\_\\_\\_。(3) $28^2-18^2=\\_\\_\\_$。",
+    "figure": "figures/gs4a-hw/gs4a-hw-01-004.png",
+    "answer": "(1) 阴影；(2) 长 $28+18$，宽 $28-18$，面积 $(28+18)\\times(28-18)$；(3) $460$",
+    "solution": "大正方形 $28^2$ 减去小正方形 $18^2$ 就是阴影。剪拼后长 $46$、宽 $10$，面积 $460$。",
+    "jojo": {
+      "answer": "阴影；$28+18$；$28-18$；$(28+18)\\times(28-18)$",
+      "status": "correct",
+      "note": "第(3)问只写到 $(28+18)\\times(28-18)$，没算出 460"
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-005",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 4,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$1^2+2^2+3^2+4^2$",
+    "figure": null,
+    "answer": "30",
+    "solution": "把 $1,2,2,3,3,3,4,4,4,4$ 排成三角形，再旋转出另外两个三角形，三个三角形对应位置相加都是 $2n+1=9$，所以 $3\\times$原式 $=9\\times(1+2+3+4)$，原式 $=9\\times10\\div3=30$；也就是 $4\\times5\\times9\\div6=30$。",
+    "jojo": {
+      "answer": "推导出 $n(n+1)(2n+1)\\div6$",
+      "status": "partial",
+      "note": "用三个三角形推导出了平方和公式，但没有算出这道题的结果 30"
+    },
+    "tags": [
+      "公式推导"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-006",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 5,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+49+50+49+\\cdots+3+2+1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "2500",
+    "solution": "$50^2=2500$。",
+    "jojo": {
+      "answer": "2500",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-007",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 5,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$1+2+3+\\cdots+89+90+89+\\cdots+3+2+1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "8100",
+    "solution": "$90^2=8100$。",
+    "jojo": {
+      "answer": "8100",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-008",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 5,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+\\cdots+0.7+0.8+0.7+\\cdots+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "6.4",
+    "solution": "$8^2\\div10=64\\div10=6.4$。",
+    "jojo": {
+      "answer": "6.4",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小数",
+      "官方答案一致",
+      "同题:gs4a-dp-01-003"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-009",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 6,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$0.1+0.2+0.3+\\cdots+1.9+\\cdots+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "36.1",
+    "solution": "$19^2\\div10=361\\div10=36.1$。",
+    "jojo": {
+      "answer": "36.1",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小数",
+      "官方答案一致",
+      "同题:gs4a-dp-01-004"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-010",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 6,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$5+6+7+8+\\cdots+14+15+14+\\cdots+8+7+6+5=\\_\\_\\_$",
+    "figure": null,
+    "answer": "205",
+    "solution": "补全成山顶 $15$ 的山峰：$15^2-(1+2+3+4)\\times2=225-20=205$。",
+    "jojo": {
+      "answer": "205",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-011",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 6,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$4+6+8+\\cdots+18+20+18+\\cdots+8+6+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "196",
+    "solution": "$2\\times(2+3+\\cdots+10+\\cdots+3+2)=2\\times(10^2-2)=196$。",
+    "jojo": {
+      "answer": "196",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "官方答案一致",
+      "同题:gs4a-dp-01-007"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-012",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 7,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$8^2-7^2+6^2-5^2+4^2-3^2+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "36",
+    "solution": "$(8+7)+(6+5)+(4+3)+(2+1)=8+7+\\cdots+1=(8+1)\\times8\\div2=36$。",
+    "jojo": {
+      "answer": "36",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "官方答案一致",
+      "同题:gs4a-dp-01-010"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-013",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 7,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$16^2-15^2+14^2-13^2+\\cdots+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "136",
+    "solution": "$16+15+\\cdots+1=(16+1)\\times16\\div2=136$。",
+    "jojo": {
+      "answer": "136",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-014",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 8,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$1^2+2^2+3^2+\\cdots+16^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "1496",
+    "solution": "$16\\times17\\times33\\div6=1496$。",
+    "jojo": {
+      "answer": "1496",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-015",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 8,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$11^2+12^2+13^2+\\cdots+40^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "21755",
+    "solution": "$40\\times41\\times81\\div6-10\\times11\\times21\\div6=22140-385=21755$。",
+    "jojo": {
+      "answer": "21755",
+      "status": "correct",
+      "note": "中间一步把减号写成了“+10×11×21÷6”，但后面按减法算对了，注意书写"
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-016",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "能力落地",
+    "type": "练习",
+    "page": 9,
+    "knowledge_points": [
+      "arith-diff-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$(2014\\times2014+2012)-2013\\times2013=\\_\\_\\_$",
+    "figure": null,
+    "answer": "6039",
+    "solution": "$=2014^2-2013^2+2012=(2014+2013)\\times(2014-2013)+2012=4027+2012=6039$。",
+    "jojo": {
+      "answer": "6039",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-017",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 11,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$29\\times31+28\\times32+27\\times33+26\\times34+25\\times35=\\_\\_\\_$",
+    "figure": null,
+    "answer": "4445",
+    "solution": "每组都是 $(30-k)(30+k)=30^2-k^2$：原式 $=30^2\\times5-(1^2+2^2+3^2+4^2+5^2)=4500-55=4445$。",
+    "jojo": {
+      "answer": "4445",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-018",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 11,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 5,
+    "stem": "计算：$1\\times39+2\\times38+3\\times37+4\\times36+\\cdots+39\\times1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "10660",
+    "solution": "每项写成 $(20-k)(20+k)=20^2-k^2$（$k$ 从 $-19$ 到 $19$），共 $39$ 项：原式 $=20^2\\times39-(1^2+\\cdots+19^2)\\times2=15600-2470\\times2=10660$。",
+    "jojo": {
+      "answer": "10660",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-019",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 12,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$1^2+3^2+5^2+\\cdots+49^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "20825",
+    "solution": "$(1^2+\\cdots+49^2)-(2^2+4^2+\\cdots+48^2)=49\\times50\\times99\\div6-24\\times25\\times49\\div6\\times4=40425-19600=20825$。",
+    "jojo": {
+      "answer": "20825",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-020",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 12,
+    "knowledge_points": [
+      "arith-sum-of-squares",
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 5,
+    "stem": "计算：$25^2+38^2+51^2+64^2+\\cdots+181^2+194^2$",
+    "figure": null,
+    "answer": "206311",
+    "solution": "每次加 $13$，共 $14$ 项。设 $A=26^2+39^2+\\cdots+195^2=13^2\\times(2^2+\\cdots+15^2)=169\\times1239=209391$。$A-$原式 $=(26^2-25^2)+\\cdots+(195^2-194^2)=51+77+\\cdots+389=(51+389)\\times14\\div2=3080$，所以原式 $=209391-3080=206311$。",
+    "jojo": {
+      "answer": "206311",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": []
+  },
+  {
+    "id": "gs4a-hw-01-021",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 13,
+    "knowledge_points": [
+      "arith-mountain-sum"
+    ],
+    "difficulty": 1,
+    "stem": "计算：$0.1+0.2+0.3+\\cdots+0.9+\\cdots+0.3+0.2+0.1=\\_\\_\\_$",
+    "figure": null,
+    "answer": "8.1",
+    "solution": "$9^2\\div10=8.1$。",
+    "jojo": {
+      "answer": "8.1",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小测"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-022",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 13,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-mountain-transform"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$4+5+6+7+8+9+10+9+8+7+6+5+4=\\_\\_\\_$",
+    "figure": null,
+    "answer": "88",
+    "solution": "$10^2-(1+2+3+3+2+1)=100-12=88$。",
+    "jojo": {
+      "answer": "88",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小测",
+      "官方答案一致",
+      "同题:gs4a-dp-01-006"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-023",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 14,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$14^2-13^2+12^2-11^2+\\cdots+4^2-3^2+2^2-1^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "105",
+    "solution": "$14+13+\\cdots+1=(14+1)\\times14\\div2=105$。",
+    "jojo": {
+      "answer": "105",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小测"
+    ]
+  },
+  {
+    "id": "gs4a-hw-01-024",
+    "book": "gs4a-hw",
+    "chapter": "01",
+    "chapter_title": "冠军请听题",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 14,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$5^2+6^2+7^2+\\cdots+40^2=\\_\\_\\_$",
+    "figure": null,
+    "answer": "22110",
+    "solution": "$40\\times41\\times81\\div6-4\\times5\\times9\\div6=22140-30=22110$。",
+    "jojo": {
+      "answer": "22110",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "小测"
+    ]
+  }
+]
