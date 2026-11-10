@@ -23,5 +23,60 @@
     "id": "arith-arithmetic-series",
     "title": "等差数列求和（高斯求和）",
     "category": "计算"
+  },
+  {
+    "id": "exp-definition",
+    "title": "幂的定义（底数、指数、幂）",
+    "category": "计算"
+  },
+  {
+    "id": "exp-product",
+    "title": "同底数幂相乘",
+    "category": "计算"
+  },
+  {
+    "id": "exp-quotient",
+    "title": "同底数幂相除",
+    "category": "计算"
+  },
+  {
+    "id": "exp-power",
+    "title": "幂的乘方",
+    "category": "计算"
+  },
+  {
+    "id": "exp-product-power",
+    "title": "积的乘方",
+    "category": "计算"
+  },
+  {
+    "id": "exp-zero",
+    "title": "零指数幂",
+    "category": "计算"
+  },
+  {
+    "id": "exp-same-base",
+    "title": "化为同底",
+    "category": "计算"
+  },
+  {
+    "id": "exp-compare",
+    "title": "比较幂的大小",
+    "category": "计算"
+  },
+  {
+    "id": "arith-sum-of-cubes",
+    "title": "立方和公式",
+    "category": "计算"
+  },
+  {
+    "id": "arith-sum-of-products",
+    "title": "连续整数乘积求和",
+    "category": "计算"
+  },
+  {
+    "id": "fib-sum-of-squares",
+    "title": "斐波那契数列的平方和",
+    "category": "计算"
   }
 ]

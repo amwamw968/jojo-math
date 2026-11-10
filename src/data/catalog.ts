@@ -64,6 +64,8 @@ export function bookShort(bookId: string): string {
   if (book.title.includes("每日一练")) return "每日一练";
   if (book.title.includes("课后练习")) return "课后练习";
   if (book.title.includes("课本")) return "思维课本";
+  if (book.title.includes("讲义")) return "幂运算讲义";
+  if (book.title.includes("练习册")) return "幂运算练习册";
   return book.title;
 }
 

@@ -1,10 +1,13 @@
 import katex from "katex";
 
-/** Turn \( \) and \[ \] into the dollar delimiters remark-math understands. */
+/** Turn \( \) and \[ \] into the dollar delimiters remark-math understands.
+ * remark-math only treats $$ as a display block when the dollars sit on their own lines.
+ * One-line $$...$$ is the form used in this repo, so expand it before rendering. */
 export function normalizeMathDelimiters(source: string): string {
   return source
-    .replace(/\\\[([\s\S]+?)\\\]/g, (_, body: string) => `$$${body}$$`)
-    .replace(/\\\(([\s\S]+?)\\\)/g, (_, body: string) => `$${body}$`);
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, body: string) => `\n$$\n${body.trim()}\n$$\n`)
+    .replace(/\\\(([\s\S]+?)\\\)/g, (_, body: string) => `$${body}$`)
+    .replace(/\$\$([^\n]+?)\$\$/g, (_, body: string) => `\n$$\n${body.trim()}\n$$\n`);
 }
 
 export interface MathPiece {

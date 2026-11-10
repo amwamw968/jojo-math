@@ -29,7 +29,7 @@ export function VariantDrill({
         </button>
         <span className="muted">种子 {seed}，同一种子可以再印出同样的题。</span>
       </div>
-      {variants.length === 0 ? <p className="muted">这一讲还是待补，先不出变式题。</p> : null}
+      {variants.length === 0 ? <p className="muted">这一讲还没有变式题。</p> : null}
       <ol className="variant-list">
         {variants.map((variant, index) => (
           <li key={`${seed}-${index}`} className="variant-card">

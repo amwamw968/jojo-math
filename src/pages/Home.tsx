@@ -107,7 +107,7 @@ export function Home() {
         })}
       </div>
 
-      <h2>这一讲的三本书</h2>
+      <h2>收录的书</h2>
       <div className="book-grid">
         {books.map((book) => {
           const own = questions.filter((question) => question.book === book.id);

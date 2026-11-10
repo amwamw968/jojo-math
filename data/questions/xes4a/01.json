@@ -1,0 +1,824 @@
+[
+  {
+    "id": "xes4a-01-001",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Warm Up ①",
+    "type": "试一试",
+    "page": 3,
+    "knowledge_points": [
+      "exp-definition",
+      "exp-zero"
+    ],
+    "difficulty": 1,
+    "stem": "请回答下列问题：\n\n(1) $6\\times6\\times\\cdots\\times6$（8 个 6）记作 $\\_\\_\\_$，读作 $\\_\\_\\_$．\n\n(2) $13^{57}$ 表示 $\\_\\_\\_$，读作 $\\_\\_\\_$．在 $13^{57}$ 中，13 叫做 $\\_\\_\\_$，57 叫做 $\\_\\_\\_$，$13^{57}$ 的运算结果叫做 $\\_\\_\\_$．\n\n(3) 计算：\n\n| 乘方 | $2^0$ | $2^1$ | $2^2$ | $2^3$ | $2^4$ | $2^5$ | $2^{10}$ |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 幂 |  |  |  |  |  |  |  |\n| 乘方 | $3^2$ | $3^3$ | $3^4$ | $3^5$ | $5^2$ | $5^3$ | $5^4$ |\n| 幂 |  |  |  |  |  |  |  |",
+    "figure": null,
+    "answer": "(1) $6^8$；6 的 8 次方\n(2) 57 个 13 相乘；13 的 57 次方；底数；指数；幂\n(3) $1,2,4,8,16,32,1024$；$9,27,81,243,25,125,625$",
+    "solution": "几个相同的数连乘就写成乘方：8 个 6 相乘记作 $6^8$，读作 6 的 8 次方。$13^{57}$ 同样是 57 个 13 相乘，13 是底数，57 是指数，算出来的结果叫幂。\n\n表里按定义逐个算：$2^0=1$（0 次方等于 1），$2^1=2$，之后每一个都是前一个乘 2，一直到 $2^{10}=1024$。下面一行：$3^2=9$，$3^3=27$，$3^4=81$，$3^5=243$；$5^2=25$，$5^3=125$，$5^4=625$。",
+    "jojo": {
+      "answer": "$6^8$；6的8次方；57个13相乘；13的57次方；底数；指数；幂；1,2,4,8,16,32,1024；9,27,81,243,25,125,625",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-002",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Warm Up ①",
+    "type": "试一试",
+    "page": 4,
+    "knowledge_points": [
+      "exp-definition",
+      "exp-zero"
+    ],
+    "difficulty": 1,
+    "stem": "判断正误：\n\n1. $10^n$ 表示 $n$ 个 10 相乘所得的积．\n2. $7^8$ 表示 8 个 8 相乘．\n3. $\\underbrace{(a+b)(a+b)\\cdots(a+b)}_{18\\text{ 个 }(a+b)}$ 写成乘方形式是 $(a+b)^{18}$．\n4. 任何数的零次方都等于 0．",
+    "figure": null,
+    "answer": "对；错；对；错",
+    "solution": "1. 对：$10^n$ 就是 $n$ 个 10 连乘。\n2. 错：$7^8$ 是 8 个 **7** 相乘，不是 8 个 8。\n3. 对：18 个 $(a+b)$ 相乘，就是 $(a+b)^{18}$。\n4. 错：只要底数不是 0，零次方等于 1，也就是 $a^0=1$（$a\\neq0$）。",
+    "jojo": {
+      "answer": "对；错；对；错",
+      "status": "correct",
+      "note": "课堂笔记/跟写。第 2 题把原句改成了「8 个 7 相乘」并判错；第 4 题旁用红笔补了 $a^0=1$（$a\\neq0$）"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-003",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Warm Up ①",
+    "type": "试一试",
+    "page": 5,
+    "knowledge_points": [
+      "exp-definition",
+      "exp-power"
+    ],
+    "difficulty": 1,
+    "stem": "填空：$9\\times9\\times9\\times9=\\_\\_\\_^4=(\\_\\_\\_)^2$；$5\\times5\\times5\\times5\\times5\\times5=\\_\\_\\_^6=(\\_\\_\\_)^3=(\\_\\_\\_)^2$；$16=\\_\\_\\_^4$；$27=\\_\\_\\_^3$；$81=\\_\\_\\_^4=\\_\\_\\_^2$．",
+    "figure": null,
+    "answer": "$9$；$(9^2)$（也可写成 $81^2$）；$5$；$(5^2)$；$(5^3)$；$2$；$3$；$3$；$9$",
+    "solution": "4 个 9 相乘是 $9^4$，也可以先两个两个乘：$(9^2)^2=81^2$。\n\n6 个 5 相乘是 $5^6$，也可以写成 $(5^2)^3$ 或 $(5^3)^2$。\n\n$16=2^4$，$27=3^3$，$81=3^4=9^2$。",
+    "jojo": {
+      "answer": "$9$；$(9^2)$；$81^2$；$5$；$(5^2)$；$(5^3)$；$2$；$3$；$3$；$9$",
+      "status": "correct",
+      "note": "课堂笔记/跟写。在 $(9^2)^2$ 后面又写了 $=81^2$，也正确"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-004",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Warm Up ②",
+    "type": "试一试",
+    "page": 6,
+    "knowledge_points": [
+      "exp-product",
+      "exp-quotient"
+    ],
+    "difficulty": 1,
+    "stem": "请回答下列问题：\n\n(1) $5^2\\times5^3=(\\quad)$．\nA. $5^5$　B. $5^6$　C. $5^2+5^3$　D. $2\\times5^5$\n\n(2) $5^6\\div5^2=(\\quad)$．\nA. $5^3$　B. $5^4$　C. $3$　D. $5^2$",
+    "figure": null,
+    "answer": "(1) A；(2) B",
+    "solution": "(1) 同底数幂相乘，指数相加：$5^2\\times5^3=5^{2+3}=5^5$，选 A。拆开看就是 2 个 5 再乘 3 个 5，一共 5 个 5。\n\n(2) 同底数幂相除，指数相减：$5^6\\div5^2=5^{6-2}=5^4$，选 B。",
+    "jojo": {
+      "answer": "(1) A；(2) B",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-005",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 1",
+    "type": "例题",
+    "page": 7,
+    "knowledge_points": [
+      "exp-product",
+      "exp-quotient"
+    ],
+    "difficulty": 2,
+    "stem": "(1) $8\\times8^{13}\\times8^9=\\_\\_\\_$；$3^2\\times5\\times5^5\\times3^6\\times5^{12}=\\_\\_\\_$．\n\n(2) $11^{20}\\div11^{11}\\div11^3=\\_\\_\\_$；$79^{50}\\div79^8\\div79^{14}\\div79^{27}=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "(1) $8^{23}$；$3^8\\times5^{18}$\n(2) $11^6$；$79$",
+    "solution": "(1) 同底数幂相乘，指数相加：$8^{1+13+9}=8^{23}$。第二个先把 3 和 5 分开：$3^{2+6}\\times5^{1+5+12}=3^8\\times5^{18}$。\n\n(2) 同底数幂相除，指数连减：$11^{20-11-3}=11^6$；$79^{50-8-14-27}=79^1=79$。",
+    "jojo": {
+      "answer": "$8^{23}$；$3^8\\times5^{18}$；$11^6$；$79$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-006",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 1",
+    "type": "例题",
+    "page": 8,
+    "knowledge_points": [
+      "exp-power",
+      "exp-same-base",
+      "exp-product"
+    ],
+    "difficulty": 2,
+    "stem": "(1) $(5^5)^3$；$(13^2)^3$．\n\n(2) $9^4\\times3^3$；$2^6\\times4^2\\times8^2$．",
+    "figure": null,
+    "answer": "(1) $5^{15}$；$13^6$\n(2) $3^{11}$；$2^{16}$",
+    "solution": "(1) 幂的乘方，底数不变、指数相乘：$(5^5)^3=5^{15}$，$(13^2)^3=13^6$。\n\n(2) 先化成同底再合并：$9^4\\times3^3=(3^2)^4\\times3^3=3^8\\times3^3=3^{11}$。\n\n$2^6\\times4^2\\times8^2=2^6\\times(2^2)^2\\times(2^3)^2=2^6\\times2^4\\times2^6=2^{16}$。",
+    "jojo": {
+      "answer": "$5^{15}$；$13^6$；$3^{11}$；$2^{16}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-007",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 1",
+    "type": "例题",
+    "page": 9,
+    "knowledge_points": [
+      "exp-product-power",
+      "exp-power"
+    ],
+    "difficulty": 2,
+    "stem": "(1) $(2\\times7^3)^5=\\_\\_\\_$；\n\n(2) $(3^5\\times5^2\\times11)^3=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "(1) $2^5\\times7^{15}$\n(2) $3^{15}\\times5^6\\times11^3$",
+    "solution": "积的乘方：每个因数都要乘方。\n\n(1) $(2\\times7^3)^5=2^5\\times(7^3)^5=2^5\\times7^{15}$。\n\n(2) $(3^5\\times5^2\\times11)^3=3^{15}\\times5^6\\times11^3$。",
+    "jojo": {
+      "answer": "$2^5\\times7^{15}$；$3^{15}\\times5^6\\times11^3$",
+      "status": "correct",
+      "note": "课堂笔记/跟写。第(1)问填空正确，但演算最后一行把 $(7^3)^5$ 写成了 $7^6$（应是 $7^{15}$）"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-008",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 1 后）",
+    "type": "拓展",
+    "page": 10,
+    "knowledge_points": [
+      "exp-product",
+      "exp-quotient",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$2^2\\div2^3\\times2^4\\div2^5\\times2^6\\div\\cdots\\div2^{99}\\times2^{100}$．",
+    "figure": null,
+    "answer": "$2^{51}$",
+    "solution": "先合并成一个 2 的幂，指数是 $2-3+4-5+6-\\cdots-99+100$。\n\n把开头的 2 留下，后面按 $(-3+4)+(-5+6)+\\cdots+(-99+100)$ 两两一组，每组都等于 1。从 3 到 100 共 98 个数，正好 49 组，所以指数 $=2+49=51$。\n\n原式 $=2^{51}$。",
+    "jojo": {
+      "answer": "$2^{51}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-009",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 2",
+    "type": "例题",
+    "page": 11,
+    "knowledge_points": [
+      "exp-power",
+      "exp-product",
+      "exp-quotient",
+      "exp-same-base",
+      "exp-product-power"
+    ],
+    "difficulty": 3,
+    "stem": "(1) $(7^6)^5\\times(5^3)^7\\div7^{15}\\div5^{12}$．\n\n(2) $(6^4)^5\\times15^{12}\\div2^8\\div9^{16}$．",
+    "figure": null,
+    "answer": "(1) $7^{15}\\times5^9$\n(2) $10^{12}$",
+    "solution": "(1) 先算乘方再合并：$(7^6)^5\\times(5^3)^7\\div7^{15}\\div5^{12}=7^{30}\\times5^{21}\\div7^{15}\\div5^{12}=7^{15}\\times5^9$。\n\n(2) 全部拆成质因数：$6=2\\times3$，$15=3\\times5$，$9=3^2$。\n\n$(6^4)^5\\times15^{12}\\div2^8\\div9^{16}=6^{20}\\times(3\\times5)^{12}\\div2^8\\div3^{32}$\n$=(2\\times3)^{20}\\times3^{12}\\times5^{12}\\div2^8\\div3^{32}=2^{12}\\times3^{0}\\times5^{12}=(2\\times5)^{12}=10^{12}$。",
+    "jojo": {
+      "answer": "$7^{15}\\times5^9$；$10^{12}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写。第(2)问演算中把 $3^{32}$ 约掉时用红笔划掉，最终结果正确"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-010",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 2 后）",
+    "type": "拓展",
+    "page": 12,
+    "knowledge_points": [
+      "exp-same-base",
+      "exp-product-power",
+      "exp-quotient"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$2^{50}\\times3^{51}\\times5^{52}\\div30^{50}$．",
+    "figure": null,
+    "answer": "75",
+    "solution": "先把 30 拆开：$30=2\\times3\\times5$，所以 $30^{50}=2^{50}\\times3^{50}\\times5^{50}$。\n\n原式 $=2^{50-50}\\times3^{51-50}\\times5^{52-50}=3\\times5^2=75$。",
+    "jojo": {
+      "answer": "75",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-011",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 3",
+    "type": "例题",
+    "page": 13,
+    "knowledge_points": [
+      "exp-product",
+      "exp-quotient",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "已知 $3^m=6$，$3^n=4$，求 $3^{2m-n}$ 的值．",
+    "figure": null,
+    "answer": "9",
+    "solution": "把指数拆开：$3^{2m-n}=3^{2m}\\div3^n=(3^m)^2\\div3^n=6^2\\div4=36\\div4=9$。",
+    "jojo": {
+      "answer": "9",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-012",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 3",
+    "type": "例题",
+    "page": 14,
+    "knowledge_points": [
+      "exp-same-base",
+      "exp-product"
+    ],
+    "difficulty": 3,
+    "stem": "若 $2x+5y-3=0$，求 $4^x\\cdot32^y$ 的值．",
+    "figure": null,
+    "answer": "8",
+    "solution": "先化成 2 的幂：$4=2^2$，$32=2^5$，所以 $4^x\\cdot32^y=(2^2)^x\\cdot(2^5)^y=2^{2x+5y}$。\n\n由 $2x+5y-3=0$ 得到 $2x+5y=3$，因此原式 $=2^3=8$。",
+    "jojo": {
+      "answer": "8",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-013",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 4",
+    "type": "例题",
+    "page": 15,
+    "knowledge_points": [
+      "exp-compare",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "比较 $3^{50}$、$4^{40}$、$5^{30}$ 的大小．",
+    "figure": null,
+    "answer": "$5^{30}<3^{50}<4^{40}$",
+    "solution": "50、40、30 都是 10 的倍数，把它们写成指数都是 10 的幂：\n\n$3^{50}=(3^5)^{10}=243^{10}$，$4^{40}=(4^4)^{10}=256^{10}$，$5^{30}=(5^3)^{10}=125^{10}$。\n\n因为 $125<243<256$，所以 $5^{30}<3^{50}<4^{40}$。",
+    "jojo": {
+      "answer": "$5^{30}<3^{50}<4^{40}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-014",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 4",
+    "type": "例题",
+    "page": 16,
+    "knowledge_points": [
+      "exp-compare",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "比较 $2^{55}$、$3^{44}$、$5^{33}$、$6^{22}$ 四个数的大小．",
+    "figure": null,
+    "answer": "$2^{55}<6^{22}<3^{44}<5^{33}$",
+    "solution": "55、44、33、22 都是 11 的倍数：\n\n$2^{55}=(2^5)^{11}=32^{11}$，$3^{44}=(3^4)^{11}=81^{11}$，$5^{33}=(5^3)^{11}=125^{11}$，$6^{22}=(6^2)^{11}=36^{11}$。\n\n因为 $32<36<81<125$，所以 $2^{55}<6^{22}<3^{44}<5^{33}$。",
+    "jojo": {
+      "answer": "$2^{55}<6^{22}<3^{44}<5^{33}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-015",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 17,
+    "knowledge_points": [
+      "exp-same-base",
+      "exp-product",
+      "exp-quotient"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$4^8\\times8^8\\times2^4\\times2^2\\div16=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "$2^{42}$",
+    "solution": "全部化成 2 的幂：$4=2^2$，$8=2^3$，$16=2^4$。\n\n原式 $=(2^2)^8\\times(2^3)^8\\times2^4\\times2^2\\div2^4=2^{16}\\times2^{24}\\times2^4\\times2^2\\div2^4=2^{16+24+4+2-4}=2^{42}$。",
+    "jojo": {
+      "answer": "$2^{42}$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-016",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 18,
+    "knowledge_points": [
+      "exp-same-base",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "回答下列问题．\n\n(1) 已知 $(8^7)^6=2^a$，求 $a$．\n\n(2) 已知 $8^{16}=16^b$，求 $b$．",
+    "figure": null,
+    "answer": "(1) $a=126$\n(2) $b=12$",
+    "solution": "(1) $(8^7)^6=8^{42}=(2^3)^{42}=2^{126}$，所以 $a=126$。\n\n(2) $8^{16}=(2^3)^{16}=2^{48}=(2^4)^{12}=16^{12}$，所以 $b=12$。",
+    "jojo": {
+      "answer": "$a=126$；$b=12$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-017",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 19,
+    "knowledge_points": [
+      "exp-product-power",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "已知 $a^n=5$，$b^n=3$，求 $(ab^2)^{2n}$ 的值．",
+    "figure": null,
+    "answer": "2025",
+    "solution": "$(ab^2)^{2n}=a^{2n}\\cdot b^{4n}=(a^n)^2\\cdot(b^n)^4=5^2\\times3^4=25\\times81=2025$。",
+    "jojo": {
+      "answer": "2025",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-018",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 20,
+    "knowledge_points": [
+      "exp-product",
+      "exp-same-base"
+    ],
+    "difficulty": 3,
+    "stem": "若 $a^{m+n}\\times(3a^m b^{n+1})=3a^8 b^3$，则 $m=\\_\\_\\_$，$n=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "$m=3$，$n=2$",
+    "solution": "左边合并：$a^{m+n}\\times3a^m b^{n+1}=3a^{2m+n}b^{n+1}$。\n\n和右边 $3a^8 b^3$ 比较，指数要一样：$2m+n=8$，$n+1=3$。先得到 $n=2$，再代入 $2m+2=8$，所以 $m=3$。",
+    "jojo": {
+      "answer": "$m=3$，$n=2$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-019",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 21,
+    "knowledge_points": [
+      "exp-compare",
+      "exp-same-base",
+      "exp-power"
+    ],
+    "difficulty": 3,
+    "stem": "已知 $a=64^{41}$，$b=1024^{25}$，$c=256^{31}$，比较 $a$，$b$，$c$ 的大小关系．",
+    "figure": null,
+    "answer": "$a<c<b$",
+    "solution": "都化成 2 的幂：$64=2^6$，$1024=2^{10}$，$256=2^8$。\n\n$a=(2^6)^{41}=2^{246}$，$b=(2^{10})^{25}=2^{250}$，$c=(2^8)^{31}=2^{248}$。\n\n指数 $246<248<250$，所以 $a<c<b$。",
+    "jojo": {
+      "answer": "$a<c<b$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-020",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 4 后）",
+    "type": "拓展",
+    "page": 22,
+    "knowledge_points": [
+      "exp-power",
+      "exp-product-power"
+    ],
+    "difficulty": 4,
+    "stem": "已知 $x^{20}y^{15}z^5=243$，求 $x^8 y^6 z^2$ 的值．",
+    "figure": null,
+    "answer": "9",
+    "solution": "先观察指数的比：20、15、5 都是 5 的倍数，8、6、2 都是 2 的倍数，而且 $20:15:5=4:3:1$，$8:6:2$ 正好是它的 2 倍。\n\n所以 $x^{20}y^{15}z^5=(x^4 y^3 z)^5=243=3^5$，于是 $x^4 y^3 z=3$（取正值）。\n\n因此 $x^8 y^6 z^2=(x^4 y^3 z)^2=3^2=9$。",
+    "jojo": {
+      "answer": "9",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写"
+    ]
+  },
+  {
+    "id": "xes4a-01-021",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 5",
+    "type": "例题",
+    "page": 23,
+    "knowledge_points": [
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "$1+3+5+7+\\cdots+(2n-1)=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "$n^2$",
+    "solution": "这是等差数列：首项 1，末项 $2n-1$，一共 $n$ 项。\n\n和 $=(\\text{首项}+\\text{末项})\\times\\text{项数}\\div2=[1+(2n-1)]\\times n\\div2=2n\\times n\\div2=n^2$。\n\n也可以记口诀：前 $n$ 个奇数加起来，正好等于 $n^2$。",
+    "jojo": {
+      "answer": "$n^2$",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-022",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 5",
+    "type": "例题",
+    "page": 24,
+    "knowledge_points": [
+      "arith-mountain-sum",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "$1+2+3+\\cdots+(n-1)+n+(n-1)+\\cdots+3+2+1=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "$n^2$",
+    "solution": "这是山顶为 $n$ 的山峰数列，和等于山顶的平方 $n^2$。\n\n也可以用求和公式验证：左边 $=S_n+S_{n-1}=\\dfrac{n(n+1)}{2}+\\dfrac{(n-1)n}{2}=n^2$；或者写成 $2S_n-n=n(n+1)-n=n^2$。",
+    "jojo": {
+      "answer": "$n^2$",
+      "status": "correct",
+      "note": "课堂笔记/跟写。题干横线未填，演算得出 $n^2$"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-023",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 5 后）",
+    "type": "拓展",
+    "page": 25,
+    "knowledge_points": [
+      "fib-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "$1^2+1^2+2^2+3^2+5^2+8^2+13^2+21^2+34^2=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "1870",
+    "solution": "这些数是斐波那契数列：从第三项起，每一项等于前面两项相加。记 $F_1=1,F_2=1,\\ldots,F_9=34$，下一项 $F_{10}=55$。\n\n斐波那契数列有一条平方和公式：$F_1^2+F_2^2+\\cdots+F_n^2=F_n\\times F_{n+1}$。\n\n所以原式 $=34\\times55=1870$。",
+    "jojo": {
+      "answer": "1870",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-024",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 6",
+    "type": "例题",
+    "page": 26,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 2,
+    "stem": "$1^2+2^2+3^2+\\cdots+25^2=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "5525",
+    "solution": "平方和公式：$1^2+2^2+\\cdots+n^2=n(n+1)(2n+1)\\div6$。\n\n这里 $n=25$，所以 $25\\times26\\times51\\div6=5525$。",
+    "jojo": {
+      "answer": "5525",
+      "status": "correct",
+      "note": "课堂笔记/跟写。题干横线未填，演算得出 5525；同页还有平方和公式的推导笔记"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-025",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 6",
+    "type": "例题",
+    "page": 27,
+    "knowledge_points": [
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 3,
+    "stem": "(1) $15^2+16^2+17^2+\\cdots+21^2$．\n\n(2) $2^2+4^2+6^2+\\cdots+24^2$．\n\n(3) $1^2+3^2+5^2+\\cdots+25^2$．",
+    "figure": null,
+    "answer": "(1) $2296$\n(2) $2600$\n(3) $2925$",
+    "solution": "记 $S_n=1^2+2^2+\\cdots+n^2=n(n+1)(2n+1)\\div6$。\n\n(1) 不从 1 开始，就用后面减去前面：$S_{21}-S_{14}=21\\times22\\times43\\div6-14\\times15\\times29\\div6=3311-1015=2296$。\n\n(2) 提出 4：$2^2+4^2+\\cdots+24^2=4(1^2+2^2+\\cdots+12^2)=4S_{12}=4\\times12\\times13\\times25\\div6=2600$。\n\n(3) 奇数平方和 = 全部平方和 − 偶数平方和：$S_{25}-4S_{12}=5525-2600=2925$。（第(3)问在讲义第 28 页。）",
+    "jojo": {
+      "answer": "2296；2600；2925",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-026",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 7",
+    "type": "例题",
+    "page": 30,
+    "knowledge_points": [
+      "arith-sum-of-products",
+      "arith-sum-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 3,
+    "stem": "计算：$1\\times2+2\\times3+\\cdots+48\\times49+49\\times50$．",
+    "figure": null,
+    "answer": "41650",
+    "solution": "这是相邻两数相乘再相加，公式是 $1\\times2+2\\times3+\\cdots+n(n+1)=n(n+1)(n+2)\\div3$。这里 $n=49$，所以 $49\\times50\\times51\\div3=41650$。\n\n也可以拆开：$k(k+1)=k^2+k$，于是原式 $=(1^2+\\cdots+49^2)+(1+\\cdots+49)=49\\times50\\times99\\div6+(1+49)\\times49\\div2=41650$。",
+    "jojo": {
+      "answer": "41650",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-027",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 7",
+    "type": "例题",
+    "page": 31,
+    "knowledge_points": [
+      "arith-sum-of-products",
+      "arith-sum-of-squares",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$1\\times99+2\\times98+3\\times97+\\cdots+98\\times2+99\\times1$．",
+    "figure": null,
+    "answer": "166650",
+    "solution": "这是一头一尾配对相乘，公式是 $1\\times n+2\\times(n-1)+\\cdots+n\\times1=n(n+1)(n+2)\\div6$。这里相当于 $n=99$，所以 $99\\times100\\times101\\div6=166650$。\n\n也可以展开：$k\\times(100-k)=100k-k^2$，于是原式 $=(1+2+\\cdots+99)\\times100-(1^2+\\cdots+99^2)=166650$。",
+    "jojo": {
+      "answer": "166650",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-028",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Extension（Exploration 7 后）",
+    "type": "拓展",
+    "page": 32,
+    "knowledge_points": [
+      "arith-diff-of-squares",
+      "arith-sum-of-squares"
+    ],
+    "difficulty": 4,
+    "stem": "计算：$1\\times3+3\\times5+5\\times7+\\cdots+99\\times101$．",
+    "figure": null,
+    "answer": "171650",
+    "solution": "每一项都可以写成平方差：$(2k-1)(2k+1)=(2k)^2-1$。从 $1\\times3$ 到 $99\\times101$，就是 $k=1$ 到 $50$：\n\n原式 $=(2^2-1^2)+(4^2-1^2)+\\cdots+(100^2-1^2)=4(1^2+2^2+\\cdots+50^2)-50$。\n\n$4\\times50\\times51\\times101\\div6-50=171700-50=171650$。",
+    "jojo": {
+      "answer": "171650",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-029",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Warm Up ③",
+    "type": "试一试",
+    "page": 33,
+    "knowledge_points": [
+      "arith-sum-of-cubes",
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "$1^3+2^3+3^3+\\cdots+19^3=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "36100",
+    "solution": "立方和公式：从 1 的立方加到 $n$ 的立方，等于“从 1 加到 $n$”的平方。\n\n$1+2+\\cdots+19=19\\times20\\div2=190$，所以原式 $=190^2=36100$。",
+    "jojo": {
+      "answer": "36100",
+      "status": "correct",
+      "note": "课堂笔记/跟写。同页还有立方和公式的归纳与裂项笔记"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-030",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 8",
+    "type": "例题",
+    "page": 34,
+    "knowledge_points": [
+      "arith-sum-of-cubes"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$1^3+2^3+3^3+\\cdots+24^3$．",
+    "figure": null,
+    "answer": "90000",
+    "solution": "立方和等于前 $n$ 个数之和的平方。$1+2+\\cdots+24=24\\times25\\div2=300$，所以原式 $=300^2=90000$。",
+    "jojo": {
+      "answer": "90000",
+      "status": "correct",
+      "note": "课堂笔记/跟写"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  },
+  {
+    "id": "xes4a-01-031",
+    "book": "xes4a",
+    "chapter": "01",
+    "chapter_title": "幂运算",
+    "lesson": "Exploration 8",
+    "type": "例题",
+    "page": 35,
+    "knowledge_points": [
+      "arith-sum-of-cubes"
+    ],
+    "difficulty": 4,
+    "stem": "$1^3+3^3+5^3+\\cdots+99^3=\\_\\_\\_$．",
+    "figure": null,
+    "answer": "12497500",
+    "solution": "奇数立方和 = 全部立方和 − 偶数立方和。偶数立方可以提出 $2^3=8$：\n\n原式 $=(1^3+\\cdots+100^3)-(2^3+4^3+\\cdots+100^3)$\n$=(1+\\cdots+100)^2-8\\times(1^3+\\cdots+50^3)$\n$=(1+\\cdots+100)^2-8\\times(1+\\cdots+50)^2$。\n\n$1+\\cdots+100=5050$，$1+\\cdots+50=1275$，所以 $5050^2-8\\times1275^2=25502500-13005000=12497500$。",
+    "jojo": {
+      "answer": "12497500",
+      "status": "correct",
+      "note": "课堂笔记/跟写。题干横线未填，演算得出 12497500"
+    },
+    "tags": [
+      "课堂笔记/跟写",
+      "数列求和"
+    ]
+  }
+]

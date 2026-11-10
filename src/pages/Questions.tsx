@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QuestionCard } from "../components/QuestionCard";
 import { useTitle } from "../components/Ui";
-import { bookShort, books, knowledgeDocs, questions } from "../data/catalog";
+import { bookShort, books, chapterOptions, knowledgeDocs, questions } from "../data/catalog";
 import { EMPTY_FILTERS, filterQuestions, groupByLesson, type QuestionFilters } from "../lib/filter";
 import { QUESTION_TYPES } from "../lib/constants";
 
@@ -32,6 +32,17 @@ export function Questions() {
     }
     setParams(search, { replace: true });
   }
+
+  const chapters = useMemo(() => {
+    const names = new Map<string, string[]>();
+    for (const option of chapterOptions(filters.book)) {
+      const name = option.title.replace(/^\d{2}\s/, "");
+      const list = names.get(option.id) ?? [];
+      if (!list.includes(name)) list.push(name);
+      names.set(option.id, list);
+    }
+    return [...names.entries()].map(([id, list]) => ({ id, title: `${id} ${list.join(" / ")}` }));
+  }, [filters.book]);
 
   const lessons = useMemo(() => {
     const seen: string[] = [];
@@ -85,7 +96,9 @@ export function Questions() {
           <label>章节
             <select value={filters.chapter} onChange={(event) => update({ chapter: event.target.value, lesson: "" })}>
               <option value="">全部</option>
-              <option value="01">01 冠军请听题</option>
+              {chapters.map((chapter) => (
+                <option key={chapter.id} value={chapter.id}>{chapter.title}</option>
+              ))}
             </select>
           </label>
           <label>活动

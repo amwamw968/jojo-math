@@ -54,10 +54,40 @@
       "title": "学而思四年级",
       "publisher": "学而思",
       "grade": 4,
-      "term": null,
+      "term": "秋季",
       "class_type": null,
-      "note": "班型和教材都还不知道。",
+      "note": "班型在原书上没有印，待确认。已收录第 1 讲《幂运算》。",
       "lectures": [
+        {
+          "id": "xes-4-l01",
+          "number": 1,
+          "title": "幂运算",
+          "focus": null,
+          "status": "已收录",
+          "note": "讲义和练习册都是这一讲。班型待确认。",
+          "sources": [
+            { "book": "xes4a", "chapter": "01" },
+            { "book": "xes4a-hw", "chapter": "01" }
+          ],
+          "knowledge_points": [
+            "exp-definition",
+            "exp-zero",
+            "exp-power",
+            "exp-product",
+            "exp-quotient",
+            "exp-same-base",
+            "exp-product-power",
+            "arith-arithmetic-series",
+            "exp-compare",
+            "arith-mountain-sum",
+            "fib-sum-of-squares",
+            "arith-sum-of-squares",
+            "arith-sum-of-products",
+            "arith-diff-of-squares",
+            "arith-sum-of-cubes"
+          ],
+          "engines": []
+        },
         {
           "id": "xes-4-unknown",
           "number": null,
