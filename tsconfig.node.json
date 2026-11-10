@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "types": ["node"]
   },
   "include": ["scripts", "vite.config.ts", "src/lib/frontmatter.ts", "src/lib/constants.ts"]

@@ -30,3 +30,12 @@
   "tags": []
 }
 错题集 = 所有 jojo.status 为 wrong/partial 的题 + 网站上用户手动标记的错题（存浏览器 localStorage，可导出/导入 JSON）。
+
+讲次（data/syllabus.json）：
+- tracks[]：一门课。id、title、publisher、grade、term、class_type（未知则为 null）
+- lectures[]：一讲。id、number（未知为 null）、title（待补必须是 null）、focus、status（已收录|待补）
+- sources[]：{book, chapter}，指向 data/questions/<book>/<chapter>.json
+- knowledge_points[]、engines[]：这一讲用到的知识点和变式引擎
+每道题所在的书和章节必须出现在恰好一个已收录讲次的 sources 里。
+标签里的 `同题:<题目id>` 表示两道题是同一道，两边都要写，并且 id 必须存在。
+`官方答案一致` 只是备注，不改变对错。

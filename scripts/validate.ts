@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { z } from "zod";
+import { ENGINE_IDS } from "../src/engine/engines";
 import { CATEGORIES, JOJO_STATUSES, PUBLISHERS, QUESTION_TYPES } from "../src/lib/constants";
 import { parseFrontmatter, parseRelated } from "../src/lib/frontmatter";
 
@@ -283,6 +284,101 @@ for (const file of figureFiles) {
     continue;
   }
   if (!figureRefs.has(figure)) fail(`${rel(file)}：没有任何题目引用这张图`);
+}
+
+const syllabusFile = path.join(root, "data/syllabus.json");
+const syllabusParsed = readJson(syllabusFile) as { tracks?: unknown } | undefined;
+const trackSchema = z
+  .object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    publisher: z.enum(PUBLISHERS),
+    grade: z.number().int().min(1).max(12),
+    term: z.string().min(1).nullable(),
+    class_type: z.string().min(1).nullable(),
+    note: z.string().optional(),
+    lectures: z.array(
+      z
+        .object({
+          id: z.string().regex(/^[a-z0-9-]+$/, "讲次 id 不合法"),
+          number: z.number().int().positive().nullable(),
+          title: z.string().min(1).nullable(),
+          focus: z.string().min(1).nullable(),
+          status: z.enum(["已收录", "待补"]),
+          note: z.string().optional(),
+          sources: z.array(
+            z
+              .object({
+                book: z.string().min(1),
+                chapter: z.string().regex(/^\d{2}$/),
+              })
+              .strict(),
+          ),
+          knowledge_points: z.array(z.string().min(1)),
+          engines: z.array(z.string().min(1)),
+        })
+        .strict(),
+    ),
+  })
+  .strict();
+const syllabusSchema = z.object({ tracks: z.array(trackSchema).min(1) }).strict();
+const syllabusResult = syllabusSchema.safeParse(syllabusParsed);
+const covered = new Map<string, string>();
+if (!syllabusResult.success && syllabusParsed !== undefined) {
+  reportZod(syllabusFile, "", syllabusResult.error.issues);
+} else if (syllabusResult.success) {
+  const requiredTracks = ["gs-autumn-4", "xes-4", "club-4"];
+  for (const id of requiredTracks) {
+    if (!syllabusResult.data.tracks.some((track) => track.id === id)) {
+      fail(`data/syllabus.json：缺少课程「${id}」`);
+    }
+  }
+  const lectureIds = new Set<string>();
+  for (const track of syllabusResult.data.tracks) {
+    for (const lecture of track.lectures) {
+      if (lectureIds.has(lecture.id)) fail(`data/syllabus.json：讲次「${lecture.id}」重复`);
+      lectureIds.add(lecture.id);
+      if (lecture.status === "待补") {
+        if (lecture.title !== null) fail(`data/syllabus.json · ${lecture.id}：待补讲次的标题必须是 null，不能编名字`);
+        if (lecture.sources.length > 0) fail(`data/syllabus.json · ${lecture.id}：待补讲次还不能挂题目`);
+      } else if (!lecture.title) {
+        fail(`data/syllabus.json · ${lecture.id}：已收录讲次必须有标题`);
+      }
+      for (const kp of lecture.knowledge_points) {
+        if (!knowledgeIds.has(kp)) fail(`data/syllabus.json · ${lecture.id}：找不到知识点「${kp}」`);
+      }
+      for (const engine of lecture.engines) {
+        if (!(ENGINE_IDS as readonly string[]).includes(engine)) {
+          fail(`data/syllabus.json · ${lecture.id}：没有引擎「${engine}」`);
+        }
+      }
+      for (const source of lecture.sources) {
+        const key = `${source.book}/${source.chapter}`;
+        if (!bookIds.has(source.book)) fail(`data/syllabus.json · ${lecture.id}：没有书「${source.book}」`);
+        const questionFile = path.join(root, "data/questions", source.book, `${source.chapter}.json`);
+        if (!statExists(questionFile)) fail(`data/syllabus.json · ${lecture.id}：没有题目文件 ${key}.json`);
+        if (covered.has(key)) fail(`data/syllabus.json：${key} 同时挂在「${covered.get(key)}」和「${lecture.id}」`);
+        covered.set(key, lecture.id);
+      }
+    }
+  }
+  const autumn = syllabusResult.data.tracks.find((track) => track.id === "gs-autumn-4");
+  const lecture1 = autumn?.lectures.find((lecture) => lecture.number === 1);
+  for (const source of [
+    ["gs4a", "01"],
+    ["gs4a-hw", "01"],
+    ["gs4a-dp", "01"],
+  ]) {
+    if (!lecture1?.sources.some((item) => item.book === source[0] && item.chapter === source[1])) {
+      fail(`data/syllabus.json：高思秋季第 1 讲必须包含 ${source[0]}/${source[1]}（每日一练和课后练习都算这一讲）`);
+    }
+  }
+  for (const file of questionFiles) {
+    const parts = path.relative(path.join(root, "data/questions"), file).split(path.sep);
+    if (parts.length !== 2) continue;
+    const key = `${parts[0]}/${parts[1].replace(/\.json$/, "")}`;
+    if (!covered.has(key)) fail(`${rel(file)}：没有对应的讲次。请在 data/syllabus.json 里把这一章挂到某一讲`);
+  }
 }
 
 if (errors.length > 0) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { bookShort, knowledgeById } from "../data/catalog";
 import { workbookNote } from "../lib/mistakes";
+import { sameProblemIds } from "../lib/same";
 import { stemPlain } from "../lib/text";
 import { useUser } from "../lib/user";
 import type { Question } from "../types";
@@ -10,6 +11,7 @@ export function QuestionCard({ question }: { question: Question }) {
   const { data } = useUser();
   const mark = data.practice[question.id];
   const note = workbookNote(question);
+  const same = sameProblemIds(question).length > 0;
   return (
     <Link to={`/questions/${question.id}`} className="q-card">
       <div className="q-card-top">
@@ -34,6 +36,7 @@ export function QuestionCard({ question }: { question: Question }) {
         <span>{bookShort(question.book)}</span>
         {question.jojo ? <StatusPill status={question.jojo.status} /> : null}
         {note ? <span className="tag note-tag">有批注</span> : null}
+        {same ? <span className="tag same">同题</span> : null}
         {mark ? <span className={mark === "会了" ? "mark good" : "mark bad"}>{mark}</span> : null}
       </div>
     </Link>

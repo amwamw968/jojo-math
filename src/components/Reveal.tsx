@@ -2,13 +2,11 @@ import { useState } from "react";
 import { MathText } from "./MathText";
 
 export function Reveal({
-  title,
   closedLabel,
   openLabel,
   text,
   empty,
 }: {
-  title: string;
   closedLabel: string;
   openLabel: string;
   text: string;
@@ -18,8 +16,7 @@ export function Reveal({
   return (
     <section className={open ? "reveal open" : "reveal"}>
       <button type="button" className="reveal-toggle" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
-        <span className="reveal-title">{title}</span>
-        <span>{open ? openLabel : closedLabel}</span>
+        {open ? openLabel : closedLabel}
       </button>
       {open ? (
         <div className="reveal-body">

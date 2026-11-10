@@ -53,6 +53,17 @@ export const AlertIcon = () => (
   </Svg>
 );
 
+export const ListIcon = () => (
+  <Svg>
+    <path d="M8 7h11" />
+    <path d="M8 12h11" />
+    <path d="M8 17h11" />
+    <path d="M4.5 7h.01" />
+    <path d="M4.5 12h.01" />
+    <path d="M4.5 17h.01" />
+  </Svg>
+);
+
 export const BulbIcon = () => (
   <Svg>
     <path d="M9 16.5h6" />

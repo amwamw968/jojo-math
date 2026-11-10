@@ -2,14 +2,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import { questions } from "../data/catalog";
 import { isMistake } from "../lib/mistakes";
 import { useUser } from "../lib/user";
-import { AlertIcon, BookIcon, BulbIcon, Fox, HomeIcon, PencilIcon } from "./Icons";
+import { AlertIcon, BookIcon, BulbIcon, Fox, HomeIcon, ListIcon, PencilIcon } from "./Icons";
 
 const NAV = [
-  { to: "/", label: "首页", icon: HomeIcon, end: true },
-  { to: "/questions", label: "题库", icon: BookIcon, end: false },
-  { to: "/practice", label: "练习", icon: PencilIcon, end: false },
-  { to: "/mistakes", label: "错题", icon: AlertIcon, end: false },
-  { to: "/knowledge", label: "知识点", icon: BulbIcon, end: false },
+  { to: "/", label: "首页", short: "首页", icon: HomeIcon, end: true },
+  { to: "/lectures", label: "讲次", short: "讲次", icon: ListIcon, end: false },
+  { to: "/questions", label: "题库", short: "题库", icon: BookIcon, end: false },
+  { to: "/practice", label: "练习", short: "练习", icon: PencilIcon, end: false },
+  { to: "/mistakes", label: "错题", short: "错题", icon: AlertIcon, end: false },
+  { to: "/knowledge", label: "知识点", short: "知识", icon: BulbIcon, end: false },
 ];
 
 export function Layout() {
@@ -52,7 +53,7 @@ export function Layout() {
         {NAV.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => (isActive ? "tab active" : "tab")}>
             <item.icon />
-            <span>{item.label}</span>
+            <span>{item.short}</span>
             {item.to === "/mistakes" && todo > 0 ? <em className="tab-badge">{todo}</em> : null}
           </NavLink>
         ))}
