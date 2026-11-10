@@ -29,7 +29,7 @@ npm run build
 npm run preview
 ```
 
-`validate` 会检查题目是否符合 [SCHEMA.md](SCHEMA.md)，知识点 id 能不能对上，配图在不在，`同题:` 是不是互相指向，以及每道题有没有挂到某一讲。
+`validate` 会检查题目是否符合 [SCHEMA.md](SCHEMA.md)，知识点 id 能不能对上，配图在不在，`同题:` 是不是互相指向，每道题有没有挂到某一讲，以及题干、答案、解析和知识点里的公式能不能被 KaTeX 解析。
 
 ## 怎么加题目
 

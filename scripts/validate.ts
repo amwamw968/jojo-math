@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { z } from "zod";
 import { ENGINE_IDS } from "../src/engine/engines";
+import { katexFailure } from "../src/lib/katex-check";
 import { CATEGORIES, JOJO_STATUSES, PUBLISHERS, QUESTION_TYPES } from "../src/lib/constants";
 import { parseFrontmatter, parseRelated } from "../src/lib/frontmatter";
 
@@ -161,6 +162,8 @@ for (const file of mdFiles) {
     fail(`${rel(file)}：分类和 index.json 不一致`);
   }
   if (!parsed.body.trim()) fail(`${rel(file)}：正文是空的`);
+  const mathProblem = katexFailure(parsed.body);
+  if (mathProblem) fail(`${rel(file)}：正文公式 KaTeX 解析失败（${mathProblem}）`);
   let related: string[] = [];
   try {
     related = parseRelated(parsed.data.related);
@@ -245,6 +248,18 @@ for (const file of questionFiles) {
         if (!statExists(disk)) fail(`${rel(file)}${label}：配图不存在 public/${question.figure}`);
         else figureRefs.add(question.figure);
       }
+    }
+    for (const field of ["stem", "answer", "solution"] as const) {
+      const problem = katexFailure(question[field]);
+      if (problem) fail(`${rel(file)}${label}：${field} 的公式 KaTeX 解析失败（${problem}）`);
+    }
+    if (question.jojo?.answer) {
+      const problem = katexFailure(question.jojo.answer);
+      if (problem) fail(`${rel(file)}${label}：jojo.answer 的公式 KaTeX 解析失败（${problem}）`);
+    }
+    if (question.jojo?.note) {
+      const problem = katexFailure(question.jojo.note);
+      if (problem) fail(`${rel(file)}${label}：jojo.note 的公式 KaTeX 解析失败（${problem}）`);
     }
     if (question.jojo?.status === "wrong" || question.jojo?.status === "partial") workbookMistakes += 1;
     perBook.set(question.book, (perBook.get(question.book) ?? 0) + 1);

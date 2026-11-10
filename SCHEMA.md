@@ -36,6 +36,8 @@
 - lectures[]：一讲。id、number（未知为 null）、title（待补必须是 null）、focus、status（已收录|待补）
 - sources[]：{book, chapter}，指向 data/questions/<book>/<chapter>.json
 - knowledge_points[]、engines[]：这一讲用到的知识点和变式引擎
+`npm run validate` 会用 KaTeX 解析题干、答案、解析、作业本批注和知识点正文里的 `$...$`、`$$...$$`、`\(...\)`、`\[...\]`。解析失败就不通过。
+
 每道题所在的书和章节必须出现在恰好一个已收录讲次的 sources 里。
 标签里的 `同题:<题目id>` 表示两道题是同一道，两边都要写，并且 id 必须存在。
 `官方答案一致` 只是备注，不改变对错。

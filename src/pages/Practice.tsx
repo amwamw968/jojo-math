@@ -42,7 +42,7 @@ export function Practice() {
 
   if (!queue) {
     return (
-      <div className="page narrow">
+      <div className="page narrow" data-page="practice">
         <h1>练习</h1>
         <p>先自己算，想看答案再点开。会了或不会都会记在这台设备上。</p>
         <label className="field">范围
@@ -65,7 +65,7 @@ export function Practice() {
     const missed = Object.entries(session).filter(([, mark]) => mark === "不会");
     const got = Object.values(session).filter((mark) => mark === "会了").length;
     return (
-      <div className="page narrow">
+      <div className="page narrow" data-page="practice">
         <h1>这轮练完了</h1>
         <p className="lede">会了 {got} 道，不会 {missed.length} 道。</p>
         {missed.length > 0 ? (
@@ -93,7 +93,7 @@ export function Practice() {
   }
 
   return (
-    <div className="page narrow">
+    <div className="page narrow" data-page="practice">
       <p className="progress-label">第 {index + 1} / {queue.length} 题</p>
       <div className="bar"><span style={{ width: `${(index / queue.length) * 100}%` }} /></div>
       <article className="article">

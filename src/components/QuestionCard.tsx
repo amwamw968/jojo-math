@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { bookShort, knowledgeById } from "../data/catalog";
 import { workbookNote } from "../lib/mistakes";
 import { sameProblemIds } from "../lib/same";
-import { stemPlain } from "../lib/text";
 import { useUser } from "../lib/user";
 import type { Question } from "../types";
+import { MathText } from "./MathText";
 import { Pips, StatusPill, TypePill } from "./Ui";
 
 export function QuestionCard({ question }: { question: Question }) {
@@ -19,7 +19,7 @@ export function QuestionCard({ question }: { question: Question }) {
         <Pips value={question.difficulty} />
         <span className="page-no">第 {question.page} 页</span>
       </div>
-      <p className="card-stem">{stemPlain(question.stem)}</p>
+      <MathText className="card-math">{question.stem}</MathText>
       <div className="q-card-tags">
         {question.tags.slice(0, 3).map((tag) => (
           <span key={tag} className="tag">

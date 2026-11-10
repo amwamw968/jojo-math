@@ -11,7 +11,7 @@ export function KnowledgeList() {
   })).filter((group) => group.docs.length > 0);
 
   return (
-    <div className="page">
+    <div className="page" data-page="knowledge-list">
       <header className="page-head">
         <h1>知识点</h1>
         <p>按计算、数论、几何这些类别排。每篇下面能看到用到它的题目。</p>

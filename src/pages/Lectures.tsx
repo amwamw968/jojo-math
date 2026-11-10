@@ -6,7 +6,7 @@ import { lectureLabel, tracks } from "../lib/syllabus-data";
 export function Lectures() {
   useTitle("讲次");
   return (
-    <div className="page">
+    <div className="page" data-page="lectures">
       <header className="page-head">
         <h1>讲次</h1>
         <p>三门课分开排。只有已经核对过的讲次才写标题，其余标成待补。</p>

@@ -2,7 +2,6 @@ import { Link, useParams } from "react-router-dom";
 import { MathText } from "../components/MathText";
 import { useTitle } from "../components/Ui";
 import { bookShort, knowledgeById, questions } from "../data/catalog";
-import { previewText } from "../lib/text";
 
 export function KnowledgeDetail() {
   const { id = "" } = useParams();
@@ -11,7 +10,7 @@ export function KnowledgeDetail() {
   if (!doc) return <div className="page"><h1>没有这篇知识点</h1><Link to="/knowledge">返回</Link></div>;
   const related = questions.filter((question) => question.knowledge_points.includes(doc.id));
   return (
-    <div className="page narrow">
+    <div className="page narrow" data-page="knowledge">
       <p className="crumbs"><Link to="/knowledge">知识点</Link><span>/</span><span>{doc.category}</span></p>
       <article className="article knowledge">
         <MathText>{doc.body}</MathText>
@@ -27,7 +26,7 @@ export function KnowledgeDetail() {
           <li key={question.id}>
             <Link to={`/questions/${question.id}`}>
               <strong>{bookShort(question.book)} · {question.type}</strong>
-              <span>{previewText(question.stem, 64)}</span>
+              <MathText>{question.stem}</MathText>
             </Link>
           </li>
         ))}
