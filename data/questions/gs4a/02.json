@@ -1,0 +1,614 @@
+[
+  {
+    "id": "gs4a-02-001",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "试一试",
+    "page": 28,
+    "knowledge_points": [
+      "count-permutation",
+      "count-perm-vs-comb"
+    ],
+    "difficulty": 1,
+    "stem": "后勤组有红、黄、蓝 3 面颜色不同的信号旗。比赛时挑选 2 面，按前后顺序举起，不同顺序是不同的提示信号。使用这三面旗子，一共能搭配出多少种不一样的提示信号？",
+    "figure": null,
+    "answer": "$6$",
+    "solution": "要看顺序，是排列。从 3 面里选 2 面排先后：$A_{3}^{2}=3\\times 2=6$。把 3 面全部排完是 $A_{3}^{3}=6$，得数一样，但这一问是选 2 面。",
+    "jojo": {
+      "answer": "$A_{3}^{2}=3\\times 2=6$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:03"
+    ]
+  },
+  {
+    "id": "gs4a-02-002",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "试一试",
+    "page": 28,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "填空。排列：选出几个排一行，交换顺序就______。排列数：所有排列的个数，符号______来表示。",
+    "figure": null,
+    "answer": "不同；$A_{n}^{m}$",
+    "solution": "排成一行时，交换顺序就是另一种排法，所以填「不同」。排列的种数用 $A_{n}^{m}$ 表示，下面的 $n$ 是一共有几个，上面的 $m$ 是选出几个来排。",
+    "jojo": {
+      "answer": "不同；$A_{n}^{m}$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了",
+      "扫描页:03"
+    ]
+  },
+  {
+    "id": "gs4a-02-003",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "试一试",
+    "page": 29,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "计算：(1) $A_{5}^{1}=$______；(2) $A_{5}^{2}=$______；(3) $A_{5}^{3}=$______；(4) $A_{5}^{4}=$______；(5) $A_{5}^{5}=$______。",
+    "figure": null,
+    "answer": "$5$；$20$；$60$；$120$；$120$",
+    "solution": "从 5 开始倒着乘，乘几个由上面的数决定。(1) $A_{5}^{1}=5$。(2) $A_{5}^{2}=5\\times 4=20$。(3) $A_{5}^{3}=5\\times 4\\times 3=60$。(4) $A_{5}^{4}=5\\times 4\\times 3\\times 2=120$。(5) $A_{5}^{5}=5\\times 4\\times 3\\times 2\\times 1=120$。最后两问得数都是 120，乘的个数不一样。",
+    "jojo": {
+      "answer": "$5$；$5\\times 4=20$；$5\\times 4\\times 3=60$；$5\\times 4\\times 3\\times 2=120$；$5\\times 4\\times 3\\times 2\\times 1=120$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:04"
+    ]
+  },
+  {
+    "id": "gs4a-02-004",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "试一试",
+    "page": 29,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "填空。$A_{n}^{m}$：从______开始倒着乘，连续乘______个数。",
+    "figure": null,
+    "answer": "从 $n$ 开始，连续乘 $m$ 个",
+    "solution": "下面的 $n$ 是第一个因数，上面的 $m$ 是一共要乘几个数。例如 $A_{5}^{3}$ 从 5 开始，连续乘 3 个数：$5\\times 4\\times 3$。",
+    "jojo": {
+      "answer": "从 $n$ 开始，连续乘 $m$ 个",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了",
+      "扫描页:04"
+    ]
+  },
+  {
+    "id": "gs4a-02-005",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "例题",
+    "page": 30,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "琪琪、卓卓、瑞瑞、莉莉 4 名引导员，每次挑选 3 人站成一排举牌，剩下一人拍照。一共能拍出多少种不同的列队照片？",
+    "figure": null,
+    "answer": "$24$",
+    "solution": "站的位置不同，照片就不同，是排列。从 4 人里选 3 人排队：$A_{4}^{3}=4\\times 3\\times 2=24$。",
+    "jojo": {
+      "answer": "$A_{4}^{3}=4\\times 3\\times 2=24$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务1",
+      "扫描页:05"
+    ]
+  },
+  {
+    "id": "gs4a-02-006",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动一 运动会开场彩排",
+    "type": "实战",
+    "page": 31,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "手里有 7 面花纹、色彩各不相同的引导彩旗。每次取出 5 面，横向依次排列，前后顺序不同就是不同的信号。一共可以搭配出多少种不同的信号？",
+    "figure": null,
+    "answer": "$2520$",
+    "solution": "顺序有关，是排列。$A_{7}^{5}=7\\times 6\\times 5\\times 4\\times 3=2520$。",
+    "jojo": {
+      "answer": "$A_{7}^{5}=7\\times 6\\times 5\\times 4\\times 3=2520$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践1",
+      "扫描页:06"
+    ]
+  },
+  {
+    "id": "gs4a-02-007",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "试一试",
+    "page": 32,
+    "knowledge_points": [
+      "count-perm-vs-comb"
+    ],
+    "difficulty": 1,
+    "stem": "有 4 面不同颜色的引导彩旗。(1) 从中选出 2 面排成一行作为入场信号，是______问题；(2) 从中选出 2 面交给依依保管，是______问题。",
+    "figure": null,
+    "answer": "排列；组合",
+    "solution": "(1) 排成一行，换顺序就是另一种信号，是排列。(2) 交给依依保管，两面旗在手里的先后没有新的意思，是组合。",
+    "jojo": {
+      "answer": "排列；组合",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:07"
+    ]
+  },
+  {
+    "id": "gs4a-02-008",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "试一试",
+    "page": 32,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-combination"
+    ],
+    "difficulty": 1,
+    "stem": "填空。组合：选出几个成一组，交换顺序还______。组合数：所有组合的个数，符号______来表示。",
+    "figure": null,
+    "answer": "一样；$C_{n}^{m}$",
+    "solution": "成一组时，只看有哪些，不看谁排在前面，所以交换顺序还是一样。组合的种数用 $C_{n}^{m}$ 表示。",
+    "jojo": {
+      "answer": "一样；$C_{n}^{m}$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了",
+      "扫描页:07"
+    ]
+  },
+  {
+    "id": "gs4a-02-009",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "试一试",
+    "page": 33,
+    "knowledge_points": [
+      "count-comb-perm-relation",
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "填空。(1) $C_{4}^{2}=$______$\\div$______；(2) $C_{4}^{3}=$______$\\div$______。",
+    "figure": null,
+    "answer": "$A_{4}^{2}\\div A_{2}^{2}$；$A_{4}^{3}\\div A_{3}^{3}$",
+    "solution": "每个组合里的 $m$ 个东西，自己排一排会有 $A_{m}^{m}$ 种。组合不分这些顺序，所以要除掉它。(1) 选 2 个，除以 $A_{2}^{2}$。(2) 选 3 个，除以 $A_{3}^{3}$。算出来是 $C_{4}^{2}=6$，$C_{4}^{3}=4$。",
+    "jojo": {
+      "answer": "$C_{4}^{2}=A_{4}^{2}\\div A_{2}^{2}$；$C_{4}^{3}=A_{4}^{3}\\div A_{3}^{3}$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:08"
+    ]
+  },
+  {
+    "id": "gs4a-02-010",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "试一试",
+    "page": 33,
+    "knowledge_points": [
+      "count-comb-perm-relation"
+    ],
+    "difficulty": 2,
+    "stem": "填空。$C_{n}^{m}=$______$\\div$______。",
+    "figure": null,
+    "answer": "$A_{n}^{m}\\div A_{m}^{m}$",
+    "solution": "排列数 $A_{n}^{m}$ 把选出的 $m$ 个也排了顺序。组合不要这个顺序，而 $m$ 个不同的东西全排有 $A_{m}^{m}$ 种，所以 $C_{n}^{m}=A_{n}^{m}\\div A_{m}^{m}$。",
+    "jojo": {
+      "answer": "$A_{n}^{m}\\div A_{m}^{m}$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了",
+      "扫描页:08"
+    ]
+  },
+  {
+    "id": "gs4a-02-011",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "例题",
+    "page": 34,
+    "knowledge_points": [
+      "count-combination",
+      "count-comb-perm-relation"
+    ],
+    "difficulty": 2,
+    "stem": "选人只确定名单、不区分先后。计算：(1) $C_{5}^{2}$；(2) $C_{6}^{1}$，$C_{6}^{5}$；(3) $C_{10}^{8}$；(4) $C_{100}^{0}$，$C_{100}^{100}$。",
+    "figure": null,
+    "answer": "$10$；$6$，$6$；$45$；$1$，$1$",
+    "solution": "(1) $C_{5}^{2}=(5\\times 4)\\div(2\\times 1)=10$。(2) $C_{6}^{1}=6$。选 5 个就是留下 1 个，所以 $C_{6}^{5}=C_{6}^{1}=6$。(3) $C_{10}^{8}=C_{10}^{2}=(10\\times 9)\\div 2=45$。(4) 一个都不选，或 100 个全选，都只有 1 种。",
+    "jojo": {
+      "answer": "$10$；$6$，$6$；$45$；$1$，$1$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务2",
+      "扫描页:09"
+    ]
+  },
+  {
+    "id": "gs4a-02-012",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "实战",
+    "page": 35,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "只确认物资种类、不区分顺序。计算：(1) $C_{9}^{3}$；(2) $C_{8}^{4}$；(3) $C_{7}^{5}$。",
+    "figure": null,
+    "answer": "$84$；$70$；$21$",
+    "solution": "(1) $C_{9}^{3}=(9\\times 8\\times 7)\\div(3\\times 2\\times 1)=84$。(2) $C_{8}^{4}=(8\\times 7\\times 6\\times 5)\\div(4\\times 3\\times 2\\times 1)=70$。(3) $C_{7}^{5}=C_{7}^{2}=(7\\times 6)\\div 2=21$。",
+    "jojo": {
+      "answer": "$84$；$70$；$21$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践2",
+      "扫描页:10"
+    ]
+  },
+  {
+    "id": "gs4a-02-013",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "例题",
+    "page": 36,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "教练从 10 套热身动作里选出 3 套给运动员赛前练习，不分练习先后。一共有多少种不同的挑选方案？",
+    "figure": null,
+    "answer": "$120$",
+    "solution": "不分先后，是组合。$C_{10}^{3}=(10\\times 9\\times 8)\\div(3\\times 2\\times 1)=120$。",
+    "jojo": {
+      "answer": "$C_{10}^{3}=120$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务3",
+      "扫描页:11"
+    ]
+  },
+  {
+    "id": "gs4a-02-014",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动二 赛前准备",
+    "type": "实战",
+    "page": 37,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "游泳队共有 8 名运动员。教练要从中挑选 3 人参与开场亮相，只确定入选人员、不安排出场顺序。一共有多少种不同的选人方式？",
+    "figure": null,
+    "answer": "$56$",
+    "solution": "只定名单，是组合。$C_{8}^{3}=(8\\times 7\\times 6)\\div(3\\times 2\\times 1)=56$。",
+    "jojo": {
+      "answer": "$C_{8}^{3}=56$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践3",
+      "扫描页:12"
+    ]
+  },
+  {
+    "id": "gs4a-02-015",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "试一试",
+    "page": 38,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "老师从 6 名同学里选出 4 人，分配到四棒赛道。拟定安排是：第一棒小高，第二棒小明，第三棒东东，第四棒奇奇。(1) 将小高和小明顺序交换，______（是/不是）一种新方法；(2) 这个问题是______（排列/组合）问题；(3) 一共有多少种不同的安排方法？",
+    "figure": null,
+    "answer": "是；排列；$360$",
+    "solution": "(1) 第几棒不同，就是新方法，填「是」。(2) 要分棒次，是排列。(3) $A_{6}^{4}=6\\times 5\\times 4\\times 3=360$。",
+    "jojo": {
+      "answer": "是；排列；$A_{6}^{4}=360$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:13"
+    ]
+  },
+  {
+    "id": "gs4a-02-016",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "试一试",
+    "page": 39,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-combination",
+      "count-comb-perm-relation"
+    ],
+    "difficulty": 2,
+    "stem": "老师从 6 名同学中挑选 4 人外出采购，只确定小队成员名单。拟定名单是小高、笑笑、依依、萱萱。(1) 将小高和笑笑顺序交换，______（是/不是）一种新方法；(2) 这个问题是______（排列/组合）问题；(3) 一共有多少种不同的安排方法？",
+    "figure": null,
+    "answer": "不是；组合；$15$",
+    "solution": "(1) 名单不分前后，两个人换个写法还是同一组，填「不是」。(2) 是组合。(3) $C_{6}^{4}=C_{6}^{2}=(6\\times 5)\\div(2\\times 1)=15$。",
+    "jojo": {
+      "answer": "不是；组合；$15$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "试一试",
+      "扫描页:14"
+    ]
+  },
+  {
+    "id": "gs4a-02-017",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "试一试",
+    "page": 39,
+    "knowledge_points": [
+      "count-perm-vs-comb"
+    ],
+    "difficulty": 1,
+    "stem": "填空。交换顺序就不同，是______；交换顺序还一样，是______。",
+    "figure": null,
+    "answer": "排列；组合",
+    "solution": "顺序一换就算新办法，用排列。顺序换了还是同一组，用组合。",
+    "jojo": {
+      "answer": "排列；组合",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "我发现了",
+      "扫描页:14"
+    ]
+  },
+  {
+    "id": "gs4a-02-018",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "例题",
+    "page": 40,
+    "knowledge_points": [
+      "count-permutation",
+      "count-combination"
+    ],
+    "difficulty": 3,
+    "stem": "参赛预备队伍共 8 名同学。一是选出 3 名同学分早、中、晚三个时段做赛场裁判；二是选出 3 名同学组队参与团体比拼，只确定参赛人员名单。各有多少种不同的安排方法？",
+    "figure": null,
+    "answer": "裁判 $336$ 种；名单 $56$ 种",
+    "solution": "早、中、晚是三个不同时段，要看谁在哪一段，是排列：$A_{8}^{3}=8\\times 7\\times 6=336$。只定名单不分先后，是组合：$C_{8}^{3}=(8\\times 7\\times 6)\\div(3\\times 2\\times 1)=56$。",
+    "jojo": {
+      "answer": "$336$；$56$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务4",
+      "扫描页:15"
+    ]
+  },
+  {
+    "id": "gs4a-02-019",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "实战",
+    "page": 41,
+    "knowledge_points": [
+      "count-combination",
+      "count-permutation"
+    ],
+    "difficulty": 3,
+    "stem": "一共有 7 名候选选手。第一种只选出 2 名选手进入后备名单，不区分参赛优先级；第二种选定 1 名作为正式参赛主力、1 名作为替补选手。两种各有多少种不同的选拔方案？",
+    "figure": null,
+    "answer": "第一种 $21$ 种；第二种 $42$ 种",
+    "solution": "第一种只写两个人的名字，是组合：$C_{7}^{2}=(7\\times 6)\\div 2=21$。第二种要分谁是主力、谁是替补，是排列：$A_{7}^{2}=7\\times 6=42$。",
+    "jojo": {
+      "answer": "$21$；$42$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践4",
+      "扫描页:16"
+    ]
+  },
+  {
+    "id": "gs4a-02-020",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "例题",
+    "page": 42,
+    "knowledge_points": [
+      "count-select-then-arrange",
+      "count-combination",
+      "count-permutation"
+    ],
+    "difficulty": 3,
+    "stem": "一共有 12 名特长各不相同的候选运动员，小高、笑笑、萱萱与王老师四人担任小组负责人。(1) 王老师选出了 4 名运动员，一共有多少种不同的选法？(2) 把这 4 名运动员分配给四位小组负责人单独跟进，一共有多少种不同的分法？(3) 最后他们四人分配到的运动员一共有多少种不同的可能？",
+    "figure": null,
+    "answer": "$495$；$24$；$11880$",
+    "solution": "(1) 只选哪 4 人，是组合：$C_{12}^{4}=(12\\times 11\\times 10\\times 9)\\div(4\\times 3\\times 2\\times 1)=495$。(2) 4 位老师不同，4 名运动员全排：$A_{4}^{4}=4\\times 3\\times 2\\times 1=24$。(3) 先选再排：$495\\times 24=11880$。直接给 4 位老师依次挑人：$A_{12}^{4}=12\\times 11\\times 10\\times 9=11880$。两种算法一样。",
+    "jojo": {
+      "answer": "$495$；$24$；$11880$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "任务5",
+      "扫描页:17"
+    ]
+  },
+  {
+    "id": "gs4a-02-021",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "活动三 运动员安排",
+    "type": "实战",
+    "page": 43,
+    "knowledge_points": [
+      "count-select-then-arrange",
+      "count-combination",
+      "count-permutation"
+    ],
+    "difficulty": 3,
+    "stem": "现有 6 名能力特点各不相同的报名选手，选出 4 人分配给 4 位专项教练，每位教练只对接 1 名选手。(1) 先从 6 名选手中选出 4 名，有多少种选法？(2) 4 位教练从这 4 名中每人挑 1 名，有多少种挑法？(3) 最后 4 位教练分配到的运动员有多少种可能？",
+    "figure": null,
+    "answer": "$15$；$24$；$360$",
+    "solution": "(1) 只选人：$C_{6}^{4}=C_{6}^{2}=(6\\times 5)\\div 2=15$。(2) 4 位教练不同：$A_{4}^{4}=24$。(3) $15\\times 24=360$。直接算是 $A_{6}^{4}=6\\times 5\\times 4\\times 3=360$。",
+    "jojo": {
+      "answer": "$15$；$24$；$360$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "实践5",
+      "扫描页:18"
+    ]
+  },
+  {
+    "id": "gs4a-02-022",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "附加活动 比赛位置安排",
+    "type": "拓展",
+    "page": 44,
+    "knowledge_points": [
+      "count-circular-perm"
+    ],
+    "difficulty": 4,
+    "stem": "安排运动员在圆桌休整，座位旋转后重合视为同一种坐法。(1) 7 个人围着圆桌坐成一圈，有多少种不同的坐法？(2) 从 7 个人中选出 5 个人围着圆桌坐成一圈，有多少种不同的坐法？",
+    "figure": null,
+    "answer": "$720$；$504$",
+    "solution": "(1) 先把 7 个人排成一行，有 $7\\times 6\\times 5\\times 4\\times 3\\times 2\\times 1=5040$ 种。同一圈人可以一起转到 7 个位置，这 7 种算 1 种，所以 $5040\\div 7=720$。(2) 先在直线上选 5 人排列，有 $A_{7}^{5}=2520$ 种，再把旋转后重合的 5 种算成 1 种：$2520\\div 5=504$。题目没有说对折也算同一种，所以不再除以 2。",
+    "jojo": {
+      "answer": "$720$；$504$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "高能时刻1",
+      "扫描页:19"
+    ]
+  },
+  {
+    "id": "gs4a-02-023",
+    "book": "gs4a",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "附加活动 比赛位置安排",
+    "type": "拓展",
+    "page": 45,
+    "knowledge_points": [
+      "count-group-dedup"
+    ],
+    "difficulty": 4,
+    "stem": "把 10 名运动员分成几个小组来比拼。(1) 分为 A、B、C 三组，其中有两组各 3 人，另一组 4 人；(2) 分成三组，其中有两组各 3 人，另一组 4 人，组没有名字。各有多少种不同的分组方法？",
+    "figure": null,
+    "answer": "有名字 $12600$ 种；没有名字 $2100$ 种",
+    "solution": "(1) 组有名字。4 人组可以是 A、B、C 中的任意一组，有 3 种；再选人：$3\\times C_{10}^{4}\\times C_{6}^{3}=3\\times 210\\times 20=12600$。(2) 没有名字时，两个 3 人组对调还是同一种分法。先选 4 人那组（人数不同，认得出），再把剩下 6 人分成两个人数相同的组，要除以 2：$C_{10}^{4}\\times C_{6}^{3}\\div 2=2100$。用有名字的 $12600$ 去除以 $3\\times 2=6$，也是 $2100$。不能把 4 人组和 3 人组也对调。",
+    "jojo": {
+      "answer": "$12600$；$2100$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "高能时刻2",
+      "扫描页:20"
+    ]
+  }
+]

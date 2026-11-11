@@ -1,0 +1,658 @@
+[
+  {
+    "id": "gs4a-hw-02-001",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 17,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "解答下面的问题：(1) 有 3 面不同颜色的旗子，选出 2 面排成一行表示一种信号，共有多少种不同的排列方法？(2) 有 3 名同学，从中选出 2 名同学站成一排拍照，共有多少种不同的排列方法？(3) 有 3 所高中，墨莫从中选出 2 所分别作为自己的第一志愿和第二志愿，共有多少种不同的选择方式？",
+    "figure": null,
+    "answer": "都是 $6$ 种",
+    "solution": "三问都是从 3 个里选 2 个，而且要分前后，是排列。$A_{3}^{2}=3\\times 2=6$。",
+    "jojo": {
+      "answer": "三问都是 $A_{3}^{2}=6$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第1题",
+      "扫描页:25"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-002",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 17,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "已知 $A_{3}^{2}=3\\times 2=6$，计算：(1) $A_{5}^{1}$；(2) $A_{5}^{2}$；(3) $A_{5}^{3}$；(4) $A_{5}^{4}$；(5) $A_{5}^{5}$。",
+    "figure": null,
+    "answer": "$5$；$20$；$60$；$120$；$120$",
+    "solution": "(1) $5$。(2) $5\\times 4=20$。(3) $5\\times 4\\times 3=60$。(4) $5\\times 4\\times 3\\times 2=120$。(5) $5\\times 4\\times 3\\times 2\\times 1=120$。",
+    "jojo": {
+      "answer": "$5$；$20$；$60$；$120$；$120$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第2题",
+      "扫描页:25"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-003",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 18,
+    "knowledge_points": [
+      "count-perm-vs-comb"
+    ],
+    "difficulty": 1,
+    "stem": "柯西有 4 面不同颜色的旗子。(1) 从中选出 2 面旗子排成一行，是______问题；(2) 从中选出 2 面旗子送给依依，是______问题。",
+    "figure": null,
+    "answer": "排列；组合",
+    "solution": "排成一行要分前后，是排列。送给依依只是这两面旗，不分前后，是组合。",
+    "jojo": {
+      "answer": "排列；组合",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第3题",
+      "扫描页:26"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-004",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 18,
+    "knowledge_points": [
+      "count-comb-perm-relation"
+    ],
+    "difficulty": 2,
+    "stem": "填空。计算组合数可以先算______。(1) 计算 $C_{4}^{2}$，可以先算______，那么每个组合都重复计算了______次，所以 $C_{4}^{2}=$______$\\div$______；(2) 计算 $C_{4}^{3}$，可以先算______，那么每个组合都重复计算了______次，所以 $C_{4}^{3}=$______$\\div$______。",
+    "figure": null,
+    "answer": "排列数；(1) $A_{4}^{2}$，$A_{2}^{2}$，$A_{4}^{2}\\div A_{2}^{2}$；(2) $A_{4}^{3}$，$A_{3}^{3}$，$A_{4}^{3}\\div A_{3}^{3}$",
+    "solution": "组合数等于排列数除掉组内顺序。选 2 个时，组内有 $A_{2}^{2}$ 种排法；选 3 个时，组内有 $A_{3}^{3}$ 种排法。",
+    "jojo": {
+      "answer": "排列数；$A_{4}^{2}$，$A_{2}^{2}$，$A_{4}^{2}\\div A_{2}^{2}$；$A_{4}^{3}$，$A_{3}^{3}$，$A_{4}^{3}\\div A_{3}^{3}$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第4题",
+      "扫描页:26"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-005",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 18,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "明明老师从 6 名同学中选出 4 名去参加 $4\\times 100$ 米接力。拟定安排是：第一棒小高，第二棒墨莫，第三棒萱萱，第四棒小括狐。(1) 将小高和墨莫顺序交换，______（是/不是）一种新的方法；(2) 这个问题是______（排列/组合）问题；(3) 一共有多少种不同的安排方法？",
+    "figure": null,
+    "answer": "是；排列；$360$",
+    "solution": "棒次不同就是新方法，所以是排列。$A_{6}^{4}=6\\times 5\\times 4\\times 3=360$。",
+    "jojo": {
+      "answer": "是；排列；$360$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第5题（1）",
+      "扫描页:26"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-006",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "原理复现",
+    "type": "练习",
+    "page": 18,
+    "knowledge_points": [
+      "count-perm-vs-comb",
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "明明老师从 6 名同学中选出 4 名去采购物资。拟定名单是小高、笑笑、依依、萱萱。(1) 将小高和笑笑顺序交换，______（是/不是）一种新的方法；(2) 这个问题是______（排列/组合）问题；(3) 一共有多少种不同的安排方法？",
+    "figure": null,
+    "answer": "不是；组合；$15$",
+    "solution": "名单不分前后，交换两个人的写法不是新方法，是组合。$C_{6}^{4}=C_{6}^{2}=15$。",
+    "jojo": {
+      "answer": "不是；组合；$15$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第5题（2）",
+      "扫描页:26"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-007",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 19,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "有 9 个人去照相，照相时每次 3 个人站成一行，那么一共可以拍出多少张不同的照片？",
+    "figure": null,
+    "answer": "$504$",
+    "solution": "站的位置不同，照片就不同。$A_{9}^{3}=9\\times 8\\times 7=504$。",
+    "jojo": {
+      "answer": "$A_{9}^{3}=504$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第1题",
+      "扫描页:27"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-008",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 19,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 1,
+    "stem": "军训期间，小高、墨莫、欢欢和乐乐四个人被分到同一个寝室。教官让他们自己商量着分配 4 个床位，那么一共有多少种不同的分配情况？",
+    "figure": null,
+    "answer": "$24$",
+    "solution": "4 个人和 4 张床都不同，是全排列。$A_{4}^{4}=4\\times 3\\times 2\\times 1=24$。",
+    "jojo": {
+      "answer": "$A_{4}^{4}=24$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第2题",
+      "扫描页:27"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-009",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 19,
+    "knowledge_points": [
+      "count-combination",
+      "count-comb-perm-relation"
+    ],
+    "difficulty": 2,
+    "stem": "计算 $C_{10}^{4}$。",
+    "figure": null,
+    "answer": "$210$",
+    "solution": "$C_{10}^{4}=A_{10}^{4}\\div A_{4}^{4}=(10\\times 9\\times 8\\times 7)\\div(4\\times 3\\times 2\\times 1)=210$。",
+    "jojo": {
+      "answer": "$210$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第3题",
+      "扫描页:27"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-010",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 20,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "计算 $C_{5}^{2}\\times 2-C_{5}^{1}$。",
+    "figure": null,
+    "answer": "$15$",
+    "solution": "$C_{5}^{2}=10$，$C_{5}^{1}=5$，所以 $10\\times 2-5=15$。",
+    "jojo": {
+      "answer": "$15$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第4题",
+      "扫描页:28"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-011",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 20,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "小高打算从 7 件衣服中选出 3 件放在旅行箱里，那么他有多少种不同的选法？",
+    "figure": null,
+    "answer": "$35$",
+    "solution": "衣服放进箱子不分先后，是组合。$C_{7}^{3}=(7\\times 6\\times 5)\\div(3\\times 2\\times 1)=35$。",
+    "jojo": {
+      "answer": "$C_{7}^{3}=35$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第5题",
+      "扫描页:28"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-012",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 20,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 1,
+    "stem": "老师从五个校级优秀学生中选出两个评选市级优秀学生，老师有多少种不同的选法？",
+    "figure": null,
+    "answer": "$10$",
+    "solution": "只选哪两个人，不分先后。$C_{5}^{2}=(5\\times 4)\\div 2=10$。",
+    "jojo": {
+      "answer": "$C_{5}^{2}=10$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第6题",
+      "扫描页:28"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-013",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 21,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "某铁路线共有 14 个车站。这条铁路共需要多少种不同的车票？（北京到天津和天津到北京是不一样的车票。）",
+    "figure": null,
+    "answer": "$182$",
+    "solution": "起点和终点不同，方向相反就是另一种车票，是排列。$A_{14}^{2}=14\\times 13=182$。",
+    "jojo": {
+      "answer": "$A_{14}^{2}=182$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第7题",
+      "扫描页:29"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-014",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 21,
+    "knowledge_points": [
+      "count-combination",
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "妈妈带着小高和表弟两人去超市购物。(1) 妈妈想从樱桃、荔枝、西瓜、水蜜桃和火龙果 5 种水果中选 2 种购买，她一共有多少种不同的选法？(2) 孩子们想吃棒棒糖，妈妈让兄弟两人分别从草莓、葡萄、橙子、哈密瓜和菠萝 5 种口味中各选 1 种。如果兄弟两人约定不选同一种口味，那么他们一共有多少种不同的选法？",
+    "figure": null,
+    "answer": "$10$；$20$",
+    "solution": "(1) 两种水果不分先后，$C_{5}^{2}=10$。(2) 两个人不同，谁选哪种口味要分开，$A_{5}^{2}=5\\times 4=20$。",
+    "jojo": {
+      "answer": "$10$；$20$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第8题",
+      "扫描页:29"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-015",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 22,
+    "knowledge_points": [
+      "count-select-then-arrange"
+    ],
+    "difficulty": 3,
+    "stem": "先从 11 名同学中选出 3 人作为班委，再在这 3 人中确定出班长、副班长和学习委员（一人只能担任一个职位），共有多少种不同的可能？",
+    "figure": null,
+    "answer": "$990$",
+    "solution": "先选哪 3 个人：$C_{11}^{3}=(11\\times 10\\times 9)\\div(3\\times 2\\times 1)=165$。再把 3 个职位排给这 3 人：$A_{3}^{3}=6$。$165\\times 6=990$。直接算三个不同职位是 $A_{11}^{3}=11\\times 10\\times 9=990$。",
+    "jojo": {
+      "answer": "$C_{11}^{3}\\times A_{3}^{3}=990$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第9题",
+      "扫描页:30"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-016",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "自我巩固",
+    "type": "练习",
+    "page": 22,
+    "knowledge_points": [
+      "count-select-then-arrange"
+    ],
+    "difficulty": 3,
+    "stem": "老师打算从 8 件不同的礼物里选出 2 件分给 2 名同学，每人一件。(1) 老师首先从 8 件中选出了 2 件，有多少种不同的选法？(2) 接下来 2 名同学从选出的 2 件中，每人挑 1 件，有多少种不同的挑法？(3) 最后 2 名同学拿到手中的礼物有多少种不同的可能？选项：A. (1) $C_{8}^{2}$；(2) $A_{2}^{2}$；(3) $C_{8}^{2}\\times A_{2}^{2}$。B. (1) $A_{8}^{2}$；(2) $A_{2}^{2}$；(3) $A_{8}^{2}\\times A_{2}^{2}$。C. (1) $C_{8}^{2}$；(2) $A_{8}^{2}$；(3) $C_{8}^{2}\\times A_{8}^{2}$。D. (1) $A_{8}^{2}$；(2) $A_{8}^{8}$；(3) $A_{8}^{2}\\times A_{8}^{8}$。",
+    "figure": null,
+    "answer": "A",
+    "solution": "(1) 先选出哪 2 件，不分给谁，是 $C_{8}^{2}$。(2) 2 名同学不同，2 件礼物交换就是另一种挑法，是 $A_{2}^{2}$。(3) 两步相乘：$C_{8}^{2}\\times A_{2}^{2}$。这是 A。B 把第一步当成了排列。C 的第二步用了 8 件礼物，礼物已经只剩 2 件。D 的 $A_{8}^{8}$ 是把 8 件全排完，题目只分 2 件。",
+    "jojo": {
+      "answer": "A",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第10题",
+      "扫描页:30"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-017",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "能力落地",
+    "type": "练习",
+    "page": 23,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 5,
+    "stem": "在 $4\\times 4$ 的方格网（如图）中，任选 4 个小方格染成黑色，构成轴对称图形的染色方式有多少种？",
+    "figure": "figures/gs4a-hw/gs4a-hw-02-017.png",
+    "answer": "$146$",
+    "solution": "16 个格子里选 4 个，本来有 $C_{16}^{4}=1820$ 种。把每一种都沿 4 条对称轴试一次对折：沿竖中线能重合的有 28 种，沿横中线也有 28 种，沿每条对角线有 52 种。有的图形沿两条以上的轴都能重合，只能算 1 种。把 1820 种逐一检查，真正不同的轴对称涂法是 146 种。",
+    "jojo": {
+      "answer": "$146$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第1题",
+      "扫描页:31"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-018",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 25,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 3,
+    "stem": "如图所示，从端点 $O$ 出发的射线共有 7 条。图中一共有多少个锐角？",
+    "figure": "figures/gs4a-hw/gs4a-hw-02-018.png",
+    "answer": "$21$",
+    "solution": "图上 $P_1$ 几乎平放，$P_7$ 最斜，整把射线张成的角仍然比直角小。所以任意两条射线夹出的角都是锐角。两条射线确定一个角，不分哪条先写，是组合：$C_{7}^{2}=(7\\times 6)\\div 2=21$。",
+    "jojo": {
+      "answer": "$C_{7}^{2}=21$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第1题",
+      "扫描页:33"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-019",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 25,
+    "knowledge_points": [
+      "count-combination",
+      "count-select-then-arrange"
+    ],
+    "difficulty": 4,
+    "stem": "有 3 个人去图书馆借漫画书，书架上只剩下 8 本不同的书。有 1 个人借了 2 本，另外两个人每人借了 3 本。他们一共有多少种不同的借法？",
+    "figure": null,
+    "answer": "$1680$",
+    "solution": "三个人不同，书也不同。先选谁借 2 本，有 3 种。这个人从 8 本里选 2 本：$C_{8}^{2}=28$。剩下两个人还要分，一个人从剩下 6 本里选 3 本：$C_{6}^{3}=20$，最后 3 本给最后一个人，只有 1 种。$3\\times 28\\times 20\\times 1=1680$。两个人都借 3 本，可是人不同，不能把他们的书对调后再除掉。",
+    "jojo": {
+      "answer": "$1680$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第2题",
+      "扫描页:33"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-020",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 26,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 3,
+    "stem": "「上升数」是指这个数中每个数字都比它左边的数字大的多位数（如 1234、3468、4679）。「下降数」是指这个数中每个数字都比它左边的数字小的多位数（如 5432、9531、7432）。(1) 「上升数」中，四位数共有多少个？(2) 「下降数」中，五位数共有多少个？",
+    "figure": null,
+    "answer": "$126$；$252$",
+    "solution": "(1) 上升数从左到右越来越大，最小的一位在最左边，所以不能有 0。从 1 到 9 里任选 4 个不同数字，只有一种从小到大的排法，是组合：$C_{9}^{4}=126$。(2) 下降数从左到右越来越小，0 可以排在最后。从 0 到 9 里任选 5 个数字，只有一种从大到小的排法：$C_{10}^{5}=252$。",
+    "jojo": {
+      "answer": "$126$；$252$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第3题",
+      "扫描页:34"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-021",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "专属探索",
+    "type": "拓展",
+    "page": 26,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 4,
+    "stem": "(1) 用 1、2、3、4、5、6 这 6 个数字，能组成多少个各位数字互不相同的三位数？这些三位数的和是多少？(2) 用 0、1、3、5、7、9 这 6 个数字，能组成多少个各位数字互不相同的三位数？这些三位数的和是多少？",
+    "figure": null,
+    "answer": "(1) $120$ 个，和 $46620$；(2) $100$ 个，和 $54400$",
+    "solution": "(1) 百位不能空着，6 个数字都能放在百位：$A_{6}^{3}=6\\times 5\\times 4=120$。每个数字在百位、十位、个位都出现 $5\\times 4=20$ 次。数字和是 $1+2+3+4+5+6=21$，总和是 $21\\times 20\\times(100+10+1)=46620$。(2) 百位不能是 0。全部排列 $A_{6}^{3}=120$，减去百位是 0 的 $5\\times 4=20$ 个，得到 100 个。1、3、5、7、9 各在百位出现 20 次，百位贡献 $25\\times 20\\times 100=50000$。0 在十位出现 20 次，每个非 0 数字在十位出现 16 次，个位同样。十位和个位合起来是 $25\\times 16\\times 10+25\\times 16\\times 1=4400$。总和 $54400$。",
+    "jojo": {
+      "answer": "$120$，和 $46620$；$100$，和 $54400$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第4题",
+      "扫描页:34"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-022",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 27,
+    "knowledge_points": [
+      "arith-arithmetic-series"
+    ],
+    "difficulty": 2,
+    "stem": "计算：$6+8+10+12+14+16+14+12+10+8+6$。",
+    "figure": null,
+    "answer": "$116$",
+    "solution": "这是上一讲的连加，不是排列组合。左右配成 5 对：$6+6$、$8+8$、$10+10$、$12+12$、$14+14$，再加中间的 16。$12+16+20+24+28+16=116$。",
+    "jojo": {
+      "answer": "$116$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第1题",
+      "上一讲复习",
+      "扫描页:35"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-023",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 27,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "甲、乙、丙、丁、戊五个人排队照相，照相时每次 3 个人站成一行，那么一共可以拍出多少张不同的照片？",
+    "figure": null,
+    "answer": "$60$",
+    "solution": "3 个位置不同，是排列。$A_{5}^{3}=5\\times 4\\times 3=60$。",
+    "jojo": {
+      "answer": "$A_{5}^{3}=60$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第2题",
+      "扫描页:35"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-024",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 28,
+    "knowledge_points": [
+      "count-combination"
+    ],
+    "difficulty": 2,
+    "stem": "乐乐要从 9 颗不同口味的糖中选 4 颗，他有多少种不同的选法？",
+    "figure": null,
+    "answer": "$126$",
+    "solution": "糖放在一起不分先后，是组合。$C_{9}^{4}=(9\\times 8\\times 7\\times 6)\\div(4\\times 3\\times 2\\times 1)=126$。",
+    "jojo": {
+      "answer": "$C_{9}^{4}=126$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第3题",
+      "扫描页:36"
+    ]
+  },
+  {
+    "id": "gs4a-hw-02-025",
+    "book": "gs4a-hw",
+    "chapter": "02",
+    "chapter_title": "运动会筹划",
+    "lesson": "课堂落实",
+    "type": "练习",
+    "page": 28,
+    "knowledge_points": [
+      "count-permutation"
+    ],
+    "difficulty": 2,
+    "stem": "从 10 种不同的食物中，选择 2 种分别做早饭、午饭，一共有多少种不同的选法？",
+    "figure": null,
+    "answer": "$90$",
+    "solution": "早饭和午饭不同，同两样食物对调就是另一种选法，是排列。$A_{10}^{2}=10\\times 9=90$。",
+    "jojo": {
+      "answer": "$A_{10}^{2}=90$",
+      "status": "correct",
+      "note": ""
+    },
+    "tags": [
+      "第4题",
+      "扫描页:36"
+    ]
+  }
+]

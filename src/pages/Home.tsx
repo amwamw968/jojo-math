@@ -29,7 +29,7 @@ export function Home() {
       <header className="hero">
         <Fox size={72} />
         <div>
-          <p className="eyebrow">高思四年级秋季 · 冠军请听题</p>
+          <p className="eyebrow">高思四年级秋季</p>
           <h1>你好，Jojo</h1>
           <p className="lede">{greeting}</p>
         </div>
@@ -45,6 +45,7 @@ export function Home() {
       <section className="jump">
         <Link to="/practice" className="btn">开始练习</Link>
         <Link to="/lectures/gs-autumn-4-l01" className="btn secondary">第 1 讲</Link>
+        <Link to="/lectures/gs-autumn-4-l02" className="btn secondary">第 2 讲</Link>
         <Link to="/mistakes/print" className="btn secondary">打印错题</Link>
       </section>
       {due.length > 0 ? <p><Link to="/review">今天有 {due.length} 道到了复习时间</Link></p> : null}

@@ -3,7 +3,7 @@
 仓库目录约定：
 - data/books.json            书/课程列表: [{id, title, publisher(高思/学而思/学校社团/其他), grade, term}]
 - data/questions/<book_id>/<chapter_id>.json   每章一个文件，内容为题目数组
-- data/knowledge/<kp_id>.md  知识点总结（frontmatter: id, title, category, related[]），正文 Markdown + KaTeX
+- data/knowledge/<kp_id>.md  知识点总结（frontmatter: id, title, category, related[]，可选 prerequisites[]），正文 Markdown + KaTeX
 - data/knowledge/index.json  [{id, title, category}]  category 如 计算/数论/几何/计数/应用题/逻辑
 - public/figures/<book_id>/<question_id>.png   题目配图（可选）
 
@@ -41,3 +41,5 @@
 每道题所在的书和章节必须出现在恰好一个已收录讲次的 sources 里。
 标签里的 `同题:<题目id>` 表示两道题是同一道，两边都要写，并且 id 必须存在。
 `官方答案一致` 只是备注，不改变对错。
+
+知识点的 `related` 是相关关系，打开两边都能看到对方。`prerequisites` 是有方向的先修：先学会括号里的知识点，才能学这一篇。不要把 `related` 当成先修。先修不能指向自己，也不能绕成环。讲次名称的先后只写在讲次说明里，不自动变成先修。

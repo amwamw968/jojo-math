@@ -88,5 +88,40 @@
     "id": "pigeon-multi-threshold",
     "title": "多门槛保证问题的分类讨论",
     "category": "计数"
+  },
+  {
+    "id": "count-perm-vs-comb",
+    "title": "排列和组合怎么分辨",
+    "category": "计数"
+  },
+  {
+    "id": "count-permutation",
+    "title": "排列数",
+    "category": "计数"
+  },
+  {
+    "id": "count-combination",
+    "title": "组合数",
+    "category": "计数"
+  },
+  {
+    "id": "count-comb-perm-relation",
+    "title": "组合数和排列数的关系",
+    "category": "计数"
+  },
+  {
+    "id": "count-select-then-arrange",
+    "title": "先选再排",
+    "category": "计数"
+  },
+  {
+    "id": "count-circular-perm",
+    "title": "环形排列（拓展）",
+    "category": "计数"
+  },
+  {
+    "id": "count-group-dedup",
+    "title": "分组去重（拓展）",
+    "category": "计数"
   }
 ]
