@@ -8,7 +8,7 @@
 
 ## How to get to it (user POV)
 
-Tap 错题. The badge count matches 待复习. Filters are 待复习, 全部, and 已掌握. 打印 goes to the print view.
+Tap 错题. The badge count matches 待复习. Filters are 待复习, 全部, and 已掌握. 再练待复习 opens the practice queue. 打印 goes to the print view. 到期复习 opens `/review`.
 
 ## Driving it with Playwright
 
@@ -18,8 +18,8 @@ await page.locator('[data-page="mistakes"]').waitFor();
 await page.getByRole("button", { name: "待复习" }).waitFor();
 ```
 
-The sample data has one partial question, `gs4a-hw-01-005`, so the list is not empty on a fresh browser.
+Workbook `wrong` or `partial` questions are on the list on a fresh browser, including `gs4a-hw-01-005`.
 
 ## Gotchas
 
-localStorage key is `jojo-math-v1` (`src/lib/constants.ts`). Import replaces the whole record after a confirm dialog. Drive should not call 清空本机记录.
+Practice marks stay in `jojo-math-v1`. Review ratings stay in `jojo-math-review-v1`. Import shows a preview and does not write until 合并到本机 or a confirmed 覆盖本机. Cancel and invalid JSON leave both keys unchanged. Drive should not call 清空本机记录.

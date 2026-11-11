@@ -4,6 +4,7 @@
 
 - Route `/mistakes/print` is outside the app sidebar (`src/App.tsx`).
 - The sheet lists stems with KaTeX and blank 订正 lines. Checking 末页附上答案 adds `.answer-key`, which starts on a new page under `@page { size: A4 }` in `src/index.css`.
+- Default `data-print-kind="mistakes"` keeps the 包含已掌握 checkbox. `?kind=due` prints rated cards that are due. `?ids=` prints that retry list. The answer checkbox stays on every kind.
 - Print CSS hides `.no-print`, the sidebar, and the toolbars.
 
 ## How to get to it (user POV)

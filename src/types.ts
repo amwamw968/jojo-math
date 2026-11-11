@@ -59,6 +59,16 @@ export interface Activity {
   kind: ActivityKind;
 }
 
+export type PracticeOutcome = PracticeMark | "跳过";
+
+export interface PracticeLogEntry {
+  id: string;
+  sessionId: string;
+  questionId: string;
+  at: string;
+  outcome: PracticeOutcome;
+}
+
 export interface UserData {
   version: 1;
   practice: Record<string, PracticeMark>;
@@ -66,4 +76,5 @@ export interface UserData {
   notes: Record<string, string>;
   mastered: Record<string, true>;
   activity: Activity[];
+  practiceLog: PracticeLogEntry[];
 }

@@ -52,7 +52,17 @@ npm run preview
 
 ## 错题和变式
 
-错题集在浏览器的 localStorage 里。页面上可以导出、导入 JSON，也可以打印复习单。换浏览器或清缓存之前先导出。
+错题集、练习记录和间隔复习评分都在这台浏览器的 localStorage 里，分开放。页面上可以导出、导入 JSON，也可以打印复习单。导入会先检查格式并预览，取消或文件不合格时不会改本机记录。换浏览器或清缓存之前先导出。
+
+练习页可以整本练、练还没做过的，或再练错题。错题集里的「再练这题」「再练待复习」打开的是同一页。会了、不会和跳过会留下练习记录，刷新还在。这不会改题目文件里的作业本对错，也不会自动记成间隔复习评分。
+
+打印可以出待复习错题、这一轮不会的题，或已经到了复习时间的题。勾选后，末页附上答案。订正区留了横线。
+
+间隔复习用依赖 [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) 5.4.2（MIT）计算到期日，fuzz 关闭，同一串评分重放会得到同一个到期日。评分只有没记住、有点难、记住了、很熟，必须自己点。作业本的 correct、wrong、partial、unclear 不会换算过去。评分在 `jojo-math-review-v1`，练习记录在原来的 `jojo-math-v1`。周日在讲次页用同一个种子重印变式，那是出题引擎，不读这张到期表。
+
+导出文件的类型是 `jojo-math-progress`、版本 1。以前只含练习记录的版本 1 文件仍能导入，并且不会因为文件里没有评分就删掉本机评分。题库里没有的题目 id 会列出来，不勾选跳过就不会写入。覆盖和清空都会先留一份恢复副本。读不出来的本机记录不会被空记录盖掉。
+
+本仓库根目录没有项目许可证。ts-fsrs 5.4.2 的 MIT 全文在 `public/third-party/ts-fsrs-LICENSE.txt`（Copyright 2026 Open Spaced Repetition），校验用的 zod 的 MIT 全文在 `public/third-party/zod-LICENSE.txt`（Copyright 2025 Colin McDonnell）。两份都会随网站一并发布。题目、解析和配图的权利与这些代码许可分开。错题再练、可打印复习单和本机练习记录的想法来自 [shiyi-math-practice](https://github.com/jackli01030/shiyi-math-practice)，导入前校验和冲突预览的想法来自 [quizmill](https://github.com/quizmill/quizmill) 与 [quizer](https://github.com/sayre4ux/quizer)。没有复制这些仓库或 math-mastery 的代码、题目或图片。
 
 按薄弱知识点出新题：
 

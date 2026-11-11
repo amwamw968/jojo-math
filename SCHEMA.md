@@ -29,7 +29,7 @@
   },
   "tags": []
 }
-错题集 = 所有 jojo.status 为 wrong/partial 的题 + 网站上用户手动标记的错题（存浏览器 localStorage，可导出/导入 JSON）。
+错题集 = 所有 jojo.status 为 wrong/partial 的题 + 网站上用户手动标记的错题。练习记录在 localStorage `jojo-math-v1`，间隔复习评分在 `jojo-math-review-v1`。两边都不写回题目文件里的 jojo.status。导出类型是 jojo-math-progress 版本 1；导入先校验类型、版本、题目 id 和数量，预览后再合并或覆盖。
 
 讲次（data/syllabus.json）：
 - tracks[]：一门课。id、title、publisher、grade、term、class_type（未知则为 null）
