@@ -78,5 +78,15 @@
     "id": "fib-sum-of-squares",
     "title": "斐波那契数列的平方和",
     "category": "计算"
+  },
+  {
+    "id": "pigeon-worst-case",
+    "title": "抽屉原理（最不利原则）",
+    "category": "计数"
+  },
+  {
+    "id": "pigeon-multi-threshold",
+    "title": "多门槛保证问题的分类讨论",
+    "category": "计数"
   }
 ]

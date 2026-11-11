@@ -56,7 +56,7 @@
       "grade": 4,
       "term": "秋季",
       "class_type": null,
-      "note": "班型在原书上没有印，待确认。已收录第 1 讲《幂运算》。",
+      "note": "班型在原书上没有印，待确认。已收录第 1 讲《幂运算》和第 7 讲（课题名待补）。",
       "lectures": [
         {
           "id": "xes-4-l01",
@@ -85,6 +85,22 @@
             "arith-sum-of-products",
             "arith-diff-of-squares",
             "arith-sum-of-cubes"
+          ],
+          "engines": []
+        },
+        {
+          "id": "xes-4-l07",
+          "number": 7,
+          "title": "（课题名待补）",
+          "focus": null,
+          "status": "已收录",
+          "note": "目前只录入练习册第 6、8 题；讲义未拍，中文课题名未知。",
+          "sources": [
+            { "book": "xes4a-hw", "chapter": "07" }
+          ],
+          "knowledge_points": [
+            "pigeon-worst-case",
+            "pigeon-multi-threshold"
           ],
           "engines": []
         },
