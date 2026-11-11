@@ -42,14 +42,16 @@ export function QuestionDetail() {
           <TypePill type={question.type} />
           <Pips value={question.difficulty} />
           <span className="page-no">第 {question.page} 页</span>
-          <span className="page-no">{question.id}</span>
+          <span className="q-id">{question.id}</span>
         </div>
         <h1>{question.lesson || question.chapter_title}</h1>
         {book ? <p className="muted">{book.title}</p> : null}
-        <div className="q-card-tags">
-          {question.tags.map((tag) => <span key={tag} className={tag.startsWith("同题:") ? "tag same" : "tag"}>{tag.startsWith("同题:") ? "同题" : tag}</span>)}
-        </div>
-        <div className="stem-block"><MathText>{question.stem}</MathText></div>
+        {question.tags.some((tag) => tag !== question.type) ? (
+          <div className="q-card-tags">
+            {question.tags.filter((tag) => tag !== question.type).map((tag) => <span key={tag} className={tag.startsWith("同题:") ? "tag same" : "tag"}>{tag.startsWith("同题:") ? "同题" : tag}</span>)}
+          </div>
+        ) : null}
+        <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
         {question.figure ? (
           <figure className="figure">
             <img src={figureUrl(question.figure)} alt={`${question.id} 的配图`} />

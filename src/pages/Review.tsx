@@ -77,7 +77,7 @@ export function Review() {
         <article className="article">
           <p className="page-no">{bookShort(question.book)} · {question.lesson} · {question.id}</p>
           {question.jojo ? <p><StatusPill status={question.jojo.status} /></p> : <p className="muted">作业本上没有这道题的作答记录。</p>}
-          <div className="stem-block"><MathText>{question.stem}</MathText></div>
+          <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
           {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="" /></figure> : null}
           <button type="button" className="reveal-toggle" aria-expanded={showAnswer} onClick={() => setShowAnswer((value) => !value)}>
             {showAnswer ? "收起答案" : "点一点，看答案"}

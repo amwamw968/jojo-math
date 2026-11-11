@@ -22,7 +22,7 @@ export function SameProblems({ question }: { question: Question }) {
                 <Link to={`/questions/${other.id}`}>
                   {bookShort(other.book)} · {other.lesson || other.chapter_title} · 第 {other.page} 页
                 </Link>
-                <MathText>{other.stem}</MathText>
+                <MathText flow="stem">{other.stem}</MathText>
               </li>
             ))}
           </ul>

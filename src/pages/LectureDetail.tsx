@@ -45,7 +45,7 @@ export function LectureDetail() {
           {mistakes.length === 0 ? <p className="muted">这一讲还没有待复习的错题。</p> : (
             <ul className="plain-list">
               {mistakes.map((question) => (
-                <li key={question.id}><Link to={`/questions/${question.id}`}><strong>{bookShort(question.book)}</strong><MathText>{question.stem}</MathText></Link></li>
+                <li key={question.id}><Link to={`/questions/${question.id}`}><strong>{bookShort(question.book)}</strong><MathText flow="stem">{question.stem}</MathText></Link></li>
               ))}
             </ul>
           )}
@@ -55,7 +55,7 @@ export function LectureDetail() {
               <li key={question.id}>
                 <Link to={`/questions/${question.id}`}>
                   <strong>{bookShort(question.book)} · {question.type} · 第 {question.page} 页</strong>
-                  <MathText>{question.stem}</MathText>
+                  <MathText flow="stem">{question.stem}</MathText>
                 </Link>
               </li>
             ))}

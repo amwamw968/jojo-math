@@ -158,7 +158,7 @@ export function Practice() {
           <TypePill type={question.type} />
           <span className="page-no">{bookShort(question.book)} · {question.lesson}</span>
         </div>
-        <div className="stem-block"><MathText>{question.stem}</MathText></div>
+        <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
         {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="" /></figure> : null}
         <SameProblems question={question} />
         <button type="button" className="reveal-toggle" aria-expanded={showAnswer} onClick={() => setShowAnswer((value) => !value)}>

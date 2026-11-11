@@ -26,7 +26,7 @@ export function KnowledgeDetail() {
           <li key={question.id}>
             <Link to={`/questions/${question.id}`}>
               <strong>{bookShort(question.book)} · {question.type}</strong>
-              <MathText>{question.stem}</MathText>
+              <MathText flow="stem">{question.stem}</MathText>
             </Link>
           </li>
         ))}

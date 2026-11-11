@@ -44,7 +44,7 @@ export function Mistakes() {
             <li key={question.id} className={data.mastered[question.id] ? "mistake-card done" : "mistake-card"}>
               <Link to={`/questions/${question.id}`}>
                 <strong>{bookShort(question.book)} · {question.lesson}</strong>
-                <MathText>{question.stem}</MathText>
+                <MathText flow="stem">{question.stem}</MathText>
               </Link>
               <p className="muted">{mistakeReasons(question, data).join("、")}</p>
               <div className="row-actions">

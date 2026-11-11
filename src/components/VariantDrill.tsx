@@ -36,7 +36,7 @@ export function VariantDrill({
             <div className="q-card-top">
               <span className="pill tone-green">{ENG[variant.engine].name}</span>
             </div>
-            <MathText>{variant.stem}</MathText>
+            <MathText flow="stem">{variant.stem}</MathText>
             <button
               type="button"
               className="reveal-toggle"
