@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { MathText } from "../components/MathText";
 import { useTitle } from "../components/Ui";
-import { bookShort, knowledgeById, questions } from "../data/catalog";
+import { bookShort, knowledgeById, knowledgeDocs, questions } from "../data/catalog";
 
 export function KnowledgeDetail() {
   const { id = "" } = useParams();
@@ -14,9 +14,19 @@ export function KnowledgeDetail() {
       <p className="crumbs"><Link to="/knowledge">知识点</Link><span>/</span><span>{doc.category}</span></p>
       <article className="article knowledge">
         <MathText>{doc.body}</MathText>
+        {doc.prerequisites.length > 0 ? (
+          <p>先修：{doc.prerequisites.map((prereqId) => (
+            <Link key={prereqId} to={`/knowledge/${prereqId}`}>{knowledgeById.get(prereqId)?.title ?? prereqId}</Link>
+          ))}</p>
+        ) : null}
         {doc.related.length > 0 ? (
           <p>相关知识点：{doc.related.map((relatedId) => (
             <Link key={relatedId} to={`/knowledge/${relatedId}`}>{knowledgeById.get(relatedId)?.title ?? relatedId}</Link>
+          ))}</p>
+        ) : null}
+        {knowledgeDocs.some((item) => item.prerequisites.includes(doc.id)) ? (
+          <p>接着可以学：{knowledgeDocs.filter((item) => item.prerequisites.includes(doc.id)).map((item) => (
+            <Link key={item.id} to={`/knowledge/${item.id}`}>{item.title}</Link>
           ))}</p>
         ) : null}
       </article>

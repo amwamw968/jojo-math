@@ -1,6 +1,6 @@
 import booksJson from "../../data/books.json";
 import knowledgeIndexJson from "../../data/knowledge/index.json";
-import { parseFrontmatter, parseRelated } from "../lib/frontmatter";
+import { parseFrontmatter, parseIdList, parseRelated } from "../lib/frontmatter";
 import type { Book, KnowledgeDoc, KnowledgeIndexEntry, Question } from "../types";
 
 export const books = booksJson as Book[];
@@ -47,6 +47,7 @@ function loadKnowledge(): KnowledgeDoc[] {
       title: parsed.data.title || entry.title,
       category: parsed.data.category || entry.category,
       related: parseRelated(parsed.data.related),
+      prerequisites: parseIdList(parsed.data.prerequisites, "prerequisites"),
       body: parsed.body,
     };
   });

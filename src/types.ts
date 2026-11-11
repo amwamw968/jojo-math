@@ -46,6 +46,8 @@ export interface KnowledgeDoc {
   title: string;
   category: string;
   related: string[];
+  /** Topics that should be learned before this one. Directed; not the same as `related`. */
+  prerequisites: string[];
   body: string;
 }
 

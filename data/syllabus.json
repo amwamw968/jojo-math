@@ -7,7 +7,7 @@
       "grade": 4,
       "term": "秋季",
       "class_type": null,
-      "note": "讲次标题只写已经收录进题库的课。后面的讲次还没录入。",
+      "note": "讲次标题只写已经收录进题库的课。第 1、2 讲已收录。第 3 讲及以后还没录入。",
       "lectures": [
         {
           "id": "gs-autumn-4-l01",
@@ -37,12 +37,34 @@
           ]
         },
         {
+          "id": "gs-autumn-4-l02",
+          "number": 2,
+          "title": "运动会筹划",
+          "focus": "信息处理能力",
+          "status": "已收录",
+          "note": "情景活动册印页 026–047，学习册印页 15–28。学习册页眉印着「爱学习 | 数学」，没有印班型。栏目是活动、试一试、任务、实践、我发现了、高能时刻，学习册是原理复现、自我巩固、能力落地、专属探索、课堂落实；印页接在已收录第 1 讲课本第 23 页、练习第 14 页之后，所以仍归在这一条高思（爱学习）课里。体系衔接图印着三春《搭配的智慧》在前、四秋《城市生态绿化》在后，那是课程顺序，不是知识点先修；两讲都没有录入，也没有编题。课堂落实第 1 题是上一讲的连加，不算这一讲的排列组合。环形排列和分组去重是附加活动里的拓展。没有新的变式引擎。",
+          "sources": [
+            { "book": "gs4a", "chapter": "02" },
+            { "book": "gs4a-hw", "chapter": "02" }
+          ],
+          "knowledge_points": [
+            "count-perm-vs-comb",
+            "count-permutation",
+            "count-combination",
+            "count-comb-perm-relation",
+            "count-select-then-arrange",
+            "count-circular-perm",
+            "count-group-dedup"
+          ],
+          "engines": []
+        },
+        {
           "id": "gs-autumn-4-later",
           "number": null,
           "title": null,
           "focus": null,
           "status": "待补",
-          "note": "第 2 讲及以后还没有录入，不要编讲次名称。",
+          "note": "第 3 讲及以后还没有录入，不要编讲次名称。",
           "sources": [],
           "knowledge_points": [],
           "engines": []

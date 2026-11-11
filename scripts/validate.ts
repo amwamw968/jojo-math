@@ -4,7 +4,8 @@ import { z } from "zod";
 import { ENGINE_IDS } from "../src/engine/engines";
 import { katexFailure } from "../src/lib/katex-check";
 import { CATEGORIES, JOJO_STATUSES, PUBLISHERS, QUESTION_TYPES } from "../src/lib/constants";
-import { parseFrontmatter, parseRelated } from "../src/lib/frontmatter";
+import { parseFrontmatter, parseIdList, parseRelated } from "../src/lib/frontmatter";
+import { prerequisiteCycle } from "../src/lib/prerequisites";
 
 const root = process.cwd();
 const errors: string[] = [];
@@ -135,6 +136,7 @@ for (const entry of indexEntries) {
 const knowledgeDir = path.join(root, "data/knowledge");
 const mdFiles = walk(knowledgeDir, (name) => name.endsWith(".md"));
 const mdIds = new Set<string>();
+const prerequisiteEdges = new Map<string, string[]>();
 for (const file of mdFiles) {
   const id = path.basename(file, ".md");
   mdIds.add(id);
@@ -178,7 +180,27 @@ for (const file of mdFiles) {
     seenRelated.add(relatedId);
     if (!knowledgeIds.has(relatedId)) fail(`${rel(file)}：related 的「${relatedId}」不是已知知识点`);
   }
+  let prerequisites: string[] = [];
+  try {
+    prerequisites = parseIdList(parsed.data.prerequisites, "prerequisites");
+  } catch (error) {
+    fail(`${rel(file)}：${error instanceof Error ? error.message : "prerequisites 无法解析"}`);
+    continue;
+  }
+  const seenPrereq = new Set<string>();
+  for (const prereqId of prerequisites) {
+    if (prereqId === id) fail(`${rel(file)}：先修不要指向自己`);
+    if (seenPrereq.has(prereqId)) fail(`${rel(file)}：先修里「${prereqId}」重复`);
+    seenPrereq.add(prereqId);
+    if (!knowledgeIds.has(prereqId)) fail(`${rel(file)}：先修「${prereqId}」不是已知知识点`);
+  }
+  prerequisiteEdges.set(id, prerequisites);
 }
+for (const id of knowledgeIds) {
+  if (!prerequisiteEdges.has(id)) prerequisiteEdges.set(id, []);
+}
+const cycle = prerequisiteCycle(prerequisiteEdges);
+if (cycle) fail(`知识点先修成环：${cycle.join(" → ")}`);
 for (const id of knowledgeIds) {
   if (!mdIds.has(id)) fail(`data/knowledge/${id}.md：index.json 有这个 id，但文件不存在`);
 }

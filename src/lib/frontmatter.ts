@@ -22,13 +22,17 @@ export function parseFrontmatter(raw: string): Frontmatter {
   return { data, body };
 }
 
-export function parseRelated(value: string | undefined): string[] {
+export function parseIdList(value: string | undefined, field: string): string[] {
   if (!value) return [];
   const match = value.match(/^\[(.*)\]$/);
-  if (!match) throw new Error(`related 应写成 [id, id]，实际是：${value}`);
+  if (!match) throw new Error(`${field} 应写成 [id, id]，实际是：${value}`);
   if (!match[1].trim()) return [];
   return match[1]
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+export function parseRelated(value: string | undefined): string[] {
+  return parseIdList(value, "related");
 }

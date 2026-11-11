@@ -86,7 +86,7 @@ describe("进度导入导出", () => {
 
   it("题库里的题目 id 都能通过格式检查", () => {
     const ids = readQuestions().map((question) => question.id);
-    assert.equal(ids.length, 100);
+    assert.equal(ids.length, 148);
     const catalogIds = new Set(ids);
     for (const id of ids) assert.match(id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     const state = emptyProgress();

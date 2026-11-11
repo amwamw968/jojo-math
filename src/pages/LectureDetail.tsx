@@ -41,6 +41,29 @@ export function LectureDetail() {
               <Link key={kp} className="chip" to={`/knowledge/${kp}`}>{knowledgeById.get(kp)?.title ?? kp}</Link>
             ))}
           </div>
+          {lecture.knowledge_points.some((kp) => (knowledgeById.get(kp)?.prerequisites.length ?? 0) > 0) ? (
+            <>
+              <h2>先修</h2>
+              <ul className="plain-list">
+                {lecture.knowledge_points.map((kp) => {
+                  const doc = knowledgeById.get(kp);
+                  if (!doc || doc.prerequisites.length === 0) return null;
+                  return (
+                    <li key={kp}>
+                      <Link to={`/knowledge/${kp}`}>{doc.title}</Link>
+                      <span>：先学 </span>
+                      {doc.prerequisites.map((prereqId, index) => (
+                        <span key={prereqId}>
+                          {index > 0 ? "、" : ""}
+                          <Link to={`/knowledge/${prereqId}`}>{knowledgeById.get(prereqId)?.title ?? prereqId}</Link>
+                        </span>
+                      ))}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          ) : null}
           <h2>这一讲的错题</h2>
           {mistakes.length === 0 ? <p className="muted">这一讲还没有待复习的错题。</p> : (
             <ul className="plain-list">
@@ -61,8 +84,12 @@ export function LectureDetail() {
             ))}
           </ul>
           <h2>举一反三</h2>
-          <p className="muted">下面的题是按这一讲的算法新算出来的，不是书上的原题。</p>
-          <VariantDrill ids={[lecture.id]} count={4} />
+          {lecture.engines.length === 0 ? <p className="muted">这一讲还没有变式题。</p> : (
+            <>
+              <p className="muted">下面的题是按这一讲的算法新算出来的，不是书上的原题。</p>
+              <VariantDrill ids={[lecture.id]} count={4} />
+            </>
+          )}
         </>
       )}
     </div>
