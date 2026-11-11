@@ -53,7 +53,7 @@ export function MistakesPrint() {
             <section key={`${question.id}-${index}`} className="print-item">
               <h2>第 {index + 1} 题 · {bookShort(question.book)} · {question.lesson} · 第 {question.page} 页 · {question.id}</h2>
               {printKind === "due" && card ? <p>上次评分：{REVIEW_RATING_LABEL[card.lastRating]}</p> : null}
-              <MathText>{question.stem}</MathText>
+              <MathText flow="stem">{question.stem}</MathText>
               {question.figure ? <img src={figureUrl(question.figure)} alt="" /> : null}
               <p className="redo-label">订正</p>
               <div className="lines" />

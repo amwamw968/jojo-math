@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
     "validate": "tsx scripts/validate.ts",
-    "test": "tsx --test scripts/engine.test.ts scripts/baseline.test.ts scripts/review-schedule.test.ts scripts/progress-transfer.test.ts scripts/records.test.ts",
+    "test": "tsx --test scripts/engine.test.ts scripts/baseline.test.ts scripts/review-schedule.test.ts scripts/progress-transfer.test.ts scripts/records.test.ts scripts/group-equations.test.ts",
     "variants": "tsx scripts/variants.ts"
   },
   "dependencies": {

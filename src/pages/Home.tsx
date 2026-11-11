@@ -76,7 +76,7 @@ export function Home() {
                 <li key={question.id}>
                   <Link to={`/questions/${question.id}`}>
                     <strong>{bookShort(question.book)}</strong>
-                    <MathText>{question.stem}</MathText>
+                    <MathText flow="stem">{question.stem}</MathText>
                   </Link>
                 </li>
               ))}
