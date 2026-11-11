@@ -4,13 +4,14 @@ import { isMistake, knowledgeStats, recentMistakes, workbookNote } from "../lib/
 import { lectureOfQuestion } from "../lib/lectures";
 import { tracks } from "../lib/syllabus-data";
 import { MathText } from "../components/MathText";
+import { formatWhen } from "../lib/text";
 import { useUser } from "../lib/user";
 import { useTitle } from "../components/Ui";
 import { Fox } from "../components/Icons";
 
 export function Home() {
   useTitle("首页");
-  const { data } = useUser();
+  const { data, due } = useUser();
   const mistakes = questions.filter((question) => isMistake(question, data));
   const todo = mistakes.filter((question) => !data.mastered[question.id]);
   const practiced = questions.filter((question) => data.practice[question.id] === "会了").length;
@@ -46,6 +47,25 @@ export function Home() {
         <Link to="/lectures/gs-autumn-4-l01" className="btn secondary">第 1 讲</Link>
         <Link to="/mistakes/print" className="btn secondary">打印错题</Link>
       </section>
+      {due.length > 0 ? <p><Link to="/review">今天有 {due.length} 道到了复习时间</Link></p> : null}
+      {data.practiceLog.length > 0 ? (
+        <section>
+          <h2>最近练习</h2>
+          <ul className="plain-list">
+            {[...data.practiceLog].reverse().slice(0, 5).map((entry) => {
+              const item = questions.find((question) => question.id === entry.questionId);
+              return (
+                <li key={entry.id}>
+                  <Link to={item ? `/questions/${entry.questionId}` : "/practice"}>
+                    <strong>{entry.outcome}</strong>
+                    <span> {item ? `${bookShort(item.book)} · ${item.lesson}` : entry.questionId} · {formatWhen(entry.at)}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
 
       <section className="split">
         <div>

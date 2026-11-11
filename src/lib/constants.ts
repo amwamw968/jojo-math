@@ -10,4 +10,8 @@ export const PRODUCT_NAME = "小学奥数智能学习平台";
 
 export const STORAGE_KEY = "jojo-math-v1";
 
+export const REVIEW_STORAGE_KEY = "jojo-math-review-v1";
+
+export const RECOVERY_STORAGE_KEY = "jojo-math-recovery-v1";
+
 export const DIFFICULTY_LABEL = ["", "轻松", "起步", "动脑", "挑战", "冲关"] as const;

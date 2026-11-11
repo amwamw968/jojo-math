@@ -3,6 +3,7 @@ import { questions } from "../data/catalog";
 import { PRODUCT_NAME } from "../lib/constants";
 import { isMistake } from "../lib/mistakes";
 import { useUser } from "../lib/user";
+import { StorageBanner } from "./StorageBanner";
 import { AlertIcon, BookIcon, BulbIcon, Fox, HomeIcon, ListIcon, PencilIcon } from "./Icons";
 
 const NAV = [
@@ -37,7 +38,7 @@ export function Layout() {
             </NavLink>
           ))}
         </nav>
-        <p className="sidebar-foot">题目在仓库的文件里。错题记在这台设备上，可以导出备份。</p>
+        <p className="sidebar-foot">题目在仓库的文件里。练习和复习评分记在这台设备上，可以导出备份。</p>
       </aside>
 
       <div className="main">
@@ -47,6 +48,7 @@ export function Layout() {
             <strong>{PRODUCT_NAME}</strong>
           </NavLink>
         </header>
+        <StorageBanner />
         <Outlet />
       </div>
 

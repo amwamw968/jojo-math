@@ -7,14 +7,14 @@ import { Pips, StatusPill, TypePill, useTitle } from "../components/Ui";
 import { bookById, bookShort, knowledgeById, questionById, questions } from "../data/catalog";
 import { isWorkbookMistake, mistakeReasons, workbookNote } from "../lib/mistakes";
 import { lectureOfQuestion } from "../lib/lectures";
-import { figureUrl } from "../lib/text";
+import { figureUrl, formatWhen } from "../lib/text";
 import { useUser } from "../lib/user";
 
 export function QuestionDetail() {
   const { id = "" } = useParams();
   const question = questionById.get(id);
   useTitle(question ? bookShort(question.book) : "题目");
-  const { data, setPractice, addManual, removeFromMistakes, setMastered } = useUser();
+  const { data, schedule, storage, setPractice, addManual, removeFromMistakes, setMastered } = useUser();
   if (!question) {
     return <div className="page"><h1>题库里没有这道题</h1><Link to="/questions">回题库</Link></div>;
   }
@@ -26,6 +26,7 @@ export function QuestionDetail() {
   const reasons = mistakeReasons(question, data);
   const lecture = lectureOfQuestion(question);
   const mark = data.practice[question.id];
+  const scheduled = schedule.find((item) => item.questionId === question.id);
 
   return (
     <div className="page narrow" data-page="question">
@@ -74,9 +75,14 @@ export function QuestionDetail() {
         <Reveal closedLabel="点一点，看答案" openLabel="收起答案" text={question.answer} empty="还没有答案" />
         <Reveal closedLabel="点一点，看解析" openLabel="收起解析" text={question.solution} empty="还没有解析" />
         <div className="choice-row">
-          <button type="button" className={mark === "会了" ? "choice good on" : "choice good"} aria-pressed={mark === "会了"} onClick={() => setPractice(question.id, "会了")}>会了</button>
-          <button type="button" className={mark === "不会" ? "choice bad on" : "choice bad"} aria-pressed={mark === "不会"} onClick={() => setPractice(question.id, "不会")}>不会</button>
+          <button type="button" className={mark === "会了" ? "choice good on" : "choice good"} aria-pressed={mark === "会了"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "会了")}>会了</button>
+          <button type="button" className={mark === "不会" ? "choice bad on" : "choice bad"} aria-pressed={mark === "不会"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "不会")}>不会</button>
         </div>
+        <div className="row-actions">
+          <Link className="btn secondary" to={`/practice?ids=${question.id}`}>再练这题</Link>
+          <Link className="btn secondary" to={`/review?id=${question.id}`}>间隔复习评分</Link>
+        </div>
+        {scheduled ? <p className="muted">间隔复习下次到期 {formatWhen(scheduled.due)}。这不改变作业本状态。</p> : null}
         {reasons.length === 0 ? (
           <button type="button" className="btn secondary" onClick={() => addManual(question.id)}>加入错题集</button>
         ) : (

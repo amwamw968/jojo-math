@@ -41,6 +41,7 @@ h1 { font-size: 1.8rem; margin: 0.2rem 0; }
 h2 { font-size: 1.2rem; margin: 1.4rem 0 0.6rem; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
 :focus-visible { outline: 3px solid var(--green-2); outline-offset: 2px; }
 
 .app { min-height: 100vh; }
@@ -212,7 +213,21 @@ button { cursor: pointer; }
 }
 .print-item { break-inside: avoid; margin: 0 0 14mm; }
 .print-item h2 { font-size: 1.15rem; }
-.lines { height: 28mm; background-image: repeating-linear-gradient(transparent, transparent 9mm, #cfc3b2 9.4mm); }
+.lines { height: 46mm; background-image: repeating-linear-gradient(transparent, transparent 9mm, #cfc3b2 9.4mm); }
+.banner {
+  width: min(1100px, calc(100% - 28px));
+  margin: 12px auto 0;
+  background: var(--amber-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.preview-box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-top: 12px; }
+.history-list { list-style: none; padding: 0; margin: 0; }
+.history-list li { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.choice.again { background: var(--rose-soft); color: var(--rose); }
+.choice.hard { background: var(--amber-soft); color: var(--amber); }
+.choice.easy { background: var(--sky-soft); color: var(--sky); }
 .answer-key { break-before: page; }
 .answer-key h2 { margin-top: 0; }
 
