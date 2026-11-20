@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { MathText } from "../components/MathText";
 import { SameProblems } from "../components/SameProblems";
-import { TypePill, useTitle } from "../components/Ui";
+import { EmptyNote, TypePill, useTitle } from "../components/Ui";
 import { bookShort, books, questionById, questions } from "../data/catalog";
 import { isMistake } from "../lib/mistakes";
 import { figureUrl, formatWhen } from "../lib/text";
@@ -71,9 +71,12 @@ export function Practice() {
     const recent = [...data.practiceLog].reverse().slice(0, 30);
     return (
       <div className="page narrow" data-page="practice" data-practice="setup">
-        <h1>练习</h1>
-        <p>先自己算，想看答案再点开。会了、不会和跳过都记在这台设备上，刷新还在。</p>
-        <p className="muted">这不会改作业本上的对错，也不会自动变成间隔复习评分。</p>
+        <header className="page-head">
+          <h1>练习</h1>
+          <p className="lede">先自己算，想看答案再点开。会了、不会和跳过都记在这台设备上，刷新还在。</p>
+          <p className="muted">这不会改作业本上的对错，也不会自动变成间隔复习评分。</p>
+        </header>
+        <div className="panel">
         <label className="field">范围
           <select value={book} onChange={(event) => setBook(event.target.value)}>
             <option value="all">全部 {questions.length} 道</option>
@@ -81,14 +84,15 @@ export function Practice() {
           </select>
         </label>
         <div className="chips" role="group" aria-label="练习哪些">
-          <button type="button" className={setName === "all" ? "chip on" : "chip"} onClick={() => setSetName("all")}>全部</button>
-          <button type="button" className={setName === "fresh" ? "chip on" : "chip"} onClick={() => setSetName("fresh")}>还没练过</button>
-          <button type="button" className={setName === "mistakes" ? "chip on" : "chip"} onClick={() => setSetName("mistakes")}>错题再练</button>
+          <button type="button" className={setName === "all" ? "chip on" : "chip"} aria-pressed={setName === "all"} onClick={() => setSetName("all")}>全部</button>
+          <button type="button" className={setName === "fresh" ? "chip on" : "chip"} aria-pressed={setName === "fresh"} onClick={() => setSetName("fresh")}>还没练过</button>
+          <button type="button" className={setName === "mistakes" ? "chip on" : "chip"} aria-pressed={setName === "mistakes"} onClick={() => setSetName("mistakes")}>错题再练</button>
         </div>
         <button type="button" className="btn" onClick={start} disabled={previewCount === 0 || storage.practiceBlocked}>开始，共 {previewCount} 道</button>
-        <section data-section="practice-history">
+        </div>
+        <section className="panel" data-section="practice-history">
           <h2>练习记录</h2>
-          {recent.length === 0 ? <p className="muted">还没有练习记录。</p> : (
+          {recent.length === 0 ? <EmptyNote>还没有练习记录。</EmptyNote> : (
             <ul className="history-list">
               {recent.map((entry) => {
                 const item = questionById.get(entry.questionId);
@@ -110,7 +114,10 @@ export function Practice() {
   if (queue.length === 0) {
     return (
       <div className="page narrow" data-page="practice" data-practice="empty">
-        <h1>没有要再练的题</h1>
+        <header className="page-head">
+          <h1>没有要再练的题</h1>
+          <p className="lede">换一个范围，或者先去做一套新的。</p>
+        </header>
         <button type="button" className="btn" onClick={backToSetup}>返回</button>
       </div>
     );
@@ -122,8 +129,10 @@ export function Practice() {
     const missedIds = missed.map(([id]) => id).join(",");
     return (
       <div className="page narrow" data-page="practice" data-practice="done">
-        <h1>这轮练完了</h1>
-        <p className="lede">会了 {got} 道，不会 {missed.length} 道。记录已经留在这台设备上。</p>
+        <header className="page-head">
+          <h1>这轮练完了</h1>
+          <p className="lede">会了 {got} 道，不会 {missed.length} 道。记录已经留在这台设备上。</p>
+        </header>
         {missed.length > 0 ? (
           <ul className="plain-list">
             {missed.map(([id]) => {
@@ -151,15 +160,15 @@ export function Practice() {
 
   return (
     <div className="page narrow" data-page="practice" data-practice="session">
-      <p className="progress-label">第 {index + 1} / {queue.length} 题</p>
-      <div className="bar"><span style={{ width: `${(index / queue.length) * 100}%` }} /></div>
+      <p className="progress-label" aria-live="polite">第 {index + 1} / {queue.length} 题</p>
+      <div className="bar progress" aria-hidden="true"><span style={{ width: `${(index / queue.length) * 100}%` }} /></div>
       <article className="article">
         <div className="q-card-top">
           <TypePill type={question.type} />
           <span className="page-no">{bookShort(question.book)} · {question.lesson}</span>
         </div>
         <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
-        {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="" /></figure> : null}
+        {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="题目配图" /><figcaption>题目配图</figcaption></figure> : null}
         <SameProblems question={question} />
         <button type="button" className="reveal-toggle" aria-expanded={showAnswer} onClick={() => setShowAnswer((value) => !value)}>
           {showAnswer ? "收起答案" : "点一点，看答案"}

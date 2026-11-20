@@ -4,7 +4,7 @@ import { MathText } from "../components/MathText";
 import { NoteEditor } from "../components/NoteEditor";
 import { ProgressBackup } from "../components/ProgressBackup";
 import { VariantDrill } from "../components/VariantDrill";
-import { useTitle } from "../components/Ui";
+import { EmptyNote, useTitle } from "../components/Ui";
 import { bookShort, questions } from "../data/catalog";
 import { isMistake, isWorkbookMistake, mistakeReasons } from "../lib/mistakes";
 import { useUser } from "../lib/user";
@@ -26,19 +26,19 @@ export function Mistakes() {
     <div className="page" data-page="mistakes">
       <header className="page-head">
         <h1>错题集</h1>
-        <p>作业本上做错或部分对的题，加上练习时点了「不会」或手动加入的题。做对了但有批注的题不会自动进来。共 {all.length} 道，待复习 {all.filter((question) => !data.mastered[question.id]).length} 道。</p>
+        <p className="lede">作业本上做错或部分对的题，加上练习时点了「不会」或手动加入的题。做对了但有批注的题不会自动进来。共 {all.length} 道，待复习 {all.filter((question) => !data.mastered[question.id]).length} 道。</p>
         <p className="muted">再练只记会了或不会。间隔复习要另外评分，不会把作业本的对错换算过去。{due.length ? `今天有 ${due.length} 道到了复习时间。` : "还没有到期限的复习评分。"}</p>
       </header>
       <div className="chips">
-        <button type="button" className={filter === "todo" ? "chip on" : "chip"} onClick={() => setFilter("todo")}>待复习</button>
-        <button type="button" className={filter === "all" ? "chip on" : "chip"} onClick={() => setFilter("all")}>全部</button>
-        <button type="button" className={filter === "done" ? "chip on" : "chip"} onClick={() => setFilter("done")}>已掌握</button>
+        <button type="button" className={filter === "todo" ? "chip on" : "chip"} aria-pressed={filter === "todo"} onClick={() => setFilter("todo")}>待复习</button>
+        <button type="button" className={filter === "all" ? "chip on" : "chip"} aria-pressed={filter === "all"} onClick={() => setFilter("all")}>全部</button>
+        <button type="button" className={filter === "done" ? "chip on" : "chip"} aria-pressed={filter === "done"} onClick={() => setFilter("done")}>已掌握</button>
         <Link to="/practice?scope=mistakes&start=1" className="chip">再练待复习</Link>
         <Link to="/review" className="chip">到期复习</Link>
         <Link to="/mistakes/print" className="chip">打印</Link>
         {due.length ? <Link to="/mistakes/print?kind=due" className="chip">打印到期</Link> : null}
       </div>
-      {list.length === 0 ? <p className="muted">这里还没有要复习的题。</p> : (
+      {list.length === 0 ? <EmptyNote>这里还没有要复习的题。</EmptyNote> : (
         <ul className="mistake-list">
           {list.map((question) => (
             <li key={question.id} className={data.mastered[question.id] ? "mistake-card done" : "mistake-card"}>

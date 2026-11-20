@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { MathText } from "../components/MathText";
-import { StatusPill, useTitle } from "../components/Ui";
+import { EmptyNote, StatusPill, useTitle } from "../components/Ui";
 import { bookShort, questionById, questions } from "../data/catalog";
 import { isMistake } from "../lib/mistakes";
 import { REVIEW_RATING_LABEL, type ReviewRating } from "../lib/review-schedule";
@@ -56,7 +56,7 @@ export function Review() {
 
       <section data-section="due-reviews">
         <h2>今天到期</h2>
-        {due.length === 0 ? <p className="muted">今天没有到期限的复习。还没评过分的错题不会自动排进来。</p> : (
+        {due.length === 0 ? <EmptyNote>今天没有到期限的复习。还没评过分的错题不会自动排进来。</EmptyNote> : (
           <ul className="plain-list">
             {due.map((item) => {
               const card = questionById.get(item.questionId);
@@ -78,7 +78,7 @@ export function Review() {
           <p className="page-no">{bookShort(question.book)} · {question.lesson} · {question.id}</p>
           {question.jojo ? <p><StatusPill status={question.jojo.status} /></p> : <p className="muted">作业本上没有这道题的作答记录。</p>}
           <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
-          {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="" /></figure> : null}
+          {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="题目配图" /><figcaption>题目配图</figcaption></figure> : null}
           <button type="button" className="reveal-toggle" aria-expanded={showAnswer} onClick={() => setShowAnswer((value) => !value)}>
             {showAnswer ? "收起答案" : "点一点，看答案"}
           </button>
@@ -89,7 +89,7 @@ export function Review() {
             </div>
           ) : null}
           <p className="muted">先看答案，再评分。评分不会改上面的作业本状态。</p>
-          <div className="choice-row">
+          <div className="choice-row" role="group" aria-label="复习评分">
             {RATINGS.map((rating) => (
               <button
                 key={rating}
@@ -109,7 +109,7 @@ export function Review() {
 
       <section data-section="scheduled">
         <h2>已经排期、还没到期</h2>
-        {later.length === 0 ? <p className="muted">还没有排到以后的题。</p> : (
+        {later.length === 0 ? <EmptyNote>还没有排到以后的题。</EmptyNote> : (
           <ul className="plain-list">
             {later.slice(0, 12).map((item) => {
               const card = questionById.get(item.questionId);

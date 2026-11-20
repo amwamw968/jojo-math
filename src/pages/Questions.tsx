@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QuestionCard } from "../components/QuestionCard";
-import { useTitle } from "../components/Ui";
+import { EmptyNote, useTitle } from "../components/Ui";
 import { bookShort, books, chapterOptions, knowledgeDocs, questions } from "../data/catalog";
 import { EMPTY_FILTERS, filterQuestions, groupByLesson, type QuestionFilters } from "../lib/filter";
 import { QUESTION_TYPES } from "../lib/constants";
@@ -63,33 +63,36 @@ export function Questions() {
     <div className="page" data-page="questions">
       <header className="page-head">
         <h1>题库</h1>
-        <p>共 {list.length} 道。可以按书、章节、知识点、题型和难度找题。</p>
+        <p className="lede">共 <span aria-live="polite">{list.length}</span> 道。可以按书、章节、知识点、题型和难度找题。</p>
       </header>
       <div className="filters">
         <div className="filter-row">
           <div className="chips" role="group" aria-label="书">
-            <button type="button" className={!filters.book ? "chip on" : "chip"} onClick={() => update({ book: "" })}>全部</button>
+            <button type="button" className={!filters.book ? "chip on" : "chip"} aria-pressed={!filters.book} onClick={() => update({ book: "" })}>全部</button>
             {books.map((book) => (
-              <button key={book.id} type="button" className={filters.book === book.id ? "chip on" : "chip"} onClick={() => update({ book: book.id })}>
+              <button key={book.id} type="button" className={filters.book === book.id ? "chip on" : "chip"} aria-pressed={filters.book === book.id} onClick={() => update({ book: book.id })}>
                 {bookShort(book.id)}
               </button>
             ))}
           </div>
-          <input
-            className="search"
-            type="search"
-            placeholder="搜索题目、标签，例如 任务3 或 同题"
-            value={text}
-            onChange={(event) => {
-              setText(event.target.value);
-              update({ q: event.target.value });
-            }}
-          />
+          <label className="search-label">
+            搜索
+            <input
+              className="search"
+              type="search"
+              placeholder="题目、标签，例如 任务3 或 同题"
+              value={text}
+              onChange={(event) => {
+                setText(event.target.value);
+                update({ q: event.target.value });
+              }}
+            />
+          </label>
         </div>
         <div className="chips" role="group" aria-label="题型">
-          <button type="button" className={!filters.type ? "chip on" : "chip"} onClick={() => update({ type: "" })}>全部题型</button>
+          <button type="button" className={!filters.type ? "chip on" : "chip"} aria-pressed={!filters.type} onClick={() => update({ type: "" })}>全部题型</button>
           {QUESTION_TYPES.map((type) => (
-            <button key={type} type="button" className={filters.type === type ? "chip on" : "chip"} onClick={() => update({ type })}>{type}</button>
+            <button key={type} type="button" className={filters.type === type ? "chip on" : "chip"} aria-pressed={filters.type === type} onClick={() => update({ type })}>{type}</button>
           ))}
         </div>
         <div className="filter-grid">
@@ -132,7 +135,7 @@ export function Questions() {
         </div>
         {active ? <button type="button" className="btn tiny secondary" onClick={() => { setText(""); update(EMPTY_FILTERS); }}>清除筛选</button> : null}
       </div>
-      {groups.length === 0 ? <p className="muted">没有符合的题目。</p> : groups.map((group) => (
+      {groups.length === 0 ? <EmptyNote>没有符合的题目。</EmptyNote> : groups.map((group) => (
         <section key={group.key} className="lesson-group">
           <h2>{bookShort(group.bookId)} · {group.lesson}</h2>
           <div className="q-grid">

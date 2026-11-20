@@ -14,13 +14,20 @@ export function LectureDetail() {
   const lecture = track?.lectures.find((item) => item.id === id);
   useTitle(lecture ? lectureLabel(lecture) : "讲次");
   const { data } = useUser();
-  if (!lecture || !track) return <div className="page" data-page="lecture"><h1>没有这一讲</h1><Link to="/lectures">返回讲次</Link></div>;
+  if (!lecture || !track) {
+    return (
+      <div className="page narrow" data-page="lecture">
+        <header className="page-head"><h1>没有这一讲</h1></header>
+        <Link className="btn" to="/lectures">返回讲次</Link>
+      </div>
+    );
+  }
   const own = questionsForLecture(lecture);
   const mistakes = own.filter((question) => isMistake(question, data) && !data.mastered[question.id]);
 
   return (
     <div className="page" data-page="lecture">
-      <p className="crumbs"><Link to="/lectures">讲次</Link><span>/</span><span>{track.title}</span></p>
+      <nav className="crumbs" aria-label="面包屑"><Link to="/lectures">讲次</Link><span aria-hidden="true">/</span><span>{track.title}</span></nav>
       <header className="page-head">
         <span className={lecture.status === "待补" ? "pill tone-amber" : "pill tone-green"}>{lecture.status}</span>
         <h1>{lectureLabel(lecture)}</h1>
@@ -65,7 +72,7 @@ export function LectureDetail() {
             </>
           ) : null}
           <h2>这一讲的错题</h2>
-          {mistakes.length === 0 ? <p className="muted">这一讲还没有待复习的错题。</p> : (
+          {mistakes.length === 0 ? <p className="empty" role="status">这一讲还没有待复习的错题。</p> : (
             <ul className="plain-list">
               {mistakes.map((question) => (
                 <li key={question.id}><Link to={`/questions/${question.id}`}><strong>{bookShort(question.book)}</strong><MathText flow="stem">{question.stem}</MathText></Link></li>
@@ -84,7 +91,7 @@ export function LectureDetail() {
             ))}
           </ul>
           <h2>举一反三</h2>
-          {lecture.engines.length === 0 ? <p className="muted">这一讲还没有变式题。</p> : (
+          {lecture.engines.length === 0 ? <p className="empty" role="status">这一讲还没有变式题。</p> : (
             <>
               <p className="muted">下面的题是按这一讲的算法新算出来的，不是书上的原题。</p>
               <VariantDrill ids={[lecture.id]} count={4} />
