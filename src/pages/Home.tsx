@@ -6,8 +6,8 @@ import { tracks } from "../lib/syllabus-data";
 import { MathText } from "../components/MathText";
 import { formatWhen } from "../lib/text";
 import { useUser } from "../lib/user";
-import { useTitle } from "../components/Ui";
-import { Fox } from "../components/Icons";
+import { EmptyNote, useTitle } from "../components/Ui";
+import { ClockIcon, Fox } from "../components/Icons";
 
 export function Home() {
   useTitle("首页");
@@ -35,22 +35,27 @@ export function Home() {
         </div>
       </header>
 
-      <section className="stats">
+      <section className="stats" aria-label="学习概况">
         <Link to="/questions" className="stat"><strong>{questions.length}</strong><span>题库</span></Link>
-        <Link to="/mistakes" className="stat"><strong>{todo.length}</strong><span>待复习</span></Link>
+        <Link to="/mistakes" className={todo.length ? "stat attention" : "stat"}><strong>{todo.length}</strong><span>待复习</span></Link>
         <Link to="/knowledge" className="stat"><strong>{knowledgeDocs.length}</strong><span>知识点</span></Link>
-        <Link to="/practice" className="stat"><strong>{practiced}</strong><span>会了</span></Link>
+        <Link to="/practice" className="stat good"><strong>{practiced}</strong><span>会了</span></Link>
       </section>
 
-      <section className="jump">
+      <section className="jump" aria-label="快捷入口">
         <Link to="/practice" className="btn">开始练习</Link>
         <Link to="/lectures/gs-autumn-4-l01" className="btn secondary">第 1 讲</Link>
         <Link to="/lectures/gs-autumn-4-l02" className="btn secondary">第 2 讲</Link>
         <Link to="/mistakes/print" className="btn secondary">打印错题</Link>
       </section>
-      {due.length > 0 ? <p><Link to="/review">今天有 {due.length} 道到了复习时间</Link></p> : null}
+      {due.length > 0 ? (
+        <Link to="/review" className="callout">
+          <ClockIcon />
+          <span>今天有 {due.length} 道到了复习时间</span>
+        </Link>
+      ) : null}
       {data.practiceLog.length > 0 ? (
-        <section>
+        <section className="panel">
           <h2>最近练习</h2>
           <ul className="plain-list">
             {[...data.practiceLog].reverse().slice(0, 5).map((entry) => {
@@ -59,7 +64,7 @@ export function Home() {
                 <li key={entry.id}>
                   <Link to={item ? `/questions/${entry.questionId}` : "/practice"}>
                     <strong>{entry.outcome}</strong>
-                    <span> {item ? `${bookShort(item.book)} · ${item.lesson}` : entry.questionId} · {formatWhen(entry.at)}</span>
+                    <span>{item ? `${bookShort(item.book)} · ${item.lesson}` : entry.questionId} · {formatWhen(entry.at)}</span>
                   </Link>
                 </li>
               );
@@ -69,9 +74,9 @@ export function Home() {
       ) : null}
 
       <section className="split">
-        <div>
+        <div className="panel">
           <h2>最近的错题</h2>
-          {recent.length === 0 ? <p className="muted">作业本上还没有错题。练习时点「不会」，也会出现在这里。</p> : (
+          {recent.length === 0 ? <EmptyNote>作业本上还没有错题。练习时点「不会」，也会出现在这里。</EmptyNote> : (
             <ul className="plain-list">
               {recent.map((question) => (
                 <li key={question.id}>
@@ -96,14 +101,15 @@ export function Home() {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="panel">
           <h2>知识点掌握</h2>
+          <p className="muted">色条表示还要复习的比例，旁边写着道数。</p>
           <ul className="kp-bars">
             {stats.map((item) => (
               <li key={item.id}>
                 <div className="kp-bar-label">
                   <Link to={`/knowledge/${item.id}`}>{item.title}</Link>
-                  <span>{item.unmastered > 0 ? `${item.unmastered} 道待复习` : "暂无错题"} / {item.total}</span>
+                  <span>{item.unmastered > 0 ? `${item.unmastered} 道待复习` : "暂无错题"} · 共 {item.total} 道</span>
                 </div>
                 <div className="bar" aria-hidden="true">
                   <span style={{ width: item.total ? `${Math.max(item.unmastered > 0 ? 8 : 0, (item.unmastered / item.total) * 100)}%` : "0%" }} />
@@ -143,6 +149,9 @@ export function Home() {
           );
         })}
       </div>
+      <p className="credit">
+        <a href={`${import.meta.env.BASE_URL}third-party/ui-ux-pro-max-skill-LICENSE.txt`}>界面配色与交互参考 ui-ux-pro-max-skill（MIT）</a>
+      </p>
     </div>
   );
 }

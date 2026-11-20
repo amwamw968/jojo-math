@@ -71,3 +71,10 @@ export const BulbIcon = () => (
     <path d="M8.5 14a5 5 0 1 1 7 0c-.8.8-1.5 1.4-1.5 2.5h-4c0-1.1-.7-1.7-1.5-2.5Z" />
   </Svg>
 );
+
+export const ClockIcon = () => (
+  <Svg>
+    <circle cx="12" cy="12" r="8" />
+    <path d="M12 8v4.5L15 15" />
+  </Svg>
+);

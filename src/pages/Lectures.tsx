@@ -9,7 +9,7 @@ export function Lectures() {
     <div className="page" data-page="lectures">
       <header className="page-head">
         <h1>讲次</h1>
-        <p>三门课分开排。只有已经核对过的讲次才写标题，其余标成待补。</p>
+        <p className="lede">三门课分开排。只有已经核对过的讲次才写标题，其余标成待补。</p>
       </header>
       {tracks.map((track) => (
         <section key={track.id}>

@@ -3,7 +3,7 @@ import { MathText } from "../components/MathText";
 import { NoteEditor } from "../components/NoteEditor";
 import { Reveal } from "../components/Reveal";
 import { SameProblems } from "../components/SameProblems";
-import { Pips, StatusPill, TypePill, useTitle } from "../components/Ui";
+import { EmptyNote, Pips, StatusPill, TypePill, useTitle } from "../components/Ui";
 import { bookById, bookShort, knowledgeById, questionById, questions } from "../data/catalog";
 import { isWorkbookMistake, mistakeReasons, workbookNote } from "../lib/mistakes";
 import { lectureOfQuestion } from "../lib/lectures";
@@ -16,7 +16,15 @@ export function QuestionDetail() {
   useTitle(question ? bookShort(question.book) : "题目");
   const { data, schedule, storage, setPractice, addManual, removeFromMistakes, setMastered } = useUser();
   if (!question) {
-    return <div className="page"><h1>题库里没有这道题</h1><Link to="/questions">回题库</Link></div>;
+    return (
+      <div className="page narrow" data-page="question">
+        <header className="page-head">
+          <h1>题库里没有这道题</h1>
+          <p className="lede">它可能还没录入。</p>
+        </header>
+        <Link className="btn" to="/questions">回题库</Link>
+      </div>
+    );
   }
   const book = bookById.get(question.book);
   const siblings = questions.filter((item) => item.book === question.book && item.chapter === question.chapter);
@@ -30,13 +38,13 @@ export function QuestionDetail() {
 
   return (
     <div className="page narrow" data-page="question">
-      <p className="crumbs">
+      <nav className="crumbs" aria-label="面包屑">
         <Link to="/questions">题库</Link>
-        <span>/</span>
+        <span aria-hidden="true">/</span>
         <Link to={`/questions?book=${question.book}`}>{bookShort(question.book)}</Link>
-        <span>/</span>
+        <span aria-hidden="true">/</span>
         <span>{question.chapter} {question.chapter_title}</span>
-      </p>
+      </nav>
       <article className="article">
         <div className="q-card-top">
           <TypePill type={question.type} />
@@ -55,6 +63,7 @@ export function QuestionDetail() {
         {question.figure ? (
           <figure className="figure">
             <img src={figureUrl(question.figure)} alt={`${question.id} 的配图`} />
+            <figcaption>题目配图</figcaption>
           </figure>
         ) : null}
         <div className="q-card-tags">
@@ -73,7 +82,7 @@ export function QuestionDetail() {
             {question.jojo.answer ? <p>当时写下：<MathText className="inline">{question.jojo.answer}</MathText></p> : null}
             {workbookNote(question) ? <p>批注：<MathText className="inline">{workbookNote(question)}</MathText></p> : null}
           </section>
-        ) : <p className="muted">作业本上没有这道题的作答记录。</p>}
+        ) : <EmptyNote>作业本上没有这道题的作答记录。</EmptyNote>}
         <Reveal closedLabel="点一点，看答案" openLabel="收起答案" text={question.answer} empty="还没有答案" />
         <Reveal closedLabel="点一点，看解析" openLabel="收起解析" text={question.solution} empty="还没有解析" />
         <div className="choice-row">
@@ -100,7 +109,7 @@ export function QuestionDetail() {
           </div>
         )}
       </article>
-      <nav className="pager">
+      <nav className="pager" aria-label="前后题目">
         {prev ? <Link to={`/questions/${prev.id}`}>上一题</Link> : <span />}
         {next ? <Link to={`/questions/${next.id}`}>下一题</Link> : <span />}
       </nav>

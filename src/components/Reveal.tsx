@@ -19,7 +19,7 @@ export function Reveal({
         {open ? openLabel : closedLabel}
       </button>
       {open ? (
-        <div className="reveal-body">
+        <div className="reveal-body explain">
           {text.trim() ? <MathText>{text}</MathText> : <p className="muted">{empty}</p>}
         </div>
       ) : null}
