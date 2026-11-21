@@ -11,6 +11,7 @@ import { NotFound } from "./pages/NotFound";
 import { Practice } from "./pages/Practice";
 import { QuestionDetail } from "./pages/QuestionDetail";
 import { Questions } from "./pages/Questions";
+import { ReadingCheck } from "./pages/ReadingCheck";
 import { Review } from "./pages/Review";
 
 export function App() {
@@ -22,6 +23,7 @@ export function App() {
         <Route path="lectures/:id" element={<LectureDetail />} />
         <Route path="questions" element={<Questions />} />
         <Route path="questions/:id" element={<QuestionDetail />} />
+        <Route path="reading-check" element={<ReadingCheck />} />
         <Route path="practice" element={<Practice />} />
         <Route path="review" element={<Review />} />
         <Route path="mistakes" element={<Mistakes />} />

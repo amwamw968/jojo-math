@@ -4,6 +4,7 @@ import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { remarkGroupEquations } from "../src/lib/group-equations";
+import { normalizeMathDelimiters } from "../src/lib/katex-check";
 
 interface Node {
   type: string;
@@ -15,7 +16,7 @@ interface Node {
 
 function tree(source: string): Node {
   const processor = unified().use(remarkParse).use(remarkMath).use(remarkGroupEquations);
-  const parsed = processor.parse(source) as Node;
+  const parsed = processor.parse(normalizeMathDelimiters(source)) as Node;
   return processor.runSync(parsed) as Node;
 }
 
@@ -89,5 +90,23 @@ describe("题干算式分行", () => {
     assert.equal(links.length, 1);
     assert.equal(links[0].url, "/knowledge/arith-mountain-sum");
     assert.equal(lines.some((line) => line.children?.includes(links[0])), false);
+  });
+
+  it("两个以上的小问各自成行，公式原文不改，收尾的说明留在小问外面", () => {
+    const source = "计算：(1) $A_{5}^{1}=$______；(2) $A_{5}^{2}=$______；(3) $\\frac{1}{2}+\\sqrt{9}=$______。最后两问得数要写单位。";
+    const root = tree(source);
+    const parts: Node[] = [];
+    walk(root, (node) => {
+      if (node.type === "partLine") parts.push(node);
+    });
+    assert.equal(parts.length, 3);
+    assert.deepEqual(mathValues(root), ["A_{5}^{1}=", "A_{5}^{2}=", "\\frac{1}{2}+\\sqrt{9}="]);
+    const text = JSON.stringify(root);
+    assert.match(text, /计算：/);
+    assert.match(text, /最后两问得数要写单位/);
+    const outside = root.children?.[0]?.children?.filter((child) => child.type === "text").map((child) => child.value).join("") ?? "";
+    assert.match(outside, /计算：/);
+    assert.match(outside, /最后两问得数要写单位/);
+    assert.doesNotMatch(outside, /A_\{5\}/);
   });
 });

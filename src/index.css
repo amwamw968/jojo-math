@@ -1,19 +1,32 @@
 /*
   小学奥数智能学习平台 visual system.
 
-  Color roles follow the Kids Learning palette from ui-ux-pro-max-skill
-  (MIT, Next Level Builder): primary #2563EB, amber accent, blue paper,
-  slate ink. Primary actions use #1D4ED8 so white label text stays above
-  4.5:1. Success green is separate from the brand blue so「会了」is not
-  the same color as navigation.
+  Source reviewed, not installed:
+  https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+  version 2.15.0, commit 2de1134dc4d1cfe112934611ae5803ae17a1bd7e
+  MIT, Copyright (c) 2024 Next Level Builder.
+  License text: /third-party/ui-ux-pro-max-skill-LICENSE.txt
 
-  Typography search also suggested Baloo 2, Comic Neue, and a Google Fonts
-  Noto Sans SC stylesheet. Those are not loaded: Comic Neue does not cover
-  Chinese, and a remote font stylesheet would block first paint offline or
-  on a slow network in China. System CJK faces paint immediately and sit
-  next to KaTeX for math.
+  Adopted for a grade-4 workbook (closer to the LMS / study-tool rows than
+  the preschool "Kids Learning" clay style):
+  - Paper #EFF6FF, ink #0F172A. Links and filled actions use #1D4ED8
+    so white text stays above 4.5:1. The sheet's #2563EB and amber
+    #F59E0B both fail that on white, so they are not used for text.
+    The accent is #9A3412.
+  - Flat paper, one card shadow, no spring/bounce. Success green is not
+    the navigation blue.
+  - Body 18px, line-height about 1.8, reading column near 42rem.
+  - 44px targets, visible focus, skip link, bottom nav of 5, wrap chips.
+  - Long formulas stay inside the column. Display math is drawn in
+    display style but may break at + or ×. A piece that is still wider
+    scrolls inside the line, not the page. A fill-in blank stays one
+    unbreakable run, including the punctuation that closes it.
+  - Numbered sub-questions each sit on their own row.
 
-  License: /third-party/ui-ux-pro-max-skill-LICENSE.txt
+  Not adopted: Claymorphism, pink #EC4899, reward gold, social-proof
+  landing layout, Baloo 2, Comic Neue, and any remote font stylesheet.
+  Those faces do not cover Chinese, and a Google Fonts request would
+  block first paint offline. System CJK faces paint next to KaTeX.
 */
 
 :root {
@@ -67,12 +80,9 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--ink);
-  background:
-    radial-gradient(900px 420px at 0% -10%, rgba(37, 99, 235, 0.14), transparent 60%),
-    radial-gradient(700px 360px at 100% 0%, rgba(217, 119, 6, 0.12), transparent 55%),
-    var(--paper);
-  line-height: 1.7;
-  overflow-x: clip;
+  background: var(--paper);
+  line-height: 1.75;
+  overflow-x: auto;
 }
 img, svg.fox { max-width: 100%; }
 ::selection { background: #bfdbfe; color: var(--ink); }
@@ -113,8 +123,16 @@ a.tab:hover,
 h1, h2, h3 { line-height: 1.3; font-weight: 750; }
 h1 { font-size: clamp(1.55rem, 3vw, 2rem); margin: 0.15rem 0; letter-spacing: -0.02em; }
 h2 { font-size: 1.15rem; margin: 1.35rem 0 0.55rem; }
+h2.sheet-label, h3.sheet-label, p.sheet-label {
+  margin: 0 0 8px;
+  font-size: 0.86rem;
+  line-height: 1.3;
+  font-weight: 750;
+  color: var(--primary-strong);
+}
 h3 { font-size: 1.05rem; }
 button, input, select, textarea { font: inherit; color: inherit; }
+button, .btn, .chip, .choice, .tab, .nav-link, .reveal-toggle { touch-action: manipulation; }
 button { cursor: pointer; }
 button:disabled { opacity: 0.55; cursor: not-allowed; }
 :focus-visible {
@@ -193,7 +211,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 }
 .sidebar-foot { margin-top: auto; line-height: 1.55; }
 .sidebar-foot a { color: #fde68a; }
-.main { flex: 1 1 auto; min-width: 0; overflow-x: clip; }
+.main { flex: 1 1 auto; min-width: 0; }
 .topbar {
   display: flex;
   align-items: center;
@@ -270,7 +288,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   padding: 18px 0 calc(var(--nav) + 28px);
   min-width: 0;
 }
-.page.narrow { width: min(760px, calc(100% - 28px)); }
+.page.narrow { width: min(42rem, calc(100% - 28px)); }
 .page-head { margin: 0 0 16px; }
 .page-head p, .lede { margin: 0.35rem 0 0; color: var(--soft); max-width: 42em; }
 .hero {
@@ -407,6 +425,9 @@ a.tag.quiet:focus-visible {
 .pip-label { color: var(--soft); font-size: 0.82rem; font-weight: 700; }
 .filters, .filter-grid { display: grid; gap: 12px; }
 .filters { padding: 14px; margin-bottom: 8px; }
+.filter-more { width: 100%; }
+.filter-extra { display: none; }
+.filter-extra.open { display: block; }
 .filter-grid { grid-template-columns: minmax(0, 1fr); }
 .filter-grid label, .field, .note-editor, .search-label {
   display: grid;
@@ -542,14 +563,21 @@ textarea { min-height: 96px; line-height: 1.6; resize: vertical; }
 .progress-label { margin: 0 0 6px; font-weight: 700; }
 .math-text {
   max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  min-width: 0;
   font-size: 1.12rem;
-  line-height: 2;
+  line-height: 1.85;
 }
 .math-text :first-child { margin-top: 0; }
 .math-text :last-child { margin-bottom: 0; }
-.math-text p { margin: 0.45em 0; line-height: 1.85; }
+.math-text p, .math-text li {
+  max-width: 100%;
+  min-width: 0;
+  margin: 0.45em 0;
+  line-height: 1.9;
+  overflow-x: auto;
+  padding-top: 0.15em;
+  padding-bottom: 0.4em;
+}
 .math-text h1, .math-text h2, .math-text h3 {
   line-height: 1.35;
   margin: 1em 0 0.4em;
@@ -563,25 +591,58 @@ textarea { min-height: 96px; line-height: 1.6; resize: vertical; }
 }
 .math-text ul, .math-text ol { padding-left: 1.3rem; }
 .math-text li { margin: 0.35em 0; }
-.math-text .katex { font-size: 1.08em; line-height: 1.25; }
+.math-text .katex { font-size: 1.08em; line-height: 1.2; }
 .math-text .katex-display,
 .katex-display {
   display: block;
   max-width: 100%;
   margin: 0.7em 0;
   overflow-x: auto;
-  overflow-y: hidden;
+  padding: 0.35em 0 0.7em;
+  text-align: start;
+}
+.math-text.inline, .math-text.inline p { display: inline; overflow: visible; padding: 0; }
+.math-text.card-math { font-size: 1.05rem; line-height: 1.75; }
+.math-text.stem-flow { line-height: 1.85; }
+.part-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.2em 0;
+}
+.part-no {
+  flex: none;
+  min-width: 2.1em;
+  font-weight: 750;
+  color: var(--primary-strong);
+  line-height: 1.9;
+}
+.part-body, .eq-line {
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.9;
+}
+.part-body { flex: 1 1 auto; overflow-x: auto; padding-bottom: 0.15em; }
+.eq-line {
+  display: block;
+  margin: 0.12em 0;
+  overflow-x: auto;
   padding-bottom: 0.2em;
 }
-.math-text.inline, .math-text.inline p { display: inline; }
-.math-text.card-math { font-size: 1.05rem; line-height: 1.7; }
-.math-text.stem-flow { overflow: visible; line-height: 1.75; }
-.math-text.stem-flow .eq-line {
-  display: block;
-  max-width: 100%;
-  margin: 0.28em 0;
-  line-height: 1.75;
+.fill-blank { display: inline-block; white-space: nowrap; vertical-align: baseline; }
+.math-text img { max-width: 100%; height: auto; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 0.6em 0 0.8em; }
+.math-text table { border-collapse: collapse; width: max-content; max-width: none; }
+.math-text th, .math-text td {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  text-align: center;
+  vertical-align: middle;
+  background: white;
 }
+.math-text th { background: #eff6ff; font-weight: 750; }
 .article > .math-text, .stem-block .math-text { font-size: 1.16rem; line-height: 1.9; }
 .math-fallback { white-space: pre-wrap; overflow-x: auto; max-width: 100%; }
 .q-card, .article, .mistake-card, .variant-card, .plain-list, .panel { min-width: 0; }
@@ -699,6 +760,8 @@ input[type="checkbox"], input[type="radio"] { width: 1.15rem; height: 1.15rem; a
   .search { width: 100%; }
   .filter-row { align-items: end; }
   .search-label { margin-left: auto; min-width: min(100%, 280px); }
+  .filter-extra { display: block; }
+  .filter-more { display: none; }
 }
 @media (max-width: 420px) {
   .brand.compact strong { font-size: 0.78rem; max-width: 6.6em; }
@@ -714,20 +777,13 @@ input[type="checkbox"], input[type="radio"] { width: 1.15rem; height: 1.15rem; a
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
-  .btn, .chip, .choice, .reveal-toggle, .nav-link, .tab, .q-card, .book-card, .stat, .callout, .top-actions a {
-    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  }
-  .btn:active, .chip:active, .choice:active, .reveal-toggle:active, .top-actions a:active {
-    transform: translateY(1px);
+  .btn, .chip, .choice, .reveal-toggle, .nav-link, .tab, .top-actions a {
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
   }
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .q-card:hover, .book-card:hover, .stat:hover {
-    transform: translateY(-2px);
-    border-color: #c5d8f6;
-    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
-  }
-  .q-card:hover { box-shadow: inset 4px 0 0 var(--primary), 0 14px 30px rgba(37, 99, 235, 0.12); }
+  .q-card:hover, .book-card:hover, .stat:hover { border-color: #c5d8f6; }
+  .q-card:hover { box-shadow: inset 4px 0 0 var(--primary), var(--shadow); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -744,6 +800,7 @@ input[type="checkbox"], input[type="radio"] { width: 1.15rem; height: 1.15rem; a
   .print-page { padding: 0; }
   .print-sheet { box-shadow: none; width: auto; padding: 0; font-size: 16pt; border-radius: 0; }
   .math-text, .article > .math-text, .stem-block .math-text { font-size: 16pt; }
+  .math-text p, .math-text li, .part-body, .eq-line, .katex-display, .table-scroll { overflow: visible; }
   .math-text h2, .math-text h3 { background: transparent; padding: 0; }
   .answer-key { break-before: page; }
   a { color: black; text-decoration: none; }

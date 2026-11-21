@@ -39,7 +39,7 @@ Read-only. It checks that port 4175 answers, the HTML title is `小学奥数智�
 
 Playwright drives system Chrome (`/usr/local/bin/google-chrome` or `/usr/bin/google-chrome`). It uses stable selectors only:
 
-- `[data-app="jojo-math"]` and `[data-page="question|knowledge|lecture|print"]`
+- `[data-app="jojo-math"]` and `[data-page="question|knowledge|lecture|print|reading|questions"]`
 - `[data-math]` for rendered formulas
 - `getByRole('button', { name: '点一点，看答案' })` to reveal an answer
 - `getByRole('link', { name: '题库' })` from the home page
@@ -51,7 +51,10 @@ The route it walks:
 3. Resize that question to 390, 820, 1024, and 1440 CSS pixels and record each.
 4. `/knowledge/arith-mountain-sum`
 5. `/lectures/gs-autumn-4-l01`, reveal the first variant answer.
-6. `/mistakes/print` with the “末页附上答案” checkbox checked.
+6. `/questions` at 390 and 1440. The 390 view has a 更多筛选 button and must not be wider than the viewport.
+7. `/questions/gs4a-02-003` at 390. The stem has five `.part-line` rows. Reveal 解析.
+8. `/reading-check` at 390 and 1440. Reveal the answer and the solution. This page is synthetic.
+9. `/mistakes/print` with the “末页附上答案” checkbox checked.
 
 At each stop it fails if `.katex-error` is not 0, if `.katex` is 0, if the visible text still contains `$...$`, `$$`, `\frac`, `\cdots`, `\times`, `\(`, or `\[`, or if the document is wider than the viewport.
 
@@ -63,6 +66,8 @@ Screenshots and `report.json` are written to `.cursor/skills/verify-jojo-math/ev
 - `knowledge-1440.png`
 - `lecture-1440.png`
 - `print-1440.png`
+- `questions-390.png`, `questions-1440.png`
+- `question-parts-390.png`, `reading-390.png`, `reading-1440.png`
 - `report.json` lists each assertion.
 
 ## Cleanup

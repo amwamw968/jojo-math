@@ -10,6 +10,8 @@
 
 Open the site, tap 题库 in the sidebar or the bottom bar. The page heading is 题库 and the count line starts with 共.
 
+On a narrow screen, 章节、活动、知识点、难度 and 作业本 sit behind the button 更多筛选. Book, search, and 题型 stay visible. At 800px and wider the extra filters are shown and that button is hidden.
+
 ## Driving it with Playwright
 
 ```js

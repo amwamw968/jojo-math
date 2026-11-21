@@ -2,7 +2,9 @@
 
 ## Sub-features
 
-- Stem, figure, answer, and solution render through `MathText` (`src/pages/QuestionDetail.tsx`).
+- Stem, figure, answer, and solution render through `MathText` (`src/pages/QuestionDetail.tsx`). The stem comes first, then the figure, then 答案 and 解析. The workbook record sits after those.
+- Two or more `(1)` / `（1）` markers in one paragraph become `.part-line` rows. Formula source is not rewritten.
+- `/reading-check` is a synthetic page (no question-bank text and no workbook notes) for fractions, roots, scripts, a long formula, a table, and a figure.
 - Delimiters `$...$`, `$$...$$`, `\(...\)`, and `\[...\]` are normalized in `src/lib/katex-check.ts` before remark-math.
 - 会了 / 不会 and 加入错题集 write to localStorage. 同题 links come from tags.
 
