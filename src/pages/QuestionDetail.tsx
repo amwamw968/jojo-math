@@ -59,13 +59,27 @@ export function QuestionDetail() {
             {question.tags.filter((tag) => tag !== question.type).map((tag) => <span key={tag} className={tag.startsWith("同题:") ? "tag same" : "tag"}>{tag.startsWith("同题:") ? "同题" : tag}</span>)}
           </div>
         ) : null}
-        <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
+        <section className="stem-block" aria-label="题干">
+          <h2 className="sheet-label">题干</h2>
+          <MathText flow="stem">{question.stem}</MathText>
+        </section>
         {question.figure ? (
           <figure className="figure">
             <img src={figureUrl(question.figure)} alt={`${question.id} 的配图`} />
             <figcaption>题目配图</figcaption>
           </figure>
         ) : null}
+        <Reveal kicker="答案" closedLabel="点一点，看答案" openLabel="收起答案" text={question.answer} empty="还没有答案" />
+        <Reveal kicker="解析" closedLabel="点一点，看解析" openLabel="收起解析" text={question.solution} empty="还没有解析" />
+        <div className="choice-row">
+          <button type="button" className={mark === "会了" ? "choice good on" : "choice good"} aria-pressed={mark === "会了"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "会了")}>会了</button>
+          <button type="button" className={mark === "不会" ? "choice bad on" : "choice bad"} aria-pressed={mark === "不会"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "不会")}>不会</button>
+        </div>
+        <div className="row-actions">
+          <Link className="btn secondary" to={`/practice?ids=${question.id}`}>再练这题</Link>
+          <Link className="btn secondary" to={`/review?id=${question.id}`}>间隔复习评分</Link>
+        </div>
+        {scheduled ? <p className="muted">间隔复习下次到期 {formatWhen(scheduled.due)}。这不改变作业本状态。</p> : null}
         <div className="q-card-tags">
           {question.knowledge_points.map((kp) => (
             <Link key={kp} className="tag quiet" to={`/knowledge/${kp}`}>{knowledgeById.get(kp)?.title ?? kp}</Link>
@@ -83,17 +97,6 @@ export function QuestionDetail() {
             {workbookNote(question) ? <p>批注：<MathText className="inline">{workbookNote(question)}</MathText></p> : null}
           </section>
         ) : <EmptyNote>作业本上没有这道题的作答记录。</EmptyNote>}
-        <Reveal closedLabel="点一点，看答案" openLabel="收起答案" text={question.answer} empty="还没有答案" />
-        <Reveal closedLabel="点一点，看解析" openLabel="收起解析" text={question.solution} empty="还没有解析" />
-        <div className="choice-row">
-          <button type="button" className={mark === "会了" ? "choice good on" : "choice good"} aria-pressed={mark === "会了"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "会了")}>会了</button>
-          <button type="button" className={mark === "不会" ? "choice bad on" : "choice bad"} aria-pressed={mark === "不会"} disabled={storage.practiceBlocked} onClick={() => setPractice(question.id, "不会")}>不会</button>
-        </div>
-        <div className="row-actions">
-          <Link className="btn secondary" to={`/practice?ids=${question.id}`}>再练这题</Link>
-          <Link className="btn secondary" to={`/review?id=${question.id}`}>间隔复习评分</Link>
-        </div>
-        {scheduled ? <p className="muted">间隔复习下次到期 {formatWhen(scheduled.due)}。这不改变作业本状态。</p> : null}
         {reasons.length === 0 ? (
           <button type="button" className="btn secondary" onClick={() => addManual(question.id)}>加入错题集</button>
         ) : (

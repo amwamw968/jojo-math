@@ -2,12 +2,43 @@ import katex from "katex";
 
 /** Turn \( \) and \[ \] into the dollar delimiters remark-math understands.
  * remark-math only treats $$ as a display block when the dollars sit on their own lines.
- * One-line $$...$$ is the form used in this repo, so expand it before rendering. */
+ * One-line $$...$$ is the form used in this repo, so expand it before rendering.
+ * Runs of underscores outside math are fill-in blanks. Markdown would treat them as
+ * emphasis and swallow the next sub-question, so they become fullwidth blanks. */
 export function normalizeMathDelimiters(source: string): string {
-  return source
+  const normalized = source
     .replace(/\\\[([\s\S]+?)\\\]/g, (_, body: string) => `\n$$\n${body.trim()}\n$$\n`)
     .replace(/\\\(([\s\S]+?)\\\)/g, (_, body: string) => `$${body}$`)
     .replace(/\$\$([^\n]+?)\$\$/g, (_, body: string) => `\n$$\n${body.trim()}\n$$\n`);
+  return protectFillInBlanks(normalized);
+}
+
+export function protectFillInBlanks(source: string): string {
+  let out = "";
+  let index = 0;
+  while (index < source.length) {
+    if (source.startsWith("$$", index) || source[index] === "$") {
+      const marker = source.startsWith("$$", index) ? "$$" : "$";
+      const end = source.indexOf(marker, index + marker.length);
+      if (end === -1) {
+        out += source.slice(index);
+        break;
+      }
+      out += source.slice(index, end + marker.length);
+      index = end + marker.length;
+      continue;
+    }
+    if (source[index] === "_") {
+      let end = index;
+      while (end < source.length && source[end] === "_") end += 1;
+      out += end - index >= 2 ? "＿".repeat(end - index) : "_";
+      index = end;
+      continue;
+    }
+    out += source[index];
+    index += 1;
+  }
+  return out;
 }
 
 export interface MathPiece {

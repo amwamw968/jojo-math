@@ -1,9 +1,11 @@
 import { Component, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { Link } from "react-router-dom";
-import { remarkGroupEquations } from "../lib/group-equations";
+import { remarkGroupEquations, remarkWrapBlanks, remarkWrapDisplay } from "../lib/group-equations";
+import { rehypeKeepPunctuation } from "../lib/keep-punctuation";
 import { normalizeMathDelimiters } from "../lib/katex-check";
 
 interface BoundaryProps {
@@ -40,13 +42,16 @@ export function MathText({
   flow?: "prose" | "stem";
 }) {
   const source = normalizeMathDelimiters(children);
-  const remarkPlugins = flow === "stem" ? [remarkMath, remarkGroupEquations] : [remarkMath];
+  const remarkPlugins =
+    flow === "stem"
+      ? [remarkGfm, remarkMath, remarkGroupEquations, remarkWrapDisplay]
+      : [remarkGfm, remarkMath, remarkWrapBlanks, remarkWrapDisplay];
   return (
     <MathBoundary key={`${flow}:${source}`} source={source}>
       <div className={`math-text ${flow === "stem" ? "stem-flow" : ""} ${className}`.trim()} data-math="">
         <ReactMarkdown
           remarkPlugins={remarkPlugins}
-          rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore", output: "html" }]]}
+          rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore", output: "html" }], rehypeKeepPunctuation]}
           components={{
             a: ({ href, children: linkChildren }) => {
               if (href?.startsWith("/")) return <Link to={href}>{linkChildren}</Link>;
@@ -56,6 +61,12 @@ export function MathText({
                 </a>
               );
             },
+            table: ({ children: tableChildren }) => (
+              <div className="table-scroll">
+                <table>{tableChildren}</table>
+              </div>
+            ),
+            img: ({ src, alt }) => <img src={src} alt={alt ?? ""} />,
           }}
         >
           {source}

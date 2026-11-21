@@ -66,8 +66,8 @@ export function MistakesPrint() {
             {list.map((question, index) => (
               <div key={`${question.id}-answer-${index}`}>
                 <h3>第 {index + 1} 题</h3>
-                <MathText>{question.answer}</MathText>
-                {question.solution ? <MathText>{question.solution}</MathText> : null}
+                <MathText flow="stem">{question.answer}</MathText>
+                {question.solution ? <MathText flow="stem">{question.solution}</MathText> : null}
                 {question.jojo?.note ? <p>作业本批注：<MathText className="inline">{question.jojo.note}</MathText></p> : null}
               </div>
             ))}

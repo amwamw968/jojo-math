@@ -39,6 +39,20 @@ async function shot(name) {
   await page.screenshot({ path: resolve(evidence, name), fullPage: false });
 }
 
+async function assertContained(label) {
+  const result = await page.evaluate(() => ({
+    errors: document.querySelectorAll(".katex-error").length,
+    raw: /\\frac|\\dfrac|\\cdots|\\sqrt|\\times|\\\[|\\\(|\$\$|\$[^$\n]+\$/.test(document.body.innerText),
+    overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
+    scrollW: document.documentElement.scrollWidth,
+    clientW: document.documentElement.clientWidth,
+  }));
+  report.push({ label, ...result, url: page.url() });
+  if (result.errors !== 0 || result.raw || result.overflow) {
+    throw new Error(`${label} failed ${JSON.stringify(result)}`);
+  }
+}
+
 await page.setViewportSize({ width: 1440, height: 900 });
 await page.goto(origin + "/", { waitUntil: "networkidle" });
 await page.locator('[data-app="jojo-math"]').waitFor();
@@ -69,6 +83,40 @@ await page.getByRole("heading", { name: "举一反三" }).scrollIntoViewIfNeeded
 await page.getByRole("button", { name: "点一点，看答案" }).first().click();
 await assertMath("lecture");
 await shot("lecture-1440.png");
+
+await page.setViewportSize({ width: 390, height: 844 });
+await page.goto(origin + "/questions", { waitUntil: "networkidle" });
+await page.locator('[data-page="questions"]').waitFor();
+await page.getByRole("button", { name: "更多筛选" }).waitFor();
+await assertContained("questions-390");
+await shot("questions-390.png");
+await page.setViewportSize({ width: 1440, height: 900 });
+await assertContained("questions-1440");
+await shot("questions-1440.png");
+
+await page.setViewportSize({ width: 390, height: 844 });
+await page.goto(origin + "/questions/gs4a-02-003", { waitUntil: "networkidle" });
+await page.locator(".stem-block .part-line").nth(4).waitFor();
+const partCount = await page.locator(".stem-block .part-line").count();
+if (partCount < 5) throw new Error(`expected 5 sub-questions, saw ${partCount}`);
+await page.getByRole("button", { name: "点一点，看解析" }).click();
+await page.locator(".reveal-body .part-line").first().waitFor();
+await assertContained("parts-390");
+await page.locator(".stem-block").screenshot({ path: resolve(evidence, "question-parts-390.png") });
+
+await page.setViewportSize({ width: 390, height: 844 });
+await page.goto(origin + "/reading-check", { waitUntil: "networkidle" });
+await page.locator('[data-page="reading"]').waitFor();
+await page.getByRole("button", { name: "点一点，看答案" }).click();
+await page.getByRole("button", { name: "点一点，看解析" }).click();
+await page.locator(".mfrac").first().waitFor();
+await page.locator(".sqrt").first().waitFor();
+await page.locator(".table-scroll").waitFor();
+await assertContained("reading-390");
+await shot("reading-390.png");
+await page.setViewportSize({ width: 1440, height: 1000 });
+await assertContained("reading-1440");
+await shot("reading-1440.png");
 
 await page.goto(origin + "/mistakes/print", { waitUntil: "networkidle" });
 await page.locator('[data-page="print"]').waitFor();

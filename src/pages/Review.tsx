@@ -76,18 +76,28 @@ export function Review() {
       {question ? (
         <article className="article">
           <p className="page-no">{bookShort(question.book)} · {question.lesson} · {question.id}</p>
-          {question.jojo ? <p><StatusPill status={question.jojo.status} /></p> : <p className="muted">作业本上没有这道题的作答记录。</p>}
-          <div className="stem-block"><MathText flow="stem">{question.stem}</MathText></div>
+          <section className="stem-block" aria-label="题干">
+            <h2 className="sheet-label">题干</h2>
+            <MathText flow="stem">{question.stem}</MathText>
+          </section>
           {question.figure ? <figure className="figure"><img src={figureUrl(question.figure)} alt="题目配图" /><figcaption>题目配图</figcaption></figure> : null}
+          <h2 className="sheet-label">答案和解析</h2>
           <button type="button" className="reveal-toggle" aria-expanded={showAnswer} onClick={() => setShowAnswer((value) => !value)}>
             {showAnswer ? "收起答案" : "点一点，看答案"}
           </button>
           {showAnswer ? (
             <div className="reveal-body">
-              <MathText>{question.answer}</MathText>
-              {question.solution ? <MathText>{question.solution}</MathText> : null}
+              <h3 className="sheet-label">答案</h3>
+              <MathText flow="stem">{question.answer}</MathText>
+              {question.solution ? (
+                <>
+                  <h3 className="sheet-label">解析</h3>
+                  <MathText flow="stem">{question.solution}</MathText>
+                </>
+              ) : null}
             </div>
           ) : null}
+          {question.jojo ? <p><StatusPill status={question.jojo.status} /></p> : <p className="muted">作业本上没有这道题的作答记录。</p>}
           <p className="muted">先看答案，再评分。评分不会改上面的作业本状态。</p>
           <div className="choice-row" role="group" aria-label="复习评分">
             {RATINGS.map((rating) => (

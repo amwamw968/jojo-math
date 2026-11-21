@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QuestionCard } from "../components/QuestionCard";
 import { EmptyNote, useTitle } from "../components/Ui";
@@ -58,6 +58,11 @@ export function Questions() {
   const groups = groupByLesson(list);
   const active = Object.values(filters).some(Boolean);
   const [text, setText] = useState(filters.q);
+  const extraActive = Boolean(filters.chapter || filters.lesson || filters.kp || filters.difficulty || filters.jojo);
+  const [extraOpen, setExtraOpen] = useState(extraActive);
+  useEffect(() => {
+    if (extraActive) setExtraOpen(true);
+  }, [extraActive]);
 
   return (
     <div className="page" data-page="questions">
@@ -95,6 +100,16 @@ export function Questions() {
             <button key={type} type="button" className={filters.type === type ? "chip on" : "chip"} aria-pressed={filters.type === type} onClick={() => update({ type })}>{type}</button>
           ))}
         </div>
+        <button
+          type="button"
+          className="btn secondary filter-more"
+          aria-expanded={extraOpen}
+          aria-controls="more-filters"
+          onClick={() => setExtraOpen((open) => !open)}
+        >
+          {extraOpen ? "收起筛选" : "更多筛选"}
+        </button>
+        <div id="more-filters" className={extraOpen ? "filter-extra open" : "filter-extra"}>
         <div className="filter-grid">
           <label>章节
             <select value={filters.chapter} onChange={(event) => update({ chapter: event.target.value, lesson: "" })}>
@@ -132,6 +147,7 @@ export function Questions() {
               <option value="none">没有记录</option>
             </select>
           </label>
+        </div>
         </div>
         {active ? <button type="button" className="btn tiny secondary" onClick={() => { setText(""); update(EMPTY_FILTERS); }}>清除筛选</button> : null}
       </div>

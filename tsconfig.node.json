@@ -12,5 +12,6 @@
     "resolveJsonModule": true,
     "types": ["node"]
   },
-  "include": ["scripts", "vite.config.ts", "src/lib/frontmatter.ts", "src/lib/constants.ts"]
+  "include": ["scripts", "vite.config.ts", "src/lib/frontmatter.ts", "src/lib/constants.ts"],
+  "exclude": ["scripts/layout-render.test.tsx"]
 }
